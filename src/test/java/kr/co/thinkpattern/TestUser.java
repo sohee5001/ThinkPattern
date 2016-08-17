@@ -32,11 +32,11 @@ public class TestUser {
 	}*/
 	
 	
-/*	@Test
+	@Test
 	public void testSelectUser() throws Exception
 	{
-		UserVO vo = dao.selectId("root");
-	}*/
+		UserVO vo = dao.selectId("id");
+	}
 	
 	
 /*	@Test

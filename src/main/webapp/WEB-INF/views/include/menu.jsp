@@ -29,7 +29,7 @@
 		<li><a href="#" class="button small"><i class="fa fa-sign-in" aria-hidden="true"></i>
 				sign in</a>
 
-		<a href="join.jsp" class="button small"><i class="fa fa-user" aria-hidden="true"></i> join</a></li>
+		<a href="/user/join" class="button small"><i class="fa fa-user" aria-hidden="true"></i> join</a></li>
 	</ul>
 
 	</sign>
