@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+   <include resource="org/springframework/boot/logging/logback/base.xml">
+   </include>
+
+
+   <!-- 사용할 로거 선언 -->
+   <logger name="jdbc.sqlonly"   level="DEBUG"/> <!-- SQL(Arg포함) -->
+   <logger name="jdbc.sqltiming"   level="INFO"/> <!-- 쿼리 수행 시칸 -->
+   <logger name="jdbc.audit"   level="WARN"/> <!-- jdbc 호출 정보 -->
+   <logger name="jdbc.resultset"   level="ERROR"/> <!-- ResultSet을 포함한 모든 호출 정보 -->
+   <logger name="jdbc.resultsettable"   level="ERROR"/> <!--꾸며줌  -->
+   <logger name="jdbc.connection"   level="INFO"/>   <!-- 접속 정보 -->
+   
+   
+</configuration>

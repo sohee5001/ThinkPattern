@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.thinkpattern.mapper.UserMapper">
+
+	<insert id="insertUser">
+		INSERT INTO USERS(IDX, ID, PASSWORD, NAME, EMAIL) VALUES (SEQ_USERS_IDX.NEXTVAL, #{id}, #{password}, #{name}, #{email})
+	</insert>
+	
+	
+	<select id="selectUser" resultType="kr.co.thinkpattern.vo.UserVO">
+		select * from USERS where id=#{id}
+	</select>
+	
+	<select id="loginUser" resultType="kr.co.thinkpattern.vo.UserVO">
+		select * from USERS where id=#{id} and password=#{password}
+	</select>
+	
+	<select id="checkLogin" resultType="Integer">
+		SELECT COUNT(*) AS COUNTS FROM USERS WHERE ID=#{id}
+	</select>
+	
+	
+	<update id="modifyUser">
+		update USERS set password=#{password}, email=#{email}, name=#{name}
+		where id=#{id}
+	</update>
+	
+	
+	<delete id="deleteUser">
+		delete from USERS where id=#{id}
+	</delete>
+		
+	
+	
+	
+</mapper>
