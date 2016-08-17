@@ -31,12 +31,7 @@ public class TestUser {
 		dao.insertUser(vo);
 	}*/
 	
-	
-<<<<<<< HEAD
-	@Test
-=======
 	/*@Test
->>>>>>> 2eba690ae0d4551cb33f4a51294774d0f1ae1cab
 	public void testSelectUser() throws Exception
 	{
 		UserVO vo = dao.selectId("id");

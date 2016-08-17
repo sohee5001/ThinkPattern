@@ -18,7 +18,7 @@ $(document).ready(function(){
 	$("#enterid").blur(function() {
 		var enterid = $("#enterid").val();
 		$.ajax({
-			url: "http://localhost:8080/user/check",
+			url: "http://localhost:8081/user/check",
 			type:"POST",
 			data:{"id" :enterid},
 			success:function(data)
@@ -36,7 +36,7 @@ $(document).ready(function(){
 				
 			},
 			error:function(request, status, error){
-				alert(error);
+				alert("ddddddddd");
 			}	
 			
 			
@@ -44,7 +44,6 @@ $(document).ready(function(){
 		});
 	}); 
 	
-  	$("#checkpw").focus();
 	$("#checkpw").blur(function() 
 	{
 		var pw = $("#pw").val();
