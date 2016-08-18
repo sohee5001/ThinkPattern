@@ -2,14 +2,11 @@ package kr.co.thinkpattern;
 
 import javax.inject.Inject;
 
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import kr.co.thinkpattern.dao.UserDAO;
 import kr.co.thinkpattern.dao.impl.UserDAOImpl;
-import kr.co.thinkpattern.vo.UserVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/*.xml"})
@@ -32,11 +29,9 @@ public class TestUser {
 	}*/
 	
 	
-<<<<<<< HEAD
-	@Test
-=======
+
 	/*@Test
->>>>>>> 2eba690ae0d4551cb33f4a51294774d0f1ae1cab
+
 	public void testSelectUser() throws Exception
 	{
 		UserVO vo = dao.selectId("id");
