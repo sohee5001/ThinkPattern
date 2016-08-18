@@ -3306,7 +3306,7 @@ body.is-touch #banner {
 /*--------------------��ü���� ����ũ��----------------------------*/
 div.container.body {
 	/* min-height: 790px; */
-	min-height: 525px;
+	min-height: 538px;
 }
 
 /*--------------------�������� ���̺�ũ��----------------------------*/
@@ -3382,7 +3382,7 @@ div.container.body {
 /************join*************************/
 div.join_css {
 	width: 350px;
-	height: 445px;
+	height: 458px;
 	padding: 20px 20px 0px 20px;
 	margin: 70px 0px 10px 470px;
 	border: solid 1px #eee;
@@ -3390,6 +3390,10 @@ div.join_css {
 
 .buttoncss {
 	padding: 12px 55px 0px 55px;
+}
+.join_logo
+{    padding: 30px 55px 10px 0px;
+    font-size: 16px;
 }
 /************login*************************/
 div.login_css {
@@ -3408,7 +3412,7 @@ div.login_css {
 	margin: 0px 0px 10px 0px;
 }
 
-.logo {
+#logo {
 	margin: 0px 0px 20px 0px;
 	font-size: 16px;
 }

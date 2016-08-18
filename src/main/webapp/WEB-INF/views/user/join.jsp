@@ -9,14 +9,6 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
 
-
-
-
-
-
-
-
-
 </head>
 
 
@@ -84,10 +76,7 @@ $(document).ready(function(){
 			}
 
 		});
-
-	});
 </script>
-
 
 
 <body>
@@ -96,12 +85,10 @@ $(document).ready(function(){
 
 		<form role="form" method="post">
 			<div>
-				<div>
-					<h1>
-
+				<div class="join_logo">
 						<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN
 						&nbsp; 회원가입
-					</h1>
+					
 				</div>
 				<div>
 					id <input type="text" id="enterid" name="id"
@@ -114,15 +101,12 @@ $(document).ready(function(){
 						placeholder="비밀번호를 입력해주세요">
 				</div>
 
-
 				<div>
 					confirmPW <input type="password" id="checkpw" name="pw2"
 						placeholder="비밀번호를 다시 입력해주세요">
 				</div>
 
 				<div id="resultpw"></div>
-
-
 
 				<div>
 					name <input type="text" name="name" placeholder="이름을 입력해주세요">
@@ -145,8 +129,6 @@ $(document).ready(function(){
 				
 			</div>
 		</form>
-
-
 
 
 	</div>

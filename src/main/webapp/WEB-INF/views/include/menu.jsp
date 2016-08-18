@@ -76,11 +76,11 @@
 	<sign id="sign">
 	<ul>
 
-		<li><button type="button" class="button small"
+		<li><a  class="button small"
 				data-toggle="modal" data-target="#login">
 				<i class="fa fa-sign-in" aria-hidden="true"></i> sign in
-			</button>
-			</a> <a href="/user/join" class="button small"><i class="fa fa-user"
+			</a>
+			<a href="/user/join" class="button small"><i class="fa fa-user"
 				aria-hidden="true"></i> join</a></li>
 
 	</ul>
