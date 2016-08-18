@@ -65,12 +65,11 @@
 <!-- Header -->
 <header id="header">
 	<h1 id="logo">
-
-		<a href="/"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
+		<a href="../"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
 	</h1>
 	<nav id="nav">
 		<ul>
-			<li><a href="/">MANUAL</a></li>
+			<li><a href="../">MANUAL</a></li>
 			<li><a href="#">DESIGN PATTERN</a>
 				<ul>
 
@@ -86,11 +85,8 @@
 	</nav>
 	<sign id="sign">
 	<ul>
-		
-	
-		
-		
 		<c:if test = "${id eq null }">
+
 		<li><button type="button" class="button small"
 				data-toggle="modal" data-target="#login">
 				<i class="fa fa-sign-in" aria-hidden="true"></i> sign in
@@ -108,8 +104,6 @@
 				
 			</li>
        </c:if>	
-		
-		
 	</ul>
 
 	</sign>

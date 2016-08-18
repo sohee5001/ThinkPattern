@@ -62,6 +62,11 @@ public class UserController {
 		System.out.println("result �� <<<<<<<<<<>>>>>>>>>>>" + check);
 		return service.checkLogin(id);
 	}
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public void loginGET(UserVO user, Model model) throws Exception {
+		logger.info("<<<login get>>>");
+		
+	}
 
 	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
 	public void loginPOST(LoginDTO dto, HttpSession session, Model model) throws Exception

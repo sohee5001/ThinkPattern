@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<<<<<<< HEAD
-=======
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page session="false" %>
->>>>>>> be6d04ede0c0249b7df38aba30c7644dc3286dae
+
 
 <c:url value="/resources/" var="R" />
 <footer id="footer" style="margin: 0 auto; padding: 20px 0 10px 0">
