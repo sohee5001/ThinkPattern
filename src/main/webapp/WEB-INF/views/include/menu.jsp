@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+
+ <!-- Bootstrap 3.3.4 -->
+    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Font Awesome Icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <!-- Ionicons -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Theme style -->
+    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+ <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -37,8 +47,8 @@
 			<div class="modal-body">
 				<form action="/user/loginPost" method="post" name="loginForm">
 					<label>ID</label> <input id="myInput" class="form-control" type="text"
-						name="id" placeholder="아이디 입력해주세요" required /> <br /> <label>Password</label>
-					<input class="form-control" type="password" name="password"
+						name="uid" placeholder="아이디 입력해주세요" required /> <br /> <label>Password</label>
+					<input class="form-control" type="password" name="upw"
 						placeholder="비밀번호 입력해주세요" required /> <br />
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-primary">Submit</button>
@@ -75,14 +85,27 @@
 	</nav>
 	<sign id="sign">
 	<ul>
+		<c:if test = "${id eq null }">
 
 		<li><a  class="button small"
 				data-toggle="modal" data-target="#login">
 				<i class="fa fa-sign-in" aria-hidden="true"></i> sign in
+
 			</a>
+
 			<a href="/user/join" class="button small"><i class="fa fa-user"
 				aria-hidden="true"></i> join</a></li>
-
+		</c:if>
+		
+		<c:if test = "${id ne null}">
+             <li>
+             <a href="/user/modifyConfirm" class="button small"><i class="fa fa-user"
+				aria-hidden="true"></i> modify</a>	
+             <a href="/user/logout" class="button small"><i class="fa fa-sign-out"
+				aria-hidden="true"></i> logout</a>
+				
+			</li>
+       </c:if>	
 	</ul>
 
 	</sign>

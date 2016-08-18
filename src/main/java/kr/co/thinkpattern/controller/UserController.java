@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.thinkpattern.dto.LoginDTO;
 import kr.co.thinkpattern.service.UserService;
 import kr.co.thinkpattern.vo.UserVO;
 
@@ -68,20 +69,59 @@ public class UserController {
 	}
 
 	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
-	public String loginPOST(UserVO vo, HttpSession session, RedirectAttributes rttr, Model model) throws Exception
+	public void loginPOST(LoginDTO dto, HttpSession session, Model model) throws Exception
 	{
-		UserVO vo1 = service.loginUser(vo);
-		if(vo1==null)
+		UserVO vo = service.loginUser(dto);
+
+		if(vo==null)
 		{
-			rttr.addFlashAttribute("result", "loginfail");
-			return "redirect:/";
+			return;
 		}
 		model.addAttribute("userVO", vo);
-		
-		rttr.addFlashAttribute("result", "loginsuccess");
+	}
+	
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(HttpSession session, Model model)
+	{
+		session.invalidate();
 		return "redirect:/";
 		
 	}
+	
+	
+	@RequestMapping(value="/modifyConfirm", method=RequestMethod.GET)
+	public void modifyConfirmGET(UserVO user, Model model, HttpSession session) throws Exception {
+		logger.info("<<<join get>>>");
+		UserVO vo = (UserVO) session.getAttribute("login");
+		model.addAttribute("id", vo.getId());
+	}
+	
+	
+	 //public void read(@RequestParam("idx") Integer idx, Model model, HttpSession session) throws Exception {
+	
+	
+	@RequestMapping(value="/modifyConfirm", method=RequestMethod.POST)
+	public String modifyConfrimPOST(@RequestParam("password") String passowrd, Model model, HttpSession session, RedirectAttributes rttr)
+	{
+		UserVO vo = (UserVO)session.getAttribute("login");
+		if(vo.getPassword().equals(passowrd))
+		{
+			rttr.addFlashAttribute("result", "confirmsuccess");
+			return "redirect:/user/modify";
+		}
+		else
+		{
+			rttr.addFlashAttribute("result", "confirmfail");
+			return "redirect:/user/modifyConfirm";
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 }

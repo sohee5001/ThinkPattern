@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.co.thinkpattern.dao.UserDAO;
+import kr.co.thinkpattern.dto.LoginDTO;
 import kr.co.thinkpattern.vo.UserVO;
 
 
@@ -31,10 +32,11 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public UserVO loginUser(UserVO vo) throws Exception {
+	public UserVO loginUser(LoginDTO dto) throws Exception {
 		// TODO Auto-generated method stub
-
-		return sqlsession.selectOne(namesapce +".loginUser", vo);
+		
+		UserVO vo = sqlsession.selectOne(namesapce +".loginUser", dto);
+		return vo;
 	}
 
 	@Override

@@ -19,12 +19,11 @@ $(document).ready(function(){
 	$("#enterid").blur(function() {
 		var enterid = $("#enterid").val();
 		$.ajax({
-			url: "http://localhost:8081/user/check",
+			url: "http://localhost:8080/user/check",
 			type:"POST",
 			data:{"id" :enterid},
 			success:function(data)
-			{
-				
+			{		
 				if(data == 1)
 				{
 					$("#check").html("중복된아이디입니다.");
@@ -33,20 +32,13 @@ $(document).ready(function(){
 				{
 					$("#check").html("사용가능한아이디입니다..");
 				}
-				
-				
 			},
 			error:function(request, status, error){
 				alert("ddddddddd");
 			}	
-			
-			
-			
+		
 		});
 	}); 
-	
-
-  	//$("#checkpw").focus();
 
 	$("#checkpw").blur(function() 
 	{
@@ -64,9 +56,7 @@ $(document).ready(function(){
 	}); 
 	
 	
-});
-
-		$("#checkpw").blur(function() {
+});		$("#checkpw").blur(function() {
 			var pw = $("#pw").val();
 			var checkpw = $("#checkpw").val();
 			if (pw === checkpw) {

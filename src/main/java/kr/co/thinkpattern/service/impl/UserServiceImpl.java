@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import kr.co.thinkpattern.dao.UserDAO;
+import kr.co.thinkpattern.dto.LoginDTO;
 import kr.co.thinkpattern.service.UserService;
 import kr.co.thinkpattern.vo.UserVO;
 
@@ -27,9 +28,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserVO loginUser(UserVO vo) throws Exception {
+	public UserVO loginUser(LoginDTO dto) throws Exception {
 		// TODO Auto-generated method stub
-		return dao.loginUser(vo);
+		return dao.loginUser(dto);
 	}
 
 	@Override
