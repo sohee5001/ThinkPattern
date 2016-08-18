@@ -6,11 +6,11 @@
 <header id="header">
 	<h1 id="logo">
 	
-		<a href="index.jsp"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
+		<a href="../"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
 	</h1>
 	<nav id="nav">
 		<ul>
-			<li><a href="index.jsp">MANUAL</a></li>
+			<li><a href="../">MANUAL</a></li>
 			<li><a href="#">DESIGN PATTERN</a>
 				<ul>
 
@@ -26,7 +26,7 @@
 	</nav>
 	<sign id="sign">
 	<ul>
-		<li><a href="#" class="button small"><i class="fa fa-sign-in" aria-hidden="true"></i>
+		<li><a href="/user/login" class="button small"><i class="fa fa-sign-in" aria-hidden="true"></i>
 				sign in</a>
 
 		<a href="/user/join" class="button small"><i class="fa fa-user" aria-hidden="true"></i> join</a></li>

@@ -54,11 +54,16 @@ public class UserController {
 	
 	@RequestMapping(value="/check", method=RequestMethod.POST)
 	public @ResponseBody int checkPOST(@RequestParam("id") String id) throws Exception{
-		System.out.println("check´Â~~~~~~");
-		System.out.println("id´Â <<<<<<<<>>>>>>>>>" + id + "<><><><<>");
+		System.out.println("checkï¿½ï¿½~~~~~~");
+		System.out.println("idï¿½ï¿½ <<<<<<<<>>>>>>>>>" + id + "<><><><<>");
 		int check = service.checkLogin(id);
-		System.out.println("result ´Â <<<<<<<<<<>>>>>>>>>>>" + check);
+		System.out.println("result ï¿½ï¿½ <<<<<<<<<<>>>>>>>>>>>" + check);
 		return service.checkLogin(id);
+	}
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public void loginGET(UserVO user, Model model) throws Exception {
+		logger.info("<<<login get>>>");
+		
 	}
 
 }

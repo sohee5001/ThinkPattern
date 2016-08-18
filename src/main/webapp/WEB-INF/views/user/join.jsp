@@ -13,58 +13,44 @@
 
 
 <script type="text/javascript">
-$(document).ready(function(){
-  	$("#enterid").focus();
-	$("#enterid").blur(function() {
-		var enterid = $("#enterid").val();
-		$.ajax({
-			url: "http://localhost:8080/user/check",
-			type:"POST",
-			data:{"id" :enterid},
-			success:function(data)
-			{
-				
-				if(data == 1)
-				{
-					$("#check").html("중복된아이디입니다.");
+	$(document).ready(function() {
+		$("#enterid").focus();
+		$("#enterid").blur(function() {
+			var enterid = $("#enterid").val();
+			$.ajax({
+				url : "http://localhost:8080/user/check",
+				type : "POST",
+				data : {
+					"id" : enterid
+				},
+				success : function(data) {
+
+					if (data == 1) {
+						$("#check").html("중복된아이디입니다.");
+					} else {
+						$("#check").html("사용가능한아이디입니다..");
+					}
+
+				},
+				error : function(request, status, error) {
+					alert(error);
 				}
-				else
-				{
-					$("#check").html("사용가능한아이디입니다..");
-				}
-				
-				
-			},
-			error:function(request, status, error){
-				alert(error);
-			}	
-			
-			
-			
+
+			});
 		});
-	}); 
-	
-  	$("#checkpw").focus();
-	$("#checkpw").blur(function() 
-	{
-		var pw = $("#pw").val();
-		var checkpw=$("#checkpw").val();
-		if(pw === checkpw)
-		{
-			$("#resultpw").html("맞게 입력하셨습니다.");
-		}
-		else
-		{
-			$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
-		}
-		
-	}); 
-	
-	
-});
 
+		$("#checkpw").blur(function() {
+			var pw = $("#pw").val();
+			var checkpw = $("#checkpw").val();
+			if (pw === checkpw) {
+				$("#resultpw").html("맞게 입력하셨습니다.");
+			} else {
+				$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+			}
 
+		});
 
+	});
 </script>
 
 
@@ -74,55 +60,69 @@ $(document).ready(function(){
 
 </head>
 <body>
-	<div class="container body">
-		<div id="page-wrapper">
-			
-			
 
-			<form role="form"  method="post">
+	<div class="join_css">
+
+		<form role="form" method="post">
+			<div>
 				<div>
-					<div>id
-						<input type="text" id="enterid" name="id" placeholder="Enter Id">				
-					</div>
-					
-					<div id="check">
-					</div>
-					<div>password
-						<input type="password" name="password"  id= "pw" placeholder="Enter Pw">		
-					</div>
-					
-					
-					<div>confirmPW
-						<input type="password" id ="checkpw" name = "pw2" placeholder="confirm Pw">		
-					</div>
-					
-					<div id="resultpw"></div>
-					
-					
-					
-					<div>name
-						<input type="text" name="name" placeholder="Enter Name">
-					</div>
-				
-					<div>email
-						<input type="text" name="email"  placeholder="Enter Email">
-					</div>
-					
-					<div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-							<a class="btn btn-danger" href="listAll">Cancel</a>
-					</div>
-				
-				</div>
-			</form>
-			
-			
-			
+					<h1>
 
-		</div>
+						<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN
+						&nbsp; 회원가입
+					</h1>
+				</div>
+				<div>
+					id <input type="text" id="enterid" name="id"
+						placeholder="아이디를 입력해주세요">
+				</div>
+
+				<div id="check"></div>
+				<div>
+					password <input type="password" name="password" id="pw"
+						placeholder="비밀번호를 입력해주세요">
+				</div>
+
+
+				<div>
+					confirmPW <input type="password" id="checkpw" name="pw2"
+						placeholder="비밀번호를 다시 입력해주세요">
+				</div>
+
+				<div id="resultpw"></div>
+
+
+
+				<div>
+					name <input type="text" name="name" placeholder="이름을 입력해주세요">
+				</div>
+
+				<div>
+					email <input type="text" name="email" placeholder="Email을 입력해주세요">
+				</div>
+
+				<div class="buttoncss">
+					<a type="submit" class="button special small ">Submit</a> <a
+						class="button small " href="listAll">Cancel</a>
+				</div>
+
+
+				<div>
+					<!--로그인 실패 성공 뿌려주기  -->
+				</div>
+
+				
+			</div>
+		</form>
+
+
 
 
 	</div>
+
+
 </body>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
+
 </html>
