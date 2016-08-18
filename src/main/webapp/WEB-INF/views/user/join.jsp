@@ -26,7 +26,7 @@ $(document).ready(function(){
 	$("#enterid").blur(function() {
 		var enterid = $("#enterid").val();
 		$.ajax({
-			url: "http://localhost:8081/user/check",
+			url: "http://localhost:8080/user/check",
 			type:"POST",
 			data:{"id" :enterid},
 			success:function(data)
