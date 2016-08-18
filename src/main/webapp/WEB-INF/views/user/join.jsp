@@ -12,6 +12,14 @@
 
 
 
+
+
+
+
+
+</head>
+
+
 <script type="text/javascript">
 $(document).ready(function(){
   	$("#enterid").focus();
@@ -44,7 +52,7 @@ $(document).ready(function(){
 		});
 	}); 
 	
-  	$("#checkpw").focus();
+  	//$("#checkpw").focus();
 	$("#checkpw").blur(function() 
 	{
 		var pw = $("#pw").val();
@@ -69,10 +77,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-</head>
 <body>
 	<div class="container body">
 		<div id="page-wrapper">
