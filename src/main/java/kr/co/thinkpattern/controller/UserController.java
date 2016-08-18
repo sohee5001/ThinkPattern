@@ -58,7 +58,16 @@ public class UserController {
 	public @ResponseBody int checkPOST(@RequestParam("id") String id) throws Exception{
 		System.out.println("check��~~~~~~");
 		System.out.println("id�� <<<<<<<<>>>>>>>>>" + id + "<><><><<>");
+		if(id == null)
+		{
+			return 3;
+		}
+		
+		
 		int check = service.checkLogin(id);
+		
+		
+		
 		System.out.println("result �� <<<<<<<<<<>>>>>>>>>>>" + check);
 		return service.checkLogin(id);
 	}
@@ -118,6 +127,12 @@ public class UserController {
 	}
 	
 	
+	
+	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	public void modifyGET(Model model)
+	{
+		
+	}
 	
 	
 	

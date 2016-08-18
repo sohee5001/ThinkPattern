@@ -19,7 +19,6 @@
 				<br/>
 				<br/>
 				<br/>
-				
 					<div>id
 					<input type = "text" value="${id}" readonly="readonly">	
 					</div>
@@ -27,6 +26,12 @@
 					<div>password
 						<input type="password" name="password"  id= "pw" placeholder="Enter Pw">		
 					</div>
+					
+					<div class="buttoncss">
+					<button type="submit" class="button special small ">Submit</a> <a
+						class="button small " href="/">Cancel</a>
+					</div>
+					
 				</div>
 			</form>
 		
