@@ -107,7 +107,7 @@ $(document).ready(function(){
 				</div>
 
 				<div class="buttoncss">
-					<a type="submit" class="button special small ">Submit</a> <a
+					<button type="submit" class="button special small ">Submit</button> <a
 						class="button small " href="listAll">Cancel</a>
 				</div>
 
