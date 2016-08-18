@@ -12,32 +12,67 @@
 
 
 
+
+
+
+
+
+</head>
+
+
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#enterid").focus();
-		$("#enterid").blur(function() {
-			var enterid = $("#enterid").val();
-			$.ajax({
-				url : "http://localhost:8080/user/check",
-				type : "POST",
-				data : {
-					"id" : enterid
-				},
-				success : function(data) {
 
-					if (data == 1) {
-						$("#check").html("중복된아이디입니다.");
-					} else {
-						$("#check").html("사용가능한아이디입니다..");
-					}
-
-				},
-				error : function(request, status, error) {
-					alert(error);
+$(document).ready(function(){
+  	$("#enterid").focus();
+	$("#enterid").blur(function() {
+		var enterid = $("#enterid").val();
+		$.ajax({
+			url: "http://localhost:8081/user/check",
+			type:"POST",
+			data:{"id" :enterid},
+			success:function(data)
+			{
+				
+				if(data == 1)
+				{
+					$("#check").html("중복된아이디입니다.");
 				}
-
-			});
+				else
+				{
+					$("#check").html("사용가능한아이디입니다..");
+				}
+				
+				
+			},
+			error:function(request, status, error){
+				alert("ddddddddd");
+			}	
+			
+			
+			
 		});
+	}); 
+	
+
+  	//$("#checkpw").focus();
+
+	$("#checkpw").blur(function() 
+	{
+		var pw = $("#pw").val();
+		var checkpw=$("#checkpw").val();
+		if(pw === checkpw)
+		{
+			$("#resultpw").html("맞게 입력하셨습니다.");
+		}
+		else
+		{
+			$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+		}
+		
+	}); 
+	
+	
+});
 
 		$("#checkpw").blur(function() {
 			var pw = $("#pw").val();
@@ -55,10 +90,6 @@
 
 
 
-
-
-
-</head>
 <body>
 
 	<div class="join_css">

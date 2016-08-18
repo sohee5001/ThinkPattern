@@ -2,6 +2,7 @@ package kr.co.thinkpattern.controller;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,4 +67,21 @@ public class UserController {
 		
 	}
 
+	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
+	public String loginPOST(UserVO vo, HttpSession session, RedirectAttributes rttr, Model model) throws Exception
+	{
+		UserVO vo1 = service.loginUser(vo);
+		if(vo1==null)
+		{
+			rttr.addFlashAttribute("result", "loginfail");
+			return "redirect:/";
+		}
+		model.addAttribute("userVO", vo);
+		
+		rttr.addFlashAttribute("result", "loginsuccess");
+		return "redirect:/";
+		
+	}
+	
+	
 }
