@@ -34,8 +34,8 @@
       </beans:constructor-arg>
    </beans:bean>
 	
-<!-- 	<beans:bean id="loginInterceptor"
-	class="kr.ac.skhu.interceptor.LoginInterceptor"></beans:bean> -->
+	<beans:bean id="loginInterceptor"
+	class="kr.co.thinkpattern.interceptor.LoginInterceptor"></beans:bean> 
 	
 <!-- 	<beans:bean id="authInterceptor"
 	class="kr.ac.skhu.interceptor.AuthInterceptor"></beans:bean> -->
@@ -45,12 +45,14 @@
    <beans:bean id="UpdateInterceptor" class="kr.ac.skhu.interceptor.UpdateInterceptor"></beans:bean> -->
    
 	
-<!-- 	<interceptors>
+	<interceptors>
 		<interceptor>
-			<mapping path="/member/loginPost"/>
+			<mapping path="/user/loginPost"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
-		
+
+</interceptors>
+<!-- 		
 		<interceptor>
 			<mapping path="/board/*"/>
 			<beans:ref bean="authInterceptor"/>
