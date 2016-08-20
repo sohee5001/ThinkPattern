@@ -42,8 +42,8 @@ public class HomeController {
 		UserVO vo = (UserVO)session.getAttribute("login");
 		if(vo != null)
 		{
-			model.addAttribute("id", vo.getId());
-			System.out.println("id´Â!!!!!   " + vo.getId());
+			model.addAttribute("vo", vo);
+			System.out.println("idï¿½ï¿½!!!!!   " + vo.getId());
 		}
 		
 		

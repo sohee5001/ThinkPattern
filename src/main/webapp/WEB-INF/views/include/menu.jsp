@@ -85,7 +85,7 @@
 	</nav>
 	<sign id="sign">
 	<ul>
-		<c:if test = "${id eq null }">
+		<c:if test = "${vo.getId() eq null }">
 
 		<li><a  class="button small"
 				data-toggle="modal" data-target="#login">
@@ -97,8 +97,9 @@
 				aria-hidden="true"></i> join</a></li>
 		</c:if>
 		
-		<c:if test = "${id ne null}">
+		<c:if test = "${vo.getId() ne null}">
              <li>
+             ${vo.getName() } 님 환영합니다.
              <a href="/user/modifyConfirm" class="button small"><i class="fa fa-user"
 				aria-hidden="true"></i> modify</a>	
              <a href="/user/logout" class="button small"><i class="fa fa-sign-out"

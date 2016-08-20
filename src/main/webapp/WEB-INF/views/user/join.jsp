@@ -28,6 +28,10 @@ $(document).ready(function(){
 				{
 					$("#check").html("중복된아이디입니다.");
 				}
+				else if(data == 3)
+				{
+					$("#check").html("");
+				}
 				else
 				{
 					$("#check").html("사용가능한아이디입니다..");
@@ -46,7 +50,14 @@ $(document).ready(function(){
 		var checkpw=$("#checkpw").val();
 		if(pw === checkpw)
 		{
-			$("#resultpw").html("맞게 입력하셨습니다.");
+			if(pw=="")
+			{
+				$("#resultpw").html("");
+			}
+			else
+			{
+				$("#resultpw").html("맞게 입력하셨습니다.");
+			}
 		}
 		else
 		{

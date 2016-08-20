@@ -35,12 +35,37 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/join", method=RequestMethod.POST)
-	public String joinPOST(HttpServletResponse response, UserVO user, RedirectAttributes rttr, Model model ) throws Exception
+	public String joinPOST(@RequestParam("pw2") String pw2, HttpServletResponse response, UserVO user, RedirectAttributes rttr, Model model ) throws Exception
 	{
 		logger.info("<<<join post>>>");
 		int check = service.checkLogin(user.getId());
 		if(check == 0)
 		{
+			if(user.getId().equals(""))
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
+			if(user.getEmail().equals(""))
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
+			if(user.getName().equals(""))
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
+			if(user.getPassword().equals(""))
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
+			if(!user.getPassword().equals(pw2))
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
 			service.insertUser(user);
 			model.addAttribute("nullVO", user);
 			rttr.addFlashAttribute("result", "joinseccess");
@@ -58,16 +83,14 @@ public class UserController {
 	public @ResponseBody int checkPOST(@RequestParam("id") String id) throws Exception{
 		System.out.println("check��~~~~~~");
 		System.out.println("id�� <<<<<<<<>>>>>>>>>" + id + "<><><><<>");
-		if(id == null)
+		if(id.equals(""))
 		{
 			return 3;
 		}
-		
-		
+
 		int check = service.checkLogin(id);
 		
-		
-		
+	
 		System.out.println("result �� <<<<<<<<<<>>>>>>>>>>>" + check);
 		return service.checkLogin(id);
 	}
@@ -78,13 +101,14 @@ public class UserController {
 	}
 
 	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
-	public void loginPOST(LoginDTO dto, HttpSession session, Model model) throws Exception
+	public void loginPOST(LoginDTO dto, HttpSession session, Model model, RedirectAttributes rttr) throws Exception
 	{
 		UserVO vo = service.loginUser(dto);
 
 		if(vo==null)
 		{
-			return;
+			rttr.addFlashAttribute("result", "loginFail");
+			//return;
 		}
 		model.addAttribute("userVO", vo);
 	}
@@ -129,14 +153,65 @@ public class UserController {
 	
 	
 	@RequestMapping(value="/modify", method=RequestMethod.GET)
-	public void modifyGET(Model model)
+	public void modifyGET(Model model, HttpSession session)
 	{
+		UserVO vo = (UserVO) session.getAttribute("login");
+		model.addAttribute("vo", vo);
+	}
+	
+	
+	@RequestMapping(value="/modify", method=RequestMethod.POST)
+	public String modifyPOST(UserVO vo, Model model, HttpSession session,RedirectAttributes rttr)
+	{
+		UserVO original = (UserVO)session.getAttribute("login");
+
 		
+		if(vo.getEmail().equals(""))
+		{
+			vo.setEmail(original.getEmail());
+		}
+		if(vo.getName().equals(""))
+		{
+			vo.setName(original.getName());
+		}
+		if(vo.getPassword().equals(""))
+		{
+			vo.setPassword(original.getEmail());
+		}
+
+		
+		
+		service.modifyUser(vo);
+		session.setAttribute("login", vo);
+		
+		
+		
+		rttr.addFlashAttribute("result", "confirmfail");
+		return "redirect:/";
 	}
 	
 	
 	
 	
 	
+	
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public void deleteGET(Model model, HttpSession session,RedirectAttributes rttr)
+	{
+		System.out.println("=====================");
+	
+		System.out.println("=====================");
+		UserVO vo = (UserVO) session.getAttribute("login");
+		
+		
+		service.deleteUser(vo.getId());
+		session.invalidate();
+	}
+	
+	@RequestMapping(value="/loginFail", method=RequestMethod.GET)
+	public void loginFail()
+	{
+		
+	}
 	
 }
