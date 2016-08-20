@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.thinkpattern.mappers.CommentsMapper">
+
+	<insert id="insertComment" parameterType="kr.co.thinkpattern.vo.CommentsVO">
+		INSERT INTO COMMENTS(idx, board_idx, crea_dtm, userid, contents)
+		VALUES(SEQ_COMMENTs_IDX.NEXTVAL, #{board_idx}, sysdate, #{userid}, #{contents})
+	</insert>
+	
+	<update id="updateComment">
+		update comments set crea_dtm=sysdate, userid=#{userid}, contents=#{contents}
+		where idx = #{idx}
+	</update>
+
+	<select id="listAll" resultType="kr.co.thinkpattern.vo.CommentsVO">
+			SELECT IDX, BOARD_IDX, CREA_DTM, USERID, CONTENTS
+			FROM COMMENTS
+			WHERE BOARD_IDX=#{board_idx}
+			ORDER BY IDX ASC
+	</select>
+
+	<delete id="deleteComment">
+		DELETE FROM COMMENTS WHERE BOARD_IDX=#{board_idx} AND
+		IDX=#{idx}
+	</delete>
+
+</mapper>
