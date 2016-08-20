@@ -11,6 +11,22 @@
 
 </head>
 
+<script>
+		var result= '${result}';
+		if(result == 'joinFail')
+		{
+			alert("회원가입에 실패하셨습니다 다시 하세요");	
+		}
+		if(result == 'loginFail')
+		{
+			alert("아이디가 다르거나 비밀번호를 잘못 입력하셨습니다 다시 시도하세요");	
+		}
+	
+</script>
+
+
+
+
 
 <script type="text/javascript">
 
@@ -38,7 +54,7 @@ $(document).ready(function(){
 				}
 			},
 			error:function(request, status, error){
-				alert("ddddddddd");
+
 			}	
 		
 		});

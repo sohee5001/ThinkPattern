@@ -75,7 +75,7 @@ public class UserController {
 		else
 		{
 			rttr.addFlashAttribute("result", "joinFail");
-			return "redirect:/";
+			return "redirect:/user/join";
 		}
 	}
 	
