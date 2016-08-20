@@ -1,20 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
     
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<link
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/menu.jsp"%>
+<title>Q&A ê²Œì‹œíŒ</title>
+
+
+<!-- <link
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css"
 	rel="stylesheet" media="screen">
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
-</script>
+</script> -->
+
+
 <style type="text/css">
 tbody tr:hover {
 	background-color: #ffa;
@@ -38,26 +43,26 @@ tbody tr:hover {
 	<a href="/qna/list">QNA BOARD</a>
 	
 	<div class="container">
-		<h1>QnA ¸ñ·Ï</h1>
+		<h1>QnA ëª©ë¡</h1>
 		<hr />
 		<form:form method="get" modelAttribute="pagination">
 			<div class="pull-right">
 				<a href="/qna/create?${ pagination.queryString }"
 					class="btn btn-info"> <i class="icon-pencil icon-white"></i>
-					±Û¾²±â
+					ê¸€ì“°ê¸°
 				</a>
 
 			</div>
 			<input type="hidden" name="pg" value="1" />
 			<div class="form-inline">
 				<form:select path="ss">
-					<form:option value="0" label="°Ë»öÁ¶°Ç" />
-					<form:option value="1" label="Á¦¸ñ" />
-					<form:option value="2" label="³»¿ë" />
-					<form:option value="3" label="¾ÆÀÌµğ" />
+					<form:option value="0" label="ê²€ìƒ‰ì¡°ê±´" />
+					<form:option value="1" label="ì œëª©" />
+					<form:option value="2" label="ë‚´ìš©" />
+					<form:option value="3" label="ì•„ì´ë””" />
 				</form:select>
 				<form:input path="st" />
-				<button type="submit" class="btn btn-small">°Ë»ö</button>
+				<button type="submit" class="btn btn-small">ê²€ìƒ‰</button>
 				
 			</div>
 			<table class="table table-bordered">
@@ -95,4 +100,5 @@ tbody tr:hover {
 		</form:form>
 	</div>
 </body>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

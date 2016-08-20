@@ -1,27 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>ê¸€ìž‘ì„±</title>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/menu.jsp"%>
 </head>
 <body>
-	<h1>QnA ÀÛ¼º</h1>
+	<h1>QnA ìž‘ì„±</h1>
 	<hr />
 	<form method="post">
 		<div>
-			<span>Á¦¸ñ:</span> <input type="text" name="title" />
+			<span>ì œëª©:</span> <input type="text" name="title" />
 		</div>
 		<textarea id="body" name="contents" class="smarteditor2"></textarea>
 		<div>
 			<button type="submit" class="btn btn-primary">
-				<i class="icon-ok icon-white"></i> ÀúÀåÇÏ±â
+				<i class="icon-ok icon-white"></i> ì €ìž¥í•˜ê¸°
 			</button>
 			<a href="/qna/list.do?${ pagination.queryString }" class="btn"> <i
-				class="icon-ban-circle"></i> Ãë¼Ò
+				class="icon-ban-circle"></i> ì·¨ì†Œ
 			</a>
 		</div>
 	</form>
 </body>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

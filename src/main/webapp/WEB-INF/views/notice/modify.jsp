@@ -1,14 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-
 <title>Insert title here</title>
-
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/menu.jsp"%>
 <style>
 label {
 	margin-top: 20px;
@@ -31,25 +30,26 @@ textarea {
 </head>
 
 <div class="container">
-	<h1>°øÁö»çÇ× ¼öÁ¤</h1>
+	<h1>ê³µì§€ì‚¬í•­ ìˆ˜ì •</h1>
 	<hr />
 	<form:form method="post" modelAttribute="noticeBoard">
 		<div>
-			<span>Á¦¸ñ:</span>
+			<span>ì œëª©:</span>
 			<form:input path="title" />
 		</div>
 		<form:textarea path="contents" class="smarteditor2" />
 
 		<div>
 			<button type="submit" class="btn btn-primary">
-				<i class="icon-ok icon-white"></i> ÀúÀåÇÏ±â
+				<i class="icon-ok icon-white"></i> ì €ìž¥í•˜ê¸°
 			</button>
 			<a href="/notice/read?idx=${noticeBoard.idx }&${ pagination.queryString }"
-				class="btn"> <i class="icon-ban-circle"></i> Ãë¼Ò
+				class="btn"> <i class="icon-ban-circle"></i> ì·¨ì†Œ
 			</a>
 		</div>
 	</form:form>
 
 </div>
 </body>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

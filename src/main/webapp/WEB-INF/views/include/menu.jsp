@@ -81,7 +81,7 @@
 					<li><a href="#">PATTERN 4</a></li>
 
 				</ul></li>
-			<li><a href="servicecenter.jsp">SERVICE CENTER</a></li>
+			<li><a href="/notice/list">SERVICE CENTER</a></li>
 		</ul>
 
 	</nav>
