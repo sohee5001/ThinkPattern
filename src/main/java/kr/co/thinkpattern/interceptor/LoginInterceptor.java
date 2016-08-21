@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.thinkpattern.controller.UserController;
 import kr.co.thinkpattern.vo.UserVO;
@@ -20,11 +21,12 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 	 
 	 
 	@Override
-	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, 
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession();
+		
 		ModelMap modelMap = modelAndView.getModelMap();
 		
 		Object userVO = modelMap.get("userVO");
@@ -34,16 +36,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		if(userVO != null)
 		{
 			logger.info("new login success");
-			
 			session.setAttribute(LOGIN, userVO);
-			 
 			 response.sendRedirect("/");
 			 
 		}
 		else
 		{
+	
 			logger.info("wrong");
-			response.sendRedirect("/");
+			
+			response.sendRedirect("/user/loginFail");
 		}
 
 	}
