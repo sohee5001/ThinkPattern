@@ -2,19 +2,6 @@
 	pageEncoding="UTF-8"%>
 
 
- <!-- Bootstrap 3.3.4 -->
-    <link href="/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <!-- Font Awesome Icons -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <!-- Ionicons -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-    <!-- Theme style -->
-    <link href="/resources/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
- <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
 
 <!-- Optional theme -->
 <link rel="stylesheet"
@@ -22,11 +9,7 @@
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
+
 <script>
 	$('#login').on('shown.bs.modal', function() {
 		$('#myInput').focus();
@@ -46,10 +29,10 @@
 			</div>
 			<div class="modal-body">
 				<form action="/user/loginPost" method="post" name="loginForm">
-					<label>ID</label> <input id="myInput" class="form-control" type="text"
-						name="uid" placeholder="아이디 입력해주세요" required /> <br /> <label>Password</label>
-					<input class="form-control" type="password" name="upw"
-						placeholder="비밀번호 입력해주세요" required /> <br />
+					<label>ID</label> <input id="myInput" class="form-control"
+						type="text" name="uid" placeholder="아이디 입력해주세요" required /> <br />
+					<label>Password</label> <input class="form-control" type="password"
+						name="upw" placeholder="비밀번호 입력해주세요" required /> <br />
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="submit" class="btn btn-primary">Submit</button>
 					<br />
@@ -63,54 +46,51 @@
 
 
 <!-- Header -->
-<header id="header">
-	<h1 id="logo">
-		<a href="../"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
-	</h1>
-	<nav id="nav">
+<div id="page-wrapper">
+	<header id="header">
+		<h1 id="logo">
+			<a href="../"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
+		</h1>
+		<nav id="nav">
+			<ul>
+				<li><a href="../">MANUAL</a></li>
+				<li><a href="#">DESIGN PATTERN</a>
+					<ul>
+
+						<li><a href="#">PATTERN 1</a></li>
+						<li><a href="#">PATTERN 2</a></li>
+						<li><a href="#">PATTERN 3</a></li>
+						<li><a href="#">PATTERN 4</a></li>
+
+					</ul></li>
+				<li><a href="servicecenter.jsp">SERVICE CENTER</a></li>
+			</ul>
+
+		</nav>
+		<sign id="sign">
 		<ul>
-			<li><a href="../">MANUAL</a></li>
-			<li><a href="#">DESIGN PATTERN</a>
-				<ul>
+			<c:if test="${id eq null }">
 
-					<li><a href="#">PATTERN 1</a></li>
-					<li><a href="#">PATTERN 2</a></li>
-					<li><a href="#">PATTERN 3</a></li>
-					<li><a href="#">PATTERN 4</a></li>
+				<li><a class="button small" data-toggle="modal"
+					data-target="#login"> <i class="fa fa-sign-in"
+						aria-hidden="true"></i> sign in
 
-				</ul></li>
-			<li><a href="servicecenter.jsp">SERVICE CENTER</a></li>
+				</a> <a href="/user/join" class="button small"><i class="fa fa-user"
+						aria-hidden="true"></i> join</a></li>
+			</c:if>
+
+			<c:if test="${id ne null}">
+				<li><a href="/user/modifyConfirm" class="button small"><i
+						class="fa fa-user" aria-hidden="true"></i> modify</a> <a
+					href="/user/logout" class="button small"><i
+						class="fa fa-sign-out" aria-hidden="true"></i> logout</a></li>
+			</c:if>
 		</ul>
 
-	</nav>
-	<sign id="sign">
-	<ul>
-		<c:if test = "${id eq null }">
-
-		<li><a  class="button small"
-				data-toggle="modal" data-target="#login">
-				<i class="fa fa-sign-in" aria-hidden="true"></i> sign in
-
-			</a>
-
-			<a href="/user/join" class="button small"><i class="fa fa-user"
-				aria-hidden="true"></i> join</a></li>
-		</c:if>
-		
-		<c:if test = "${id ne null}">
-             <li>
-             <a href="/user/modifyConfirm" class="button small"><i class="fa fa-user"
-				aria-hidden="true"></i> modify</a>	
-             <a href="/user/logout" class="button small"><i class="fa fa-sign-out"
-				aria-hidden="true"></i> logout</a>
-				
-			</li>
-       </c:if>	
-	</ul>
-
-	</sign>
+		</sign>
 
 
 
 
-</header>
+	</header>
+</div>

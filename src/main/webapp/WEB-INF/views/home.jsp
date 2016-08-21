@@ -10,8 +10,9 @@
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
 </head>
 <body>
-	<div class="container body">
-		<div id="page-wrapper"></div>
+	<div id="main" class="wrapper style1">
+
+		<div class="container"></div>
 
 	</div>
 </body>
