@@ -29,27 +29,35 @@ textarea {
 
 </head>
 
-<div class="container">
-	<h1>공지사항 수정</h1>
-	<hr />
-	<form:form method="post" modelAttribute="noticeBoard">
-		<div>
-			<span>제목:</span>
-			<form:input path="title" />
-		</div>
-		<form:textarea path="contents" class="smarteditor2" />
+<form role="form" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="idx" value="${board.idx}" >
 
-		<div>
-			<button type="submit" class="btn btn-primary">
-				<i class="icon-ok icon-white"></i> 저장하기
-			</button>
-			<a href="/notice/read?idx=${noticeBoard.idx }&${ pagination.queryString }"
-				class="btn"> <i class="icon-ban-circle"></i> 취소
-			</a>
-		</div>
-	</form:form>
 
-</div>
+	<div class="box-body">
+		<div class="form-group">
+			<label for="exampleInputEmail1">Title</label> <input type="text"
+				name="title" class="form-control" value="${board.title}">
+		</div>
+
+		<div class="form-group">
+			<label for="exampleInputPassword1">Contents</label>
+			<textarea class="form-control" name="contents" rows="3">${board.contents}</textarea>
+		</div>
+
+		<div class="form-group">
+			<label for="exampleInputEmail1">Writer</label> <input type="text"
+				name="userid" class="form-control" value="${board.userid}"
+				readonly="readonly">
+		</div>
+			
+	</div>
+
+	<div class="box-footer">
+		<button type="submit" class="btn btn-primary"><i class="icon-ok icon-white"></i>수정완료</button>
+		&nbsp;
+		<a class="btn btn-danger" href="javascript:history.back()"><i class="icon-ban-circle"></i>취소</a>
+	</div>
+</form>
 </body>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

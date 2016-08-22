@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.co.thinkpattern.vo.NoticeBoardVO;
+import kr.co.thinkpattern.vo.UserVO;
 import kr.co.thinkpattern.dto.Pagination;
 import kr.co.thinkpattern.service.NoticeBoardService;
 
@@ -24,51 +25,42 @@ public class NoticeBoardController {
 	NoticeBoardService service;
 	
 	@RequestMapping(value ="/list", method = RequestMethod.GET)
-	public String list(Model model, Pagination pagination) throws Exception {
+	public void list(Model model, Pagination pagination) throws Exception {
 		
 		pagination.setRecordCount(service.selectCount(pagination));
 		model.addAttribute("list", service.selectPage(pagination));
-
-		return "notice/list";
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
-	public String create(Model model, Pagination pagination) throws Exception {
-
-		return "notice/create";
+	public void createGET(HttpSession session, Model model, Pagination pagination) throws Exception {
+		UserVO user = (UserVO)session.getAttribute("login");
+		model.addAttribute("user", user);
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
-	public String create(HttpServletRequest request,Model model, Pagination pagination, NoticeBoardVO noticeBoardVO) throws Exception {
-		//HttpSession session = request.getSession();
-		// 세션처리 부족 ( 나중에 합칠 떄 주석 풀어주고 key값 설정 바꿔주면 됨.)
-		//UserVO user=(UserVO)session.getAttribute("login");
-		
-		noticeBoardVO.setUserid("bms");
-		noticeBoardVO.setCounts(0);
-		service.insert(noticeBoardVO);
-
+	public String create(HttpServletRequest request,Model model, Pagination pagination, NoticeBoardVO board) throws Exception {
+		service.insert(board);
 		return "redirect:/notice/list?" + pagination.getQueryString();
 	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
-	public String read(Model model, @RequestParam("idx") int idx, Pagination pagination) throws Exception {
+	public void read(HttpSession session, Model model, @RequestParam("idx") int idx, Pagination pagination) throws Exception {
 		service.updateCounts(idx);
 		model.addAttribute("notice", service.selectById(idx));
-		return "notice/read";
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.GET)
-	public String modify(Model model, @RequestParam("idx") int idx, Pagination pagination) {
-		model.addAttribute("noticeBoard", service.selectById(idx));
-		return "notice/modify";
+	public void modifyGET(Model model, @RequestParam("idx") int idx, Pagination pagination, HttpSession session) {
+		model.addAttribute("board", service.selectById(idx));
+		
+		UserVO user = (UserVO)session.getAttribute("login");
+		model.addAttribute("user", user);
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public String modify(Model model, Pagination pagination, NoticeBoardVO noticeBoardVO) throws UnsupportedEncodingException {
-		noticeBoardVO.setUserid("bms");
-		service.update(noticeBoardVO);
-		return "redirect:/notice/read?idx=" + noticeBoardVO.getIdx() + "&" + pagination.getQueryString();
+	public String modifyPOST(Model model, Pagination pagination, NoticeBoardVO board) throws UnsupportedEncodingException {
+		service.update(board);
+		return "redirect:/notice/read?idx=" + board.getIdx() + "&" + pagination.getQueryString();
 	}
 	
 	@RequestMapping("/delete")

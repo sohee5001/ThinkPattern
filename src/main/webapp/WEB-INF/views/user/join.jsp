@@ -83,7 +83,9 @@ $(document).ready(function(){
 	}); 
 	
 	
-});		$("#checkpw").blur(function() {
+});		
+
+		$("#checkpw").blur(function() {
 			var pw = $("#pw").val();
 			var checkpw = $("#checkpw").val();
 			if (pw === checkpw) {
