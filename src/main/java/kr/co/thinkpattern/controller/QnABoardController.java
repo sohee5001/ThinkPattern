@@ -52,6 +52,8 @@ public class QnABoardController {
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(HttpSession session, Model model, @RequestParam("idx") int idx, Pagination pagination) throws Exception {
 		service.updateCounts(idx);
+		UserVO user = (UserVO) session.getAttribute("login");
+		model.addAttribute("user", user);
 		model.addAttribute("qna", service.selectById(idx));
 		model.addAttribute("commentslist", commentsService.listAll(idx));
 	}

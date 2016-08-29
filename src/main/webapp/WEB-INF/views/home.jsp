@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <html>
@@ -9,6 +9,7 @@
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
 </head>
 <body>
+
 	<div id="main" class="wrapper style1">
 
 		<div class="container"></div>
@@ -29,7 +30,7 @@
 </script>
 	
 	
-	
+
 </body>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

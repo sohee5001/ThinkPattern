@@ -37,13 +37,12 @@ public class CommentsController {
 	}
 	
 	@RequestMapping(value="/insert", method = RequestMethod.POST)
-	public String insert(Model model, int board_idx, CommentsVO commentsVO) throws Exception {
+	public String insert(Model model, CommentsVO comments) throws Exception {
 		
-		commentsVO.setUserid("bms");
-		commentsService.insert(commentsVO);
-		model.addAttribute("qna", service.selectById(board_idx));
-		model.addAttribute("commentslist", commentsService.listAll(board_idx));
+		commentsService.insert(comments);
+		model.addAttribute("qna", service.selectById(comments.getBoard_idx()));
+		model.addAttribute("commentslist", commentsService.listAll(comments.getBoard_idx()));
 		
-		return "redirect:/qna/read?idx="+board_idx;
+		return "redirect:/qna/read?idx="+comments.getBoard_idx();
 	}
 }
