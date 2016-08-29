@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="insert">
 		insert into noticeboard (idx, title, contents, counts, crea_dtm, userid)
-		values(SEQ_NOTICEBOARD_IDX.NEXTVAL, #{title}, #{contents}, #{counts}, sysdate, #{userid})
+		values(SEQ_NOTICEBOARD_IDX.NEXTVAL, #{title}, #{contents}, 0, sysdate, #{userid})
 	</insert>
 
 	<select id="read" resultType="kr.co.thinkpattern.vo.NoticeBoardVO">

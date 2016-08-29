@@ -4,7 +4,6 @@
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
     
 
-
 <script>
 	$(function() {
 		$("tbody tr").click(function() {
@@ -24,6 +23,7 @@
 	
 	<a href="/notice/list">NOTICE BOARD</a>
 	<a href="/qna/list">QNA BOARD</a>
+
 		<h1>QnA 목록</h1>
 		<hr />
 		<form:form method="get" modelAttribute="pagination">
@@ -38,6 +38,7 @@
 		
 			<div class="form-inline">
 				<form:select path="ss" class="search">
+
 					<form:option value="0" label="검색조건" />
 					<form:option value="1" label="제목" />
 					<form:option value="2" label="내용" />
@@ -45,6 +46,7 @@
 				</form:select>
 				<form:input path="st" class="search" />
 				<button type="submit" class="button special small">검색</button>
+
 				
 			</div>
 			<table class="table table-bordered">
@@ -81,5 +83,7 @@
 			</div>
 		</form:form>
 	</div>
+
 	</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
+

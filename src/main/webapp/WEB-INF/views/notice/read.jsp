@@ -1,38 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/menu.jsp"%>
 </head>
 <body>
 <div class="container">
 	<div class="pull-right">
 		<a
 			href="/notice/modify?idx=${notice.idx}&${ pagination.queryString }"
-			class="btn"> <i class="icon-list"></i> ¼öÁ¤
+			class="btn"> <i class="icon-list"></i> ìˆ˜ì •
 
 		</a> <a
 			href="/notice/delete?idx=${notice.idx}&${pagination.queryString}"
-			class="btn" data-confirm="»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?"> <i class="icon-remove"></i>
-			»èÁ¦
+			class="btn" data-confirm="ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?"> <i class="icon-remove"></i>
+			ì‚­ì œ
 		</a> <a href="/notice/list?${ pagination.queryString }"
-			class="btn"> <i class="icon-list"></i> ¸ñ·ÏÀ¸·Î
+			class="btn"> <i class="icon-list"></i> ëª©ë¡ìœ¼ë¡œ
 		</a>
 	</div>
 
-	<h1>°øÁö»çÇ×</h1>
+	<h1>ê³µì§€ì‚¬í•­</h1>
 	<hr />
 
 	<div class="article-header">
-		<span class="lbl">Á¦¸ñ:</span> <span class="title">${ notice.title }</span>
+		<span class="lbl">ì œëª©:</span> <span class="title">${ notice.title }</span>
 		<hr />
-		<span class="lbl">±Û¹øÈ£:</span> <span class="txt">${ notice.idx}</span>
-		<span class="lbl">ÀÛ¼ºÀÚ:</span> <span class="txt">${ notice.userid}</span>
-		<span class="lbl">Á¶È¸¼ö:</span> <span class="txt">${ notice.counts }</span>
-		<span class="lbl">ÀÛ¼ºÀÏ</span> <span class="txt"><fmt:formatDate
-				pattern="yyyy-MM-dd HH:mm" value="${  notice.crea_dtm }" /></span>
+		<span class="lbl">ê¸€ë²ˆí˜¸:</span> <span class="txt">${ notice.idx}</span>
+		<span class="lbl">ì‘ì„±ì:</span> <span class="txt">${ notice.userid}</span>
+		<span class="lbl">ì¡°íšŒìˆ˜:</span> <span class="txt">${ notice.counts }</span>
+		<span class="lbl">ì‘ì„±ì¼</span> <span class="txt"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${  notice.crea_dtm }" /></span>
 		<hr />
 	</div>
 	<div class="body">${ notice.contents }</div>
@@ -40,6 +40,5 @@
 </div>
 
 </body>
-</html>
-</body>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

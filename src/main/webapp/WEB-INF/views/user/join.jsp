@@ -39,23 +39,43 @@
 			});
 		});
 
-		$("#checkpw").blur(function() {
-			var pw = $("#pw").val();
-			var checkpw = $("#checkpw").val();
-			if (pw === checkpw) {
-				if (pw == "") {
-					$("#resultpw").html("");
-				} else {
-					$("#resultpw").html("맞게 입력하셨습니다.");
-				}
-			} else {
-				$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+	$("#checkpw").blur(function() 
+	{
+		var pw = $("#pw").val();
+		var checkpw=$("#checkpw").val();
+		if(pw === checkpw)
+		{
+			if(pw=="")
+			{
+				$("#resultpw").html("");
 			}
-
-		});
-
+			else
+			{
+				$("#resultpw").html("맞게 입력하셨습니다.");
+			}
+		}
+		else
+		{
+			$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+		}
+		
+	}); 
+	
+	
+});		
+	$("#checkpw").blur(function() {
+		var pw = $("#pw").val();
+		var checkpw = $("#checkpw").val();
+		if (pw === checkpw) {
+		if (pw == "") {
+			$("#resultpw").html("");
+		} else {
+		$("#resultpw").html("맞게 입력하셨습니다.");
+			}
+		} else {
+			$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+		}
 	});
-
 </script>
 
 

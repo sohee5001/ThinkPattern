@@ -1,55 +1,52 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-
+<%@ include file="/WEB-INF/views/include/header.jsp"%>
+<%@ include file="/WEB-INF/views/include/menu.jsp"%>
 <title>Insert title here</title>
 
-<style>
-label {
-	margin-top: 20px;
-}
-
-style>input[name=title] {
-	width: 700px;
-	border-style: groove;
-	margin: 4px;
-}
-
-textarea {
-	width: 95%;
-	height: 600px;
-}
-</style>
-
 </head>
 
 </head>
 
-<div class="container">
-	<h1>°øÁö»çÇ× ¼öÁ¤</h1>
-	<hr />
-	<form:form method="post" modelAttribute="qnaBoard">
-		<div>
-			<span>Á¦¸ñ:</span>
-			<form:input path="title" />
-		</div>
-		<form:textarea path="contents" class="smarteditor2" />
 
-		<div>
-			<button type="submit" class="btn btn-primary">
-				<i class="icon-ok icon-white"></i> ÀúÀåÇÏ±â
-			</button>
-			<a href="/qna/read?idx=${qnaBoard.idx }&${ pagination.queryString }"
-				class="btn"> <i class="icon-ban-circle"></i> Ãë¼Ò
-			</a>
-		</div>
-	</form:form>
 
-</div>
+
+
+
+<form role="form" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="idx" value="${board.idx}" >
+
+
+	<div class="box-body">
+		<div class="form-group">
+			<label for="exampleInputEmail1">Title</label> <input type="text"
+				name="title" class="form-control" value="${board.title}">
+		</div>
+
+		<div class="form-group">
+			<label for="exampleInputPassword1">Contents</label>
+			<textarea class="form-control" name="contents" rows="3">${board.contents}</textarea>
+		</div>
+
+		<div class="form-group">
+			<label for="exampleInputEmail1">Writer</label> <input type="text"
+				name="userid" class="form-control" value="${board.userid}"
+				readonly="readonly">
+		</div>
+			
+	</div>
+
+	<div class="box-footer">
+		<button type="submit" class="btn btn-primary"><i class="icon-ok icon-white"></i>ìˆ˜ì •ì™„ë£Œ</button>
+		&nbsp;
+		<a class="btn btn-danger" href="javascript:history.back()"><i class="icon-ban-circle"></i>ì·¨ì†Œ</a>
+	</div>
+</form>
 </body>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </html>

@@ -25,9 +25,11 @@ tbody tr:hover {
 
 	
 	<div class="container">
+
 	<div class="notice_css">
 		<a href="/notice/list">NOTICE BOARD</a>
 	<a href="/qna/list">QNA BOARD</a>
+
 		<h1>공지사항 목록</h1>
 		<hr />
 		<form:form method="get" modelAttribute="pagination">
@@ -84,6 +86,8 @@ tbody tr:hover {
 			</div>
 		</form:form>
 	</div>
+
 	</div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
+

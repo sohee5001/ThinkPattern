@@ -21,7 +21,6 @@ public class CommentsDAOImpl implements CommentsDAO{
 	
 	@Override
 	public int insert(CommentsVO vo) {
-		vo.setUserid("bms");
 		sqlSession.insert(namespace +".insertComment", vo);
 		return vo.getIdx();
 	}
