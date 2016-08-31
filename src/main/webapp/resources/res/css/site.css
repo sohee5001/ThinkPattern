@@ -30,7 +30,6 @@ h1 a {
 /* Form */
 form {
 	margin: 0 0 0 0;
-<<<<<<< HEAD
 }
 
 label {
@@ -59,38 +58,6 @@ input[type="text"], input[type="password"], input[type="email"], select,
 	padding: 0 1em;
 	text-decoration: none;
 	 width: 100%;
-
-=======
-}
-
-label {
-	color: #5a5858;
-	display: block;
-	font-size: 17px;
-	font-weight: 300;
-	margin: 0 0 1em 0;
-}
-
-input[type="text"], input[type="password"], input[type="email"], select,
-	textarea {
-	-moz-appearance: none;
-	-webkit-appearance: none;
-	-ms-appearance: none;
-	appearance: none;
-	-moz-transition: border-color 0.2s ease-in-out;
-	-webkit-transition: border-color 0.2s ease-in-out;
-	-ms-transition: border-color 0.2s ease-in-out;
-	transition: border-color 0.2s ease-in-out;
-	background: #fdfdfd;
-	/* border-radius: 10px; */
-	border: solid 3px rgb(243, 238, 238);
-	color: #887e7e;
-	display: block;
-	outline: 0;
-	padding: 0 1em;
-	text-decoration: none;
-	width: 100%;
->>>>>>> e39eb71ed89483a72c818cbd5f5346c31b6a96cb
 }
 
 input[type="text"]:invalid, input[type="password"]:invalid, input[type="email"]:invalid,
@@ -739,7 +706,6 @@ div.login_css {
 .login_user li a {
 	color: inherit;
 }
-<<<<<<< HEAD
 
 /************background****************/
 #particles {
@@ -758,33 +724,10 @@ div.notice_css {
 
 	width: 1000px;
 	height: 697px;
-
-=======
-
-/************background****************/
-#particles {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    top: 0;                        
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-    z-index: -2;
-}
-/********************board************************/
-div.notice_css {
-
-	width: 1000px;
-	height: 697px;
-
->>>>>>> e39eb71ed89483a72c818cbd5f5346c31b6a96cb
 	margin: 40px 0px 41px 80px;
 	
 }
 div.qna_css {
-<<<<<<< HEAD
 
 	width: 1000px;
 	height: 697px;
@@ -798,15 +741,10 @@ div.qna_css {
 	height:70px;
 }
 div.search{
-	
-	margin: 40px 0px 41px 80px;
-=======
 
 	width: 1000px;
 	height: 697px;
 
 	margin: 40px 0px 41px 80px;
 
-
->>>>>>> e39eb71ed89483a72c818cbd5f5346c31b6a96cb
 }
