@@ -7,6 +7,14 @@
    });
 </script>
 
+<script>
+	function lostPw_click() {
+		self.location="/user/sendmail"
+	}
+
+</script>
+
+
 <div class="modal fade" id="login" tabindex="-1" role="dialog"
    aria-labelledby="myModalLabel">
    <div class="modal-dialog" role="document">
@@ -39,7 +47,7 @@
             <div class="modal-footer">
                <button type="submit" class="button special fit small">Login</button>
                <div>
-                  <button id="login_lost_btn" type="button" class="btn btn-link">Lost
+                  <button id="login_lost_btn" type="button" class="btn btn-link" onclick="lostPw_click();">Lost
                      Password?</button>
                   <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
                </div>
@@ -73,7 +81,12 @@
       <ul>
          <c:if test="${vo.getId() eq null }">
 
-            <li><a class="button small" data-toggle="modal"
+            <li>
+            
+       
+            
+            
+            <a class="button small" data-toggle="modal"
                data-target="#login"> <i class="fa fa-sign-in"
                   aria-hidden="true"></i> sign in
 

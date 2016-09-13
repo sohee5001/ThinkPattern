@@ -46,12 +46,29 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 		<!--  뒤에 있는 sqlSesessionFactory가 id값. 바로위에 있는 bean id! -->
 	</bean>
+	
+	<!-- gmail -->
+    <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="username" value="great0417@gmail.com" />
+        <property name="password" value="Rhdtodwk1!" />
+       
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.smtp.auth">true</prop>
+               
+               
+            </props>
+        </property>
+       
+    </bean>
+	
+	
 
 	<context:component-scan base-package="kr.co.thinkpattern.service"></context:component-scan>
 	<context:component-scan base-package="kr.co.thinkpattern.dao"></context:component-scan>
 	<context:component-scan base-package="kr.co.thinkpattern.aop"></context:component-scan>
-	
-	
-	
-		
 </beans>

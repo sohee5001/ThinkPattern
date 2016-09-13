@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.thinkpattern.dto.LoginDTO;
 import kr.co.thinkpattern.service.UserService;
+import kr.co.thinkpattern.vo.Email;
 import kr.co.thinkpattern.vo.UserVO;
 
 @Controller
@@ -66,6 +68,18 @@ public class UserController {
 				rttr.addFlashAttribute("result", "joinFail");
 				return "redirect:/user/join";
 			}
+			if(user.getId().length() <= 4)
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
+			if(user.getPassword().length() <= 4)
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
+			
+			
 			service.insertUser(user);
 			model.addAttribute("nullVO", user);
 			rttr.addFlashAttribute("result", "joinseccess");
@@ -208,10 +222,60 @@ public class UserController {
 		session.invalidate();
 	}
 	
+	
+	
+	@RequestMapping(value="/sendmail", method=RequestMethod.GET)
+	public void sendMailGet(UserVO user, Model model) throws Exception {
+		
+			
+	}
+	
+	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
+	public String sendMailPost(UserVO vo, Model model,RedirectAttributes rttr) throws Exception
+	{
+		
+		
+		UserVO findVO = service.selectId(vo.getId());
+
+		
+		
+		
+		
+		if(findVO.getEmail().equals(vo.getEmail()))
+		{
+			if(findVO.getName().equals(vo.getName()))
+			{
+				Email email = new Email();;
+				email.setContent("비밀번호는" + findVO.getPassword() + "입니다");
+				email.setReceiver(findVO.getEmail());
+				email.setSubject(findVO.getName() + "님 비밀번호 찾기 메일입니다.");
+							
+				service.SendMail(email);
+				rttr.addFlashAttribute("result", "emailSuccess");
+			}
+			else
+			{
+				rttr.addFlashAttribute("result", "emailNameFail");
+			}
+			
+		}
+		else
+		{
+			rttr.addFlashAttribute("result", "emailEmailFail");
+		}
+		
+		
+		return "redirect:/";
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value="/loginFail", method=RequestMethod.GET)
 	public void loginFail()
 	{
-		
+	
 	}
 	
 }
