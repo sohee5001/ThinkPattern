@@ -1,6 +1,7 @@
 package kr.co.thinkpattern.service;
 
 import kr.co.thinkpattern.dto.LoginDTO;
+import kr.co.thinkpattern.vo.Email;
 import kr.co.thinkpattern.vo.UserVO;
 
 public interface UserService {
@@ -16,6 +17,6 @@ public interface UserService {
 	
 	public void deleteUser(String id);
 
-	
+	public void SendMail(Email email) throws Exception;
 	
 }

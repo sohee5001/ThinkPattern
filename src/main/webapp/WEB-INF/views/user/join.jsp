@@ -14,9 +14,31 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
+		
+		//한글 입력만 가능하게 만듬 폼
+		$("#enterid").keyup(function(event){
+			if (!(event.keyCode >=37 && event.keyCode<=40)) {
+			var inputVal = $(this).val();
+			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
+			}
+			});
+		
+		
+		
+		
+		
 		$("#enterid").focus();
 		$("#enterid").blur(function() {
 			var enterid = $("#enterid").val();
+			if(enterid.length < 4 && enterid != "")
+			{
+				$("#check").html("4자 이상으로 입력해 주세요");
+			}
+			else
+			{
+			
+			
+			
 			$.ajax({
 				url : "http://localhost:8080/user/check",
 				type : "POST",
@@ -37,45 +59,57 @@
 				}
 
 			});
+			}
 		});
 
-	$("#checkpw").blur(function() 
-	{
+	//할 부분 	
+	$("#pw").blur(function() {
 		var pw = $("#pw").val();
-		var checkpw=$("#checkpw").val();
-		if(pw === checkpw)
+		if(pw.length < 4 && pw != "")
 		{
-			if(pw=="")
-			{
-				$("#resultpw").html("");
-			}
-			else
-			{
-				$("#resultpw").html("맞게 입력하셨습니다.");
-			}
+			$("#checkminpw").html("4자 이상으로 입력해 주세요");
+			
 		}
 		else
 		{
-			$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+			$("#checkminpw").html("");
 		}
 		
-	}); 
-	
-	
-});		
+	})	
+		
 	$("#checkpw").blur(function() {
 		var pw = $("#pw").val();
 		var checkpw = $("#checkpw").val();
-		if (pw === checkpw) {
-		if (pw == "") {
-			$("#resultpw").html("");
-		} else {
-		$("#resultpw").html("맞게 입력하셨습니다.");
-			}
-		} else {
-			$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+		if(checkpw.length < 4 && checkpw != "")
+		{
+		
+			$("#resultpw").html("4자 이상으로 입력해 주세요");
+			
 		}
-	});
+		else
+		{
+			if (pw === checkpw) {
+				if (pw == "") {
+					$("#resultpw").html("");
+				} else {
+					$("#resultpw").html("맞게 입력하셨습니다.");
+				}
+			} else {
+				$("#resultpw").html("비밀번호가 다릅니다. 다시 입력하세요.");
+			}
+		}
+	});	
+	
+	
+	
+});		
+	
+	
+	
+	
+	
+	
+	
 </script>
 
 
@@ -93,16 +127,16 @@
 					</div>
 					<p />
 					<div>
-						<label>ID</label> <input type="text" id="enterid" name="id"
+						<label>ID</label> <input type="text" id="enterid" name="id" maxlength="10"
 							placeholder="아이디를 입력해주세요">
 					</div>
 
-					<div id="check" class="print"></div>
+					<div id="check" class="print" style="color:red">4자리 이상 10자리 미만 영문으로만 입력하세요</div>
 					<div>
 						<label>password</label> <input type="password" name="password"
 							id="pw" placeholder="비밀번호를 입력해주세요">
 					</div>
-
+					<div id="checkminpw" class="print" style="color:red">비밀번호는 4자리 이상으로 입력하세요</div>
 					<div>
 						<label>confirmPW</label> <input type="password" id="checkpw"
 							name="pw2" placeholder="비밀번호를 다시 입력해주세요">
