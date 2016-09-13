@@ -56,6 +56,6 @@ $(function(){
         curvedLines: true,
         proximity: 100, // How close two dots need to be before they join
         parallax: false
-    });
+    });*/
 
 });

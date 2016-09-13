@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.thinkpattern.mappers.PatternMapper">
+
+	<select id="listAll" resultType="kr.co.thinkpattern.vo.PatternVO">
+			SELECT IDX, P_NAME, P_CONTENTS, P_STRONG, P_WEAK
+			FROM PATTERNS
+			ORDER BY IDX ASC
+	</select>
+
+</mapper>
