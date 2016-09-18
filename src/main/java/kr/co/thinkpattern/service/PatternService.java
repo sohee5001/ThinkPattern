@@ -7,5 +7,5 @@ import kr.co.thinkpattern.vo.PatternVO;
 public interface PatternService {
 	
 	public List<PatternVO> listAll() throws Exception;
-
+	public PatternVO read(String p_name) throws Exception;
 }

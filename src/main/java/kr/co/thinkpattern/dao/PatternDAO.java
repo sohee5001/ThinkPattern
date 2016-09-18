@@ -7,5 +7,5 @@ import kr.co.thinkpattern.vo.PatternVO;
 public interface PatternDAO {
 	
 	public List<PatternVO> listAll();
-
+	public PatternVO read(String p_name);
 }

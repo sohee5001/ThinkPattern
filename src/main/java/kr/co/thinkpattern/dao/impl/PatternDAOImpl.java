@@ -23,4 +23,9 @@ public class PatternDAOImpl implements PatternDAO {
 		return sqlSession.selectList(namespace+".listAll");
 	}
 
+	@Override
+	public PatternVO read(String p_name) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(namespace+".read", p_name);
+	}
 }

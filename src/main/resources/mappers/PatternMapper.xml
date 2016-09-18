@@ -5,8 +5,15 @@
 <mapper namespace="kr.co.thinkpattern.mappers.PatternMapper">
 
 	<select id="listAll" resultType="kr.co.thinkpattern.vo.PatternVO">
+			SELECT P_NAME, P_CONTENTS, P_STRONG, P_WEAK
+			FROM PATTERNS
+			ORDER BY IDX ASC
+	</select>
+	
+	<select id="read" resultType="kr.co.thinkpattern.vo.PatternVO">
 			SELECT IDX, P_NAME, P_CONTENTS, P_STRONG, P_WEAK
 			FROM PATTERNS
+			WHERE P_NAME=#{P_NAME}
 			ORDER BY IDX ASC
 	</select>
 
