@@ -37,8 +37,8 @@
 	<beans:bean id="loginInterceptor"
 	class="kr.co.thinkpattern.interceptor.LoginInterceptor"></beans:bean> 
 	
-<!-- 	<beans:bean id="authInterceptor"
-	class="kr.ac.skhu.interceptor.AuthInterceptor"></beans:bean> -->
+	<beans:bean id="authInterceptor"
+	class="kr.co.thinkpattern.interceptor.AuthInterceptor"></beans:bean>
 	
 	<!-- 삭제와 수정을 위한 beans 등록 -->
 <!-- 	   <beans:bean id="DeleteInterceptor" class="kr.ac.skhu.interceptor.DeleteInterceptor"></beans:bean>
@@ -50,13 +50,15 @@
 			<mapping path="/user/loginPost"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
+		
+		<interceptor>
+			<mapping path="/pattern/list"/>
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
 
 </interceptors>
 <!-- 		
-		<interceptor>
-			<mapping path="/board/*"/>
-			<beans:ref bean="authInterceptor"/>
-		</interceptor>
+		
 		
 		삭제와 수정을 위한 interceptor
 		      

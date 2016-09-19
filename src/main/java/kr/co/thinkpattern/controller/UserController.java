@@ -230,7 +230,7 @@ public class UserController {
 			
 	}
 	
-	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
+/*	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
 	public String sendMailPost(UserVO vo, Model model,RedirectAttributes rttr) throws Exception
 	{
 		
@@ -266,9 +266,23 @@ public class UserController {
 		
 		
 		return "redirect:/";
+	}*/
+	
+	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
+	public String sendMailPost(String vo, Model model,RedirectAttributes rttr, String usermail) throws Exception
+	{
+		
+		UserVO user = service.selectId(vo);
+		Email email = new Email();;
+		email.setContent("초대받은 방의 주소는 http://192.168.0.11:8210/lobby/?id=" + user.getName() + " 입니다");
+		email.setReceiver(usermail);
+		email.setSubject("[ThinkPattern] "+user.getName() + "님의 초대메일입니다.");
+							
+		service.SendMail(email);
+		rttr.addFlashAttribute("result", "emailSuccess");
+		
+		return "redirect:/";
 	}
-	
-	
 	
 	
 	
