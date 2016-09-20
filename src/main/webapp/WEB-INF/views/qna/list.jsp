@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
-    
+
 
 <script>
 	$(function() {
@@ -16,13 +16,13 @@
 	});
 </script>
 
-	
-	<div class="container">
+
+<div class="container">
 
 	<div class="qna_css">
-	
-	<a href="/notice/list">NOTICE BOARD</a>
-	<a href="/qna/list">QNA BOARD</a>
+
+		<a href="/notice/list">NOTICE BOARD</a> <a href="/qna/list">QNA
+			BOARD</a>
 
 		<h1>QnA 목록</h1>
 		<hr />
@@ -35,7 +35,7 @@
 
 			</div>
 			<input type="hidden" name="pg" value="1" />
-		
+
 			<div class="form-inline">
 				<form:select path="ss" class="search">
 
@@ -45,9 +45,9 @@
 					<form:option value="3" label="아이디" />
 				</form:select>
 				<form:input path="st" class="search" />
-				<button type="submit" class="button special small">검색</button>
+				<button type="submit" class="btn btn-small">검색</button>
 
-				
+
 			</div>
 			<table class="table table-bordered">
 				<thead>
@@ -84,6 +84,6 @@
 		</form:form>
 	</div>
 
-	</div>
+</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 

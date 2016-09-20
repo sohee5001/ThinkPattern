@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
+   <link href="/resources/res/css/a.css" rel="stylesheet" media="screen">
 <script>
    $('#login').on('shown.bs.modal', function() {
       $('#myInput').focus();
@@ -60,55 +61,89 @@
 
 
 
+<div class="w3-top">
+	<ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
+		<li><a href="../" class="w3-teal  w3-middle-home"><i
+				class="fa fa-spinner">THINKPATTERN</i></a></li>
+		<li class="w3-hide-medium w3-hide-large w3-mright"><a
+			class="w3-hover-white w3-large w3-theme-d2 w3-middle"
+			href="javascript:void(0);" onclick="openNav()"><i
+				class="fa fa-bars"></i></a></li>
 
+		<div class="middle">
+			<li class="w3-hide-small w3-middle"><a href="../">MANUAL</a></li>
+			<li class="w3-hide-small w3-middle"><a
+				href="/pattern/list">DESIGN PATTERN</a></li>
+			<li class="w3-hide-small w3-middle"><a href="/notice/list">SERVICE
+					CENTER</a></li>
+		</div>
+		<c:if test="${vo.getId() eq null }">
+			<div class="log_in">
+				<li class="w3-hide-small w3-right"><a class="button small"
+					data-toggle="modal" data-target="#login"> <i
+						class="fa fa-sign-in" aria-hidden="true"></i> sign in
 
-<!-- Header -->
-<div id="page-wrapper">
-   <header id="header">
+				</a></li>
+				<li class="w3-hide-small w3-right"><a href="/user/join"
+					class="button small"><i class="fa fa-user" aria-hidden="true"></i>
+						join</a></li>
+			</div>
+		</c:if>
 
-      <h1 id="logo">
-         <a href="../"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
-      </h1>
-      <nav id="nav">
-         <ul>
-            <li><a href="../">MANUAL</a></li>
-            <li><a href="/pattern/list">DESIGN PATTERN</a></li>
-            <li><a href="/notice/list">SERVICE CENTER</a></li>
-         </ul>
+		<c:if test="${vo.getId() ne null}">
+			<div class="log_in">
+				<li class="w3-hide-small w3-right">${vo.getName() }님환영합니다.<a
+					href="/user/modifyConfirm" class="button small"><i
+						class="fa fa-user" aria-hidden="true"></i> modify</a>
 
-      </nav>
-      <sign id="sign">
-      <ul>
-         <c:if test="${vo.getId() eq null }">
+				</li>
+				<li class="w3-hide-small w3-right"><a href="/user/logout"
+					class="button small"><i class="fa fa-sign-out"
+						aria-hidden="true"></i> logout</a></li>
+			</div>
+		</c:if>
 
-            <li>
-            
-       
-            
-            
-            <a class="button small" data-toggle="modal"
-               data-target="#login"> <i class="fa fa-sign-in"
-                  aria-hidden="true"></i> sign in
-
-            </a> <a href="/user/join" class="button small"><i class="fa fa-user"
-                  aria-hidden="true"></i> join</a></li>
-         </c:if>
-
-         <c:if test="${vo.getId() ne null}">
-
-            <li>${vo.getName() }님환영합니다.<a href="/user/modifyConfirm"
-               class="button small"><i class="fa fa-user" aria-hidden="true"></i>
-                  modify</a> <a href="/user/logout" class="button small"><i
-                  class="fa fa-sign-out" aria-hidden="true"></i> logout</a>
-
-            </li>
-         </c:if>
-      </ul>
-
-      </sign>
-
-
-
-
-   </header>
+	</ul>
 </div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top"
+	style="margin-top: 43px;">
+	<ul class="w3-navbar w3-left-align w3-large w3-theme">
+		<li class="w3-middle"><a href="../">MANUAL</a></li>
+		<li class="w3-middle"><a href="http://localhost:8210/?id=aaa">DESIGN
+				PATTERN</a></li>
+		<li class="w3-middle"><a href="/notice/list">SERVICE CENTER</a></li>
+		<c:if test="${vo.getId() eq null }">
+
+			<li><a class="button small smenu" data-toggle="modal"
+				data-target="#login"> <i class="fa fa-sign-in"
+					aria-hidden="true"></i> sign in
+			</a> <a href="/user/join" class="button small smenu"><i
+					class="fa fa-user" aria-hidden="true"></i> join</a></li>
+		</c:if>
+
+		<c:if test="${vo.getId() ne null}">
+			<div class="log_in">
+				<li>${vo.getName() }님환영합니다.<a href="/user/modifyConfirm"
+					class="button small smenu"><i class="fa fa-user"
+						aria-hidden="true"></i> modify</a> <a href="/user/logout "
+					class="button small smenu"><i class="fa fa-sign-out"
+						aria-hidden="true"></i> logout</a></li>
+			</div>
+		</c:if>
+	</ul>
+</div>
+
+<!-- Script For Side Navigation -->
+<script>
+	// Used to toggle the menu on smaller screens when clicking on the menu button
+	function openNav() {
+		var x = document.getElementById("navDemo");
+		if (x.className.indexOf("w3-show") == -1) {
+			x.className += " w3-show";
+		} else {
+			x.className = x.className.replace(" w3-show", "");
+		}
+	}
+</script>
