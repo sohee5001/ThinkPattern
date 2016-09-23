@@ -1,6 +1,7 @@
 package kr.co.thinkpattern.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -109,22 +110,46 @@ public class UserController {
 		return service.checkLogin(id);
 	}
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public void loginGET(UserVO user, Model model) throws Exception {
+	public String loginGET(Model model, RedirectAttributes rttr, HttpSession session) throws Exception {
+		
 		logger.info("<<<login get>>>");
+		UserVO vo = (UserVO)session.getAttribute("login");
+		if(vo == null)
+		{
+			rttr.addFlashAttribute("result", "needLogin");
+		}
+		
+		return "redirect:/";
 		
 	}
 
 	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
 	public void loginPOST(LoginDTO dto, HttpSession session, Model model, RedirectAttributes rttr) throws Exception
 	{
+		String invite = dto.getInvite();
+		
 		UserVO vo = service.loginUser(dto);
-
+		
+		
 		if(vo==null)
 		{
 			rttr.addFlashAttribute("result", "loginFail");
 			//return;
+		}else{
+			vo.setInvite(invite);
+		}
+		
+		if(invite.equals("")){
+//			model.addAttribute("userVO", vo);
+			
+		}else{
+			System.out.println("dddddddddd    "+ invite);
+			rttr.addFlashAttribute("inviteurl", invite);
+			rttr.addFlashAttribute("result", "move_node");
+//			return "redirect:http://localhost:8210/temp?id="+invite;
 		}
 		model.addAttribute("userVO", vo);
+//		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
@@ -268,7 +293,7 @@ public class UserController {
 		return "redirect:/";
 	}*/
 	
-	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
+/*	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
 	public String sendMailPost(String vo, Model model,RedirectAttributes rttr, String usermail) throws Exception
 	{
 		
@@ -282,8 +307,27 @@ public class UserController {
 		rttr.addFlashAttribute("result", "emailSuccess");
 		
 		return "redirect:/";
-	}
+	}*/
 	
+	@RequestMapping(value="/createroom", method=RequestMethod.POST)
+	public String createRoomPost(@RequestParam("room") String room , Model model, RedirectAttributes rttr, HttpServletRequest request, HttpSession session) throws Exception{
+		
+		String arr[] = request.getParameterValues("user_email");
+		UserVO vo = (UserVO) session.getAttribute("login");
+		
+		if(arr != null){
+			for(int i=0; i < arr.length ; i++){
+				Email email = new Email();
+				email.setReceiver(arr[i]);
+				email.setSubject("[ThinkPattern] Welcome to Design Patterns!!");
+//				email.setContent("<a href='http://localhost:8210/temp?room='"+room+" target='_blank' title='ThinkPattern'>이동하기</a>");
+				email.setContent("http://localhost:8081/invite?room="+room);
+				
+				service.SendMail(email);
+			}
+		}
+		return "redirect:http://localhost:8210/temp?room="+room+"&id="+vo.getName();
+	}
 	
 	
 	@RequestMapping(value="/loginFail", method=RequestMethod.GET)

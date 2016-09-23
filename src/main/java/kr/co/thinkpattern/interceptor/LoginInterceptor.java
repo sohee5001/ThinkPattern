@@ -30,15 +30,18 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		ModelMap modelMap = modelAndView.getModelMap();
 		
 		Object userVO = modelMap.get("userVO");
-		System.out.println("aaaabbbb"+userVO);
+		UserVO user = (UserVO)userVO;
 		
 		
 		if(userVO != null)
 		{
 			logger.info("new login success");
 			session.setAttribute(LOGIN, userVO);
-			 response.sendRedirect("/");
-			 
+			if(user.getInvite().equals("")){
+				response.sendRedirect("/");
+			}else{
+				response.sendRedirect("http://localhost:8210/temp?"+user.getInvite()+"&id="+user.getName());
+			}
 		}
 		else
 		{

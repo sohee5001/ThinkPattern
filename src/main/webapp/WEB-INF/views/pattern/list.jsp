@@ -21,7 +21,7 @@
 					
 					$("#patterns").empty();	//#patterns의 태그는 남기고 내부 요소들을 모두 비움, 이때 모든 하위태그들이 다 지워져서 그냥 html로 넣으면 들어가지 않음
 					$("#patterns").append(list_temp);	// 문서 로드 후 저장했던 list_temp(태그들이 다 들어있음)를 추가하여 아래에 html로 치환할 태그들을 생성해줌
-					$("#p_name").html("<h1>"+data.p_name+"</h1>");
+					$("#p_name").html("<h1 name='p_name'>"+data.p_name+"</h1>");
 					$("#p_name").append("<input type='hidden' name='p_name' value='"+data.p_name+"' />");
 					$("#p_contents").html("<hr /><h2>개요</h2><br /><p>"+data.p_contents+"</p><br/>");
 					$("#p_contents").append("<img src=../../resources/res/images/patterns/"+decodeURIComponent(data.p_name)+".png"+" alt=패턴>");
@@ -80,7 +80,7 @@
 					
 					<c:if test="${pname eq 'default' }">
 						<div id="p_list">
-							<div id="p_name"><h1>디자인 패턴이란?</h1><hr /></div>
+							<div id="p_name" ><h1 name='p_name'>디자인 패턴이란?</h1><hr /></div>
 							<div id="p_contents"><h2>개요</h2><br /><p>${patternVO.p_contents}</p><img src=../../resources/res/images/patterns/${patternVO.p_name}.png alt=패턴 style="width:70%;height:70%;"></div>
 							<div id="p_strong"></div>
 							<div id="p_weak"></div>
