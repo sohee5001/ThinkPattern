@@ -15,6 +15,7 @@ $(document).ready(function(){
 	$('#move_node').on('shown.bs.modal', function() {
 		$('#roomname').focus();
 		var pattern_name = $('h1[name=p_name]').text();
+		$('input[name=pattern_name]').val(pattern_name);
 		
 	});
 	
@@ -92,7 +93,7 @@ $(document).ready(function(){
 				<div class="modal-body">
 					<label>방이름</label>
 					<input id="room" class="form-control" type="text" name="room" placeholder="방이름을 입력해주세요" required /> <br />
-					
+					<input type="hidden" class="form-control" name="pattern_name" value="" />
 					<label>참여자</label>
 					<input type="hidden" id="userid" value="${user.getId() }"/>
 					<div class="user_list">

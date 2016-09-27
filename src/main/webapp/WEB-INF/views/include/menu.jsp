@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
 	pageEncoding="UTF-8"%>
 
+=======
+   pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+>>>>>>> ffc80530b383d599767323955cea02d61259f06e
 <script>
 	$(document).ready(function(){
 		$('#login').on('shown.bs.modal', function() {
