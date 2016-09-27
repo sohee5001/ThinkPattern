@@ -2586,7 +2586,8 @@ th {
 .table {
 	width: 100%;
 	max-width: 100%;
-	margin-bottom: 20px
+	margin-bottom: 20px;
+	    margin-top: 30px;
 }
 
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th,
@@ -2606,7 +2607,10 @@ th {
 	.table>colgroup+thead>tr:first-child>td, .table>colgroup+thead>tr:first-child>th,
 	.table>thead:first-child>tr:first-child>td, .table>thead:first-child>tr:first-child>th
 	{
-	border-top: 0
+	border-top: 0;
+    border-bottom: 1px solid #4fa7ef;
+    color: black;
+    font-weight: 700;
 }
 
 .table>tbody+tbody {

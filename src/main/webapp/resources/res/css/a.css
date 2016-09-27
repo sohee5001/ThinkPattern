@@ -11,7 +11,7 @@
 
 .w3-navbar li a, .w3-navitem {
 	display: block;
-	color: #e5e5e5;
+	color: #ffffff;
 }
 
 .w3-navbar
@@ -801,7 +801,7 @@ a
 .w3-middle-home {
 	padding: 16px 45px;
 	font-size: 23px;
-	margin: 0 50 0 200;
+	margin: 5 50 5 200;
 }
 
 .smenu_a {
@@ -809,5 +809,5 @@ a
 }
 
 .w3-navbar li a:hover {
-	color: #dbe2b5;
+	color: #94c2e9;
 }

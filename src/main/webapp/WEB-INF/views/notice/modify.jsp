@@ -20,10 +20,15 @@ textarea {
 	width: 95%;
 	height: 600px;
 }
+.box-footer {
+    margin: 50px 0px 0px 0px;
+ 
+}
 </style>
 
 <div class="container">
 	<div class="writer">
+	<h1>공지사항 수정</h1>
 		<form role="form" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="idx" value="${board.idx}">
 

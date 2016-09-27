@@ -40,10 +40,10 @@
                   type="text" name="uid" placeholder="아이디 입력해주세요" required /> <br />
                <label>Password</label> <input class="form-control" type="password"
                   name="upw" placeholder="비밀번호 입력해주세요" required /> <br />
-               <div class="checkbox">
+         <!--       <div class="checkbox">
                   <label> <input type="checkbox"> Remember me
                   </label>
-               </div>
+               </div> -->
             </div>
             <div class="modal-footer">
                <button type="submit" class="button special fit small">Login</button>
@@ -125,7 +125,8 @@
 
 		<c:if test="${vo.getId() ne null}">
 			<div class="log_in">
-				<li>${vo.getName() }님환영합니다.<a href="/user/modifyConfirm"
+			<span>${vo.getName() }님환영합니다.</span>
+				<li><a href="/user/modifyConfirm"
 					class="button small smenu"><i class="fa fa-user"
 						aria-hidden="true"></i> modify</a> <a href="/user/logout "
 					class="button small smenu"><i class="fa fa-sign-out"

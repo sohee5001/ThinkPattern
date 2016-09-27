@@ -48,17 +48,17 @@
 	<div class="writer">
 		<div class="pull-right">
 			<a href="/qna/modify?idx=${qna.idx}&${ pagination.queryString }"
-				class="btn"> <i class="icon-list"></i> 수정
+				class="btn btn-warning"> <i class="icon-list"></i> 수정
 
 			</a> <a href="/qna/delete?idx=${qna.idx}&${pagination.queryString}"
-				class="btn" data-confirm="삭제하시겠습니까?"> <i class="icon-remove"></i>
+				class="btn btn-danger" data-confirm="삭제하시겠습니까?"> <i class="icon-remove"></i>
 				삭제
-			</a> <a href="/qna/list?${ pagination.queryString }" class="btn"> <i
+			</a> <a href="/qna/list?${ pagination.queryString }" class="btn btn-primary"> <i
 				class="icon-list"></i> 목록으로
 			</a>
 		</div>
 
-		<h1>QnA</h1>
+		<h1>Q&A</h1>
 		<hr />
 
 		<form role="form" method="post">
