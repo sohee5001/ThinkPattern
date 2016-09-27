@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+.pattern_list{
+	margin:2% 5% 2% 5%;
+	font-size: 11pt;
+}
+
+.list-group .list-group-item {
+	text-align:center;
+}
+
+.pattern_list{
+	height:100%;
+}
+
+.col-md-10{
+	padding:0 5% 5% 5%;
+}
+
+a{
+	color:white;
+	font-size:13pt;
+	font-weight:bold;
+}
+#p_title{
+	cursor:pointer;
+}
