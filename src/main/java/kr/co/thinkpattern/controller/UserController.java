@@ -1,5 +1,7 @@
 package kr.co.thinkpattern.controller;
 
+import java.net.URLEncoder;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -143,7 +145,6 @@ public class UserController {
 //			model.addAttribute("userVO", vo);
 			
 		}else{
-			System.out.println("dddddddddd    "+ invite);
 			rttr.addFlashAttribute("inviteurl", invite);
 			rttr.addFlashAttribute("result", "move_node");
 //			return "redirect:http://localhost:8210/temp?id="+invite;
@@ -313,7 +314,10 @@ public class UserController {
 	public String createRoomPost(@RequestParam("room") String room , Model model, RedirectAttributes rttr, HttpServletRequest request, HttpSession session) throws Exception{
 		
 		String arr[] = request.getParameterValues("user_email");
+		String p_name = URLEncoder.encode(request.getParameter("pattern_name"), "UTF-8");
+		
 		UserVO vo = (UserVO) session.getAttribute("login");
+		String user_name = URLEncoder.encode(vo.getName(), "UTF-8");
 		
 		if(arr != null){
 			for(int i=0; i < arr.length ; i++){
@@ -326,7 +330,10 @@ public class UserController {
 				service.SendMail(email);
 			}
 		}
-		return "redirect:http://localhost:8210/temp?room="+room+"&id="+vo.getName();
+		
+		String room_name = URLEncoder.encode(room, "UTF-8");
+		
+		return "redirect:http://localhost:8210/temp?room="+room_name+"&id="+user_name+"&pattern="+p_name;
 	}
 	
 	

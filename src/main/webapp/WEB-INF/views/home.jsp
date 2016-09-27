@@ -20,6 +20,8 @@
 <script>
 		var result= '${result}';
 		var inviteurl = '${inviteurl}';
+		var node_user = '${node_user}';//인코딩하려고 만듬
+		
 		if(result == 'joinFail')
 		{
 			alert("회원가입에 실패하셨습니다 다시 하세요");	
@@ -43,7 +45,8 @@
 		}
 		if(result == 'move_node'){
 			alert("초대받은 방으로 이동합니다.");
-			window.location = "http://localhost:8210/temp?"+inviteurl+"&id=${vo.getName()}";
+			alert(inviteurl);
+			window.location.href = "http://localhost:8210/temp?"+encodeURI(inviteurl)+"&id="+encodeURI(node_user);
 		}
 	
 </script>
