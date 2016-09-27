@@ -17,6 +17,6 @@ public interface UserService {
 	
 	public void deleteUser(String id);
 
-	public void SendMail(Email email) throws Exception;
+	public boolean SendMail(Email email) throws Exception;
 	
 }

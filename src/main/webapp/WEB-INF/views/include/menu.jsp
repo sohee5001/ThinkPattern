@@ -1,20 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 
-   <link href="/resources/res/css/a.css" rel="stylesheet" media="screen">
 <script>
-   $('#login').on('shown.bs.modal', function() {
-      $('#myInput').focus();
-   });
+	$(document).ready(function(){
+		$('#login').on('shown.bs.modal', function() {
+		      $('#myInput').focus();
+		      $('input[name=invite]').val(inviteurl);
+		   });
+		
+		$('#login').on('hidden.bs.modal', function () {
+			inviteurl="";
+			$('input[name=invite]').val("");
+		});
+	});
 </script>
-
-<script>
-	function lostPw_click() {
-		self.location="/user/sendmail"
-	}
-
-</script>
-
 
 <div class="modal fade" id="login" tabindex="-1" role="dialog"
    aria-labelledby="myModalLabel">
@@ -36,6 +35,7 @@
 
          <form action="/user/loginPost" method="post" name="loginForm">
             <div class="modal-body">
+            <input type="hidden" name="invite" value=""/>
                <label>ID</label> <input id="myInput" class="form-control"
                   type="text" name="uid" placeholder="아이디 입력해주세요" required /> <br />
                <label>Password</label> <input class="form-control" type="password"
@@ -48,7 +48,7 @@
             <div class="modal-footer">
                <button type="submit" class="button special fit small">Login</button>
                <div>
-                  <button id="login_lost_btn" type="button" class="btn btn-link" onclick="lostPw_click();">Lost
+                  <button id="login_lost_btn" type="button" class="btn btn-link">Lost
                      Password?</button>
                   <button id="login_register_btn" type="button" class="btn btn-link">Register</button>
                </div>
@@ -61,51 +61,8 @@
 
 
 
-<div class="w3-top">
-	<ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
-		<li><a href="../" class="w3-teal  w3-middle-home"><i
-				class="fa fa-spinner">THINKPATTERN</i></a></li>
-		<li class="w3-hide-medium w3-hide-large w3-mright"><a
-			class="w3-hover-white w3-large w3-theme-d2 w3-middle"
-			href="javascript:void(0);" onclick="openNav()"><i
-				class="fa fa-bars"></i></a></li>
 
-		<div class="middle">
-			<li class="w3-hide-small w3-middle"><a href="../">MANUAL</a></li>
-			<li class="w3-hide-small w3-middle"><a
-				href="/pattern/list">DESIGN PATTERN</a></li>
-			<li class="w3-hide-small w3-middle"><a href="/notice/list">SERVICE
-					CENTER</a></li>
-		</div>
-		<c:if test="${vo.getId() eq null }">
-			<div class="log_in">
-				<li class="w3-hide-small w3-right"><a class="button small"
-					data-toggle="modal" data-target="#login"> <i
-						class="fa fa-sign-in" aria-hidden="true"></i> sign in
-
-				</a></li>
-				<li class="w3-hide-small w3-right"><a href="/user/join"
-					class="button small"><i class="fa fa-user" aria-hidden="true"></i>
-						join</a></li>
-			</div>
-		</c:if>
-
-		<c:if test="${vo.getId() ne null}">
-			<div class="log_in">
-				<li class="w3-hide-small w3-right">${vo.getName() }님환영합니다.<a
-					href="/user/modifyConfirm" class="button small"><i
-						class="fa fa-user" aria-hidden="true"></i> modify</a>
-
-				</li>
-				<li class="w3-hide-small w3-right"><a href="/user/logout"
-					class="button small"><i class="fa fa-sign-out"
-						aria-hidden="true"></i> logout</a></li>
-			</div>
-		</c:if>
-
-	</ul>
-</div>
-
+<<<<<<< HEAD
 <!-- Navbar on small screens -->
 <div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top"
 	style="margin-top: 43px;">
@@ -135,16 +92,51 @@
 		</c:if>
 	</ul>
 </div>
+=======
+>>>>>>> 605d65ae496a0df0eb8811661e3edd5413757ed6
 
-<!-- Script For Side Navigation -->
-<script>
-	// Used to toggle the menu on smaller screens when clicking on the menu button
-	function openNav() {
-		var x = document.getElementById("navDemo");
-		if (x.className.indexOf("w3-show") == -1) {
-			x.className += " w3-show";
-		} else {
-			x.className = x.className.replace(" w3-show", "");
-		}
-	}
-</script>
+<!-- Header -->
+<div id="page-wrapper">
+   <header id="header">
+
+      <h1 id="logo">
+         <a href="../"><i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN</a>
+      </h1>
+      <nav id="nav">
+         <ul>
+            <li><a href="../">MANUAL</a></li>
+            <li><a href="/pattern/list">DESIGN PATTERN</a></li>
+            <li><a href="/notice/list">SERVICE CENTER</a></li>
+         </ul>
+
+      </nav>
+      <sign id="sign">
+      <ul>
+         <c:if test="${vo.getId() eq null }">
+
+            <li><a class="button small loginGet" data-toggle="modal"
+               data-target="#login"> <i class="fa fa-sign-in"
+                  aria-hidden="true"></i> sign in
+
+            </a> <a href="/user/join" class="button small"><i class="fa fa-user"
+                  aria-hidden="true"></i> join</a></li>
+         </c:if>
+
+         <c:if test="${vo.getId() ne null}">
+
+            <li>${vo.getName() }님환영합니다.<a href="/user/modifyConfirm"
+               class="button small"><i class="fa fa-user" aria-hidden="true"></i>
+                  modify</a> <a href="/user/logout" class="button small"><i
+                  class="fa fa-sign-out" aria-hidden="true"></i> logout</a>
+
+            </li>
+         </c:if>
+      </ul>
+
+      </sign>
+
+
+
+
+   </header>
+</div>

@@ -3,32 +3,44 @@ package kr.co.thinkpattern.dto;
 public class LoginDTO {
 	private String uid;
 	private String upw;
-	
+
 	/*
-	 * °­»ç´ÔÀÌ ¿©±â¼­ useCookie´Â ¿Ö »ç¿ëÇÏ¼ÌÀ»±î.. 
-	 * cookieÀÇ È°¿ë¹ý°ú ±× ÀÇ¹Ì¸¦ Á» ¸íÈ®È÷ ´ÙÁ®¾ß ÇÒ ÇÊ¿ä°¡ ÀÖÀ»µí.
-	 * */
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¼­ useCookieï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½ï¿½ï¿½.. cookieï¿½ï¿½ È°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ç¹Ì¸ï¿½ ï¿½ï¿½ ï¿½ï¿½È®ï¿½ï¿½
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ê¿ä°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+	 */
 	private boolean useCookie;
-	
-	
+	private String invite;
+
+	public String getInvite() {
+		return invite;
+	}
+
+	public void setInvite(String invite) {
+		this.invite = invite;
+	}
+
 	public String getUid() {
 		return uid;
 	}
+
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
+
 	public String getUpw() {
 		return upw;
 	}
+
 	public void setUpw(String upw) {
 		this.upw = upw;
 	}
+
 	public boolean isUseCookie() {
 		return useCookie;
 	}
+
 	public void setUseCookie(boolean useCookie) {
 		this.useCookie = useCookie;
 	}
-	
 
 }

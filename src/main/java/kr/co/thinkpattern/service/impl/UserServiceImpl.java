@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
 	UserDAO dao;
 
 	@Override
-	public void SendMail(Email email)throws Exception
+	public boolean SendMail(Email email)throws Exception
 	{
 		MimeMessage msg = mailSender.createMimeMessage();
         try {
@@ -45,6 +45,7 @@ public class UserServiceImpl implements UserService {
             System.out.println("MailException발생");
             e.printStackTrace();
         }
+        return true;
     }
 		
 		
