@@ -714,10 +714,6 @@ div.comment {
 	height:
 }
 
-div.log_in {
-	    margin: 0px 195px 0px 0px;
-	float: right;
-}
 
 /* border */
 input#st {
@@ -741,7 +737,14 @@ select#ss {
 .join_t>label {
     margin: 0px 20px 0px 0px;
 }
-.log_in>span
+.log_m>span
 {
-	margin:10px;
+    margin: 22px 20px 0px 0px;
+    float: left;
+    font-size: 15px;
+    color: wheat;
+}
+div.log_in {
+    margin: 0px 145px 0px 0px;
+    float: right;
 }
