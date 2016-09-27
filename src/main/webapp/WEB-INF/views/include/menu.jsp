@@ -40,10 +40,10 @@
                   type="text" name="uid" placeholder="아이디 입력해주세요" required /> <br />
                <label>Password</label> <input class="form-control" type="password"
                   name="upw" placeholder="비밀번호 입력해주세요" required /> <br />
-               <div class="checkbox">
+         <!--       <div class="checkbox">
                   <label> <input type="checkbox"> Remember me
                   </label>
-               </div>
+               </div> -->
             </div>
             <div class="modal-footer">
                <button type="submit" class="button special fit small">Login</button>
@@ -62,6 +62,38 @@
 
 
 
+<<<<<<< HEAD
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-hide w3-hide-large w3-hide-medium w3-top"
+	style="margin-top: 43px;">
+	<ul class="w3-navbar w3-left-align w3-large w3-theme">
+		<li class="w3-middle"><a href="../">MANUAL</a></li>
+		<li class="w3-middle"><a href="http://localhost:8210/?id=aaa">DESIGN
+				PATTERN</a></li>
+		<li class="w3-middle"><a href="/notice/list">SERVICE CENTER</a></li>
+		<c:if test="${vo.getId() eq null }">
+
+			<li><a class="button small smenu" data-toggle="modal"
+				data-target="#login"> <i class="fa fa-sign-in"
+					aria-hidden="true"></i> sign in
+			</a> <a href="/user/join" class="button small smenu"><i
+					class="fa fa-user" aria-hidden="true"></i> join</a></li>
+		</c:if>
+
+		<c:if test="${vo.getId() ne null}">
+			<div class="log_in">
+			<span>${vo.getName() }님환영합니다.</span>
+				<li><a href="/user/modifyConfirm"
+					class="button small smenu"><i class="fa fa-user"
+						aria-hidden="true"></i> modify</a> <a href="/user/logout "
+					class="button small smenu"><i class="fa fa-sign-out"
+						aria-hidden="true"></i> logout</a></li>
+			</div>
+		</c:if>
+	</ul>
+</div>
+=======
+>>>>>>> 605d65ae496a0df0eb8811661e3edd5413757ed6
 
 <!-- Header -->
 <div id="page-wrapper">

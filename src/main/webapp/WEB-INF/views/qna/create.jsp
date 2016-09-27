@@ -29,7 +29,7 @@
 				<button type="submit" class="btn btn-primary">
 					<i class="icon-ok icon-white"></i> 저장하기
 				</button>
-				<a href="/qna/list.do?${ pagination.queryString }" class="btn">
+				<a href="/qna/list.do?${ pagination.queryString }" class="btn btn-danger">
 					<i class="icon-ban-circle"></i> 취소
 				</a>
 			</div>

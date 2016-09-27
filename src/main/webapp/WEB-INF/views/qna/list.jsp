@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
+<style>
+tbody tr:hover {
+	background-color: #428bca;
+	cursor: pointer;
+}
+</style>
 
 
 <script>
@@ -21,10 +27,10 @@
 
 	<div class="qna_css">
 
-		<a href="/notice/list">NOTICE BOARD</a> <a href="/qna/list">QNA
+		<a href="/notice/list">NOTICE BOARD</a> <a href="/qna/list">Q&A
 			BOARD</a>
 
-		<h1>QnA 목록</h1>
+		<h1>Q&A 목록</h1>
 		<hr />
 		<form:form method="get" modelAttribute="pagination">
 			<div class="pull-right">
@@ -45,7 +51,7 @@
 					<form:option value="3" label="아이디" />
 				</form:select>
 				<form:input path="st" class="search" />
-				<button type="submit" class="btn btn-small">검색</button>
+				<button type="submit" class="btn btn-primary">검색</button>
 
 
 			</div>
@@ -73,12 +79,18 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="pagination pagination-small pagination-centered">
-				<ul>
+			<div class="page_c">
+				<ul class="pagination ">
+				<li><a href="#" aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a></li>
 					<c:forEach var="page" items="${ pagination.pageList }">
 						<li class='${ page.cssClass }'><a
 							data-page="${ page.number }">${ page.label }</a></li>
 					</c:forEach>
+					<li><a href="#" aria-label="Next"> <span
+							aria-hidden="true">&raquo;</span>
+					</a></li>
 				</ul>
 			</div>
 		</form:form>

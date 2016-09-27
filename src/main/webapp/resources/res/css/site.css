@@ -226,10 +226,6 @@ table tbody tr {
 	border-right: 0;
 }
 
-table tbody tr:nth-child(2n + 1) {
-	background-color: #fdfdfd;
-}
-
 table td {
 	padding: 1em;
 }
@@ -402,7 +398,8 @@ input[type="submit"].disabled, input[type="submit"]:disabled, input[type="reset"
 }
 
 #header nav a:hover {
-	color: #e44c65 !important;
+	/* 	color: #e44c65 !important; */
+	color: #94c2e9;
 	border-bottom-color: transparent;
 }
 
@@ -629,13 +626,13 @@ div.home_css {
 	border: solid 1px #eee;
 	/* padding: 50 650 50 650; */
 	height: 782px;
-	background: url(../images/join.jpg);
+	background: url(../images/a.jpg);
 }
 /************join*************************/
 div.join_css {
 	border: solid 1px #eee;
 	padding: 50 650 50 650;
-	background: url(../images/join.jpg);
+	background: url(../images/back.jpg);
 	height: 782px;
 }
 
@@ -684,19 +681,19 @@ div.join_css {
 div.notice_css {
 	width: auto;
 	height: 782px;
-	padding: 40px 500px 41px 500px;
-	background: url(../images/join.jpg);
+	padding: 90px 500px 41px 500px;
+	background: url(../images/back.jpg);
 }
 
 div.qna_css {
 	width: auto;
 	height: 782px;
-	padding: 40px 500px 41px 500px;
-	background: url(../images/join.jpg);
+	padding: 90px 500px 41px 500px;
+	background: url(../images/back.jpg);
 }
 
 .form-inline {
-
+	
 }
 
 div.search {
@@ -708,11 +705,43 @@ div.search {
 div.writer {
 	width: auto;
 	height: 782px;
-	padding: 40px 500px 41px 500px;
-	background: url(../images/join.jpg);
+	padding: 60px 500px 41px 500px;
+	background: url(../images/back.jpg);
 	s
 }
 
 div.comment {
 	height:
+}
+
+div.log_in {
+	    margin: 0px 195px 0px 0px;
+	float: right;
+}
+
+/* border */
+input#st {
+	width: 200px;
+	margin-bottom: 10px;
+}
+
+select#ss {
+	width: 150px;
+}
+
+
+.page_c {
+	text-align: center;
+}
+
+.join_t>input {
+    width: 250px;
+    margin: 5px 0px 5px 0px;
+}
+.join_t>label {
+    margin: 0px 20px 0px 0px;
+}
+.log_in>span
+{
+	margin:10px;
 }
