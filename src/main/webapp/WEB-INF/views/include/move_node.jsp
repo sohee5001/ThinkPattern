@@ -94,11 +94,11 @@ $(document).ready(function(){
 					<label>방이름</label>
 					<input id="room" class="form-control" type="text" name="room" placeholder="방이름을 입력해주세요" required /> <br />
 					<input type="hidden" class="form-control" name="pattern_name" value="" />
-					<label>참여자</label>
+					<label>참여자</label><i class="fa fa-plus-circle fa-2x" aria-hidden="true" style="margin-left:10px; margin-top:3px;"></i> <br />
 					<input type="hidden" id="userid" value="${user.getId() }"/>
 					<div class="user_list">
 					<div class="user">
-						<!-- <input class="form-control" type="email" name="user_email" placeholder="이메일을 입력해주세요" required /> --> <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i> <br />
+						<!-- <input class="form-control" type="email" name="user_email" placeholder="이메일을 입력해주세요" required /> --> <!-- <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i> <br /> -->
 						<!-- <button type='button' class='btn btn-default sendmail'> <span class='glyphicon glyphicon-envelope' aria-hidden='true'></span>전송</button>--><br />
 					</div>
 					</div>

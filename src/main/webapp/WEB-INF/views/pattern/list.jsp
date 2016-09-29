@@ -61,7 +61,7 @@
  <link rel="stylesheet" type="text/css" href="/resources/res/css/patternlist.css">
 
 	<div class="pattern_list">
-		<input type="hidden" id="user" value="${user.getName()}"/>
+		<input type="hidden" id="user" value="${vo.getName()}"/>
 		<div class="col-md-2">
 		<h1 id="p_title" name="default">Design Patterns</h1>
 		<div class="list-group">

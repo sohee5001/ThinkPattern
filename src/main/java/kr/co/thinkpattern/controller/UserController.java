@@ -166,7 +166,7 @@ public class UserController {
 	public void modifyConfirmGET(UserVO user, Model model, HttpSession session) throws Exception {
 		logger.info("<<<join get>>>");
 		UserVO vo = (UserVO) session.getAttribute("login");
-		model.addAttribute("id", vo.getId());
+		model.addAttribute("vo", vo);
 	}
 	
 	

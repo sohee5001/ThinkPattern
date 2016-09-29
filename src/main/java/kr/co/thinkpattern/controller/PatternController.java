@@ -25,8 +25,11 @@ public class PatternController {
 		model.addAttribute("list", service.listAll());
 		
 		UserVO user = (UserVO)session.getAttribute("login");
-		System.out.println(user.getName()+" : 이름이다!!!!");
-		model.addAttribute("user", user);
+
+		if(user != null)
+		{
+			model.addAttribute("vo", user);
+		}
 	}
 	
 	@RequestMapping(value="/read", method = RequestMethod.POST)

@@ -1,26 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-<<<<<<< HEAD
-	pageEncoding="UTF-8"%>
-
-=======
-   pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
->>>>>>> ffc80530b383d599767323955cea02d61259f06e
+
 <script>
 	$(document).ready(function(){
-		$('#login').on('shown.bs.modal', function() {
+		$('#loginGet').on('shown.bs.modal', function() {
 		      $('#myInput').focus();
 		      $('input[name=invite]').val(inviteurl);
 		   });
 		
-		$('#login').on('hidden.bs.modal', function () {
+		$('#loginGet').on('hidden.bs.modal', function () {
 			inviteurl="";
 			$('input[name=invite]').val("");
 		});
 	});
 </script>
 
-<div class="modal fade" id="login" tabindex="-1" role="dialog"
+<div class="modal fade" id="loginGet" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -86,7 +81,7 @@
 		<c:if test="${vo.getId() eq null }">
 			<div class="log_in">
 				<li class="w3-hide-small w3-right"><a class="button small " data-toggle="modal"
-					data-target="#login"> <i class="fa fa-sign-in"
+					data-target="#loginGet"> <i class="fa fa-sign-in"
 						aria-hidden="true"></i> sign in
 				</a> </li><li class="w3-hide-small w3-right"><a href="/user/join" class="button small "><i
 						class="fa fa-user" aria-hidden="true"></i> join</a></li>

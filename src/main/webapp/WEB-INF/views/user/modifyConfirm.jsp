@@ -12,7 +12,7 @@
 			<div>
 				<br /> <br /> <br /> <br /> <br />
 				<div>
-					id <input type="text" value="${id}" readonly="readonly">
+					id <input type="text" value="${vo.getId()}" readonly="readonly">
 				</div>
 				<br />
 				<div>

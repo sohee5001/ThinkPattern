@@ -20,6 +20,7 @@ tbody tr:hover {
 			$("form").submit();
 		});
 	});
+	
 </script>
 
 

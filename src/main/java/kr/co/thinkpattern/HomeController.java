@@ -43,7 +43,6 @@ public class HomeController {
 		if(vo != null)
 		{
 			model.addAttribute("vo", vo);
-			System.out.println("id��!!!!!   " + vo.getId());
 		}
 		
 		
