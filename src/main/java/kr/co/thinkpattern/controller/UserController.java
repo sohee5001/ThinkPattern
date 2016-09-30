@@ -78,6 +78,16 @@ public class UserController {
 				rttr.addFlashAttribute("result", "joinFail");
 				return "redirect:/user/join";
 			}
+			if(!user.getPassword().matches("[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힝]"))
+			{
+				
+			}
+			else
+			{
+				rttr.addFlashAttribute("result", "joinFail");
+				return "redirect:/user/join";
+			}
+			
 			
 			
 			service.insertUser(user);

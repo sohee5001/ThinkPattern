@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		
+		var specialChar = 0;
 		//한글 입력만 가능하게 만듬 폼
 		$("#enterid").keyup(function(event){
 			if (!(event.keyCode >=37 && event.keyCode<=40)) {
@@ -22,6 +22,7 @@
 			$(this).val(inputVal.replace(/[^a-z0-9]/gi,''));
 			}
 			});
+		
 		
 		
 		
@@ -72,7 +73,18 @@
 		}
 		else
 		{
-			$("#checkminpw").html("");
+			//var specialChar check = 0;
+			var re = /[~!@\#$%<>^&*\()\-=+_\']/gi; //특수문자 정규식 변수 선언
+			if(re.test(pw))
+			{
+				$("#checkminpw").html("");
+			}
+			else
+			{
+				$("#checkminpw").html("~!@\#$%<>^&*\()\-=+_\ 와 같은 특수문자를 입력해 주세요");
+			}
+			
+			
 		}
 		
 	})	
