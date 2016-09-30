@@ -6,12 +6,12 @@
 
 
 <c:url value="/resources/" var="R" />
-<footer id="footer" style="margin: 0 auto; padding: 20px 0 10px 0">
-	<ul class="service_user">
+<footer id="footer" style="margin: 0 auto; padding: 23px 0 22px 0">
+<!-- 	<ul class="service_user">
 		
 			<li>서비스 이용 약관</li>
 			<li>개인정보 취급방침</li>
-	</ul>
+	</ul> -->
 
 		<a href="http://www.skhu.ac.kr"></a>
 

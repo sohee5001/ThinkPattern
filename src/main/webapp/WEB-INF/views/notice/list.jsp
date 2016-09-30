@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
-    
 
-<style type="text/css">
+<style>
 tbody tr:hover {
-	background-color: #ffa;
+	background-color: #428bca;
 	cursor: pointer;
 }
 </style>
+
 <script>
 	$(function() {
 		$("tbody tr").click(function() {
@@ -20,15 +20,16 @@ tbody tr:hover {
 			$("form").submit();
 		});
 	});
+	
 </script>
 
 
-	
-	<div class="container">
+
+<div class="container">
 
 	<div class="notice_css">
-		<a href="/notice/list">NOTICE BOARD</a>
-	<a href="/qna/list">QNA BOARD</a>
+		<a href="/notice/list">NOTICE BOARD</a> <a href="/qna/list">Q&A
+			BOARD</a>
 
 		<h1>공지사항 목록</h1>
 		<hr />
@@ -49,8 +50,8 @@ tbody tr:hover {
 					<form:option value="3" label="아이디" />
 				</form:select>
 				<form:input path="st" />
-				<button type="submit" class="btn btn-small">검색</button>
-				
+				<button type="submit" class=" btn btn-primary">검색</button>
+
 			</div>
 			<table class="table table-bordered">
 				<thead>
@@ -76,18 +77,24 @@ tbody tr:hover {
 					</c:forEach>
 				</tbody>
 			</table>
-			<div class="pagination pagination-small pagination-centered">
-				<ul>
+			<div class="page_c">
+				<ul class="pagination pagination-small pagination-centered">
+					<li><a href="#" aria-label="Previous"> <span
+							aria-hidden="true">&laquo;</span>
+					</a></li>
 					<c:forEach var="page" items="${ pagination.pageList }">
 						<li class='${ page.cssClass }'><a
 							data-page="${ page.number }">${ page.label }</a></li>
 					</c:forEach>
+					<li><a href="#" aria-label="Next"> <span
+							aria-hidden="true">&raquo;</span>
+					</a></li>
 				</ul>
 			</div>
 		</form:form>
 	</div>
 
-	</div>
+</div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 

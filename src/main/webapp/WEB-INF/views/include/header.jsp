@@ -16,7 +16,7 @@
 <link href="${R}res/css/bootstrap.min.css" rel="stylesheet" media="screen">
 
 
-
+<link href="/resources/res/css/a.css" rel="stylesheet" media="screen">
 
 <script src="${R}res/js/main.js"></script>
 <script src="${R}res/js/jquery.min.js"></script>

@@ -1,6 +1,9 @@
 package kr.co.thinkpattern.controller;
 
+import java.net.URLEncoder;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -119,22 +122,45 @@ public class UserController {
 		return service.checkLogin(id);
 	}
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public void loginGET(UserVO user, Model model) throws Exception {
+	public String loginGET(Model model, RedirectAttributes rttr, HttpSession session) throws Exception {
+		
 		logger.info("<<<login get>>>");
+		UserVO vo = (UserVO)session.getAttribute("login");
+		if(vo == null)
+		{
+			rttr.addFlashAttribute("result", "needLogin");
+		}
+		
+		return "redirect:/";
 		
 	}
 
 	@RequestMapping(value="/loginPost", method=RequestMethod.POST)
 	public void loginPOST(LoginDTO dto, HttpSession session, Model model, RedirectAttributes rttr) throws Exception
 	{
+		String invite = dto.getInvite();
+		
 		UserVO vo = service.loginUser(dto);
-
+		
+		
 		if(vo==null)
 		{
 			rttr.addFlashAttribute("result", "loginFail");
 			//return;
+		}else{
+			vo.setInvite(invite);
+		}
+		
+		if(invite.equals("")){
+//			model.addAttribute("userVO", vo);
+			
+		}else{
+			rttr.addFlashAttribute("inviteurl", invite);
+			rttr.addFlashAttribute("result", "move_node");
+//			return "redirect:http://localhost:8210/temp?id="+invite;
 		}
 		model.addAttribute("userVO", vo);
+//		return "redirect:/";
 	}
 	
 	@RequestMapping(value="/logout", method=RequestMethod.GET)
@@ -150,7 +176,7 @@ public class UserController {
 	public void modifyConfirmGET(UserVO user, Model model, HttpSession session) throws Exception {
 		logger.info("<<<join get>>>");
 		UserVO vo = (UserVO) session.getAttribute("login");
-		model.addAttribute("id", vo.getId());
+		model.addAttribute("vo", vo);
 	}
 	
 	
@@ -240,7 +266,7 @@ public class UserController {
 			
 	}
 	
-	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
+/*	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
 	public String sendMailPost(UserVO vo, Model model,RedirectAttributes rttr) throws Exception
 	{
 		
@@ -276,10 +302,49 @@ public class UserController {
 		
 		
 		return "redirect:/";
+	}*/
+	
+/*	@RequestMapping(value="/sendmail", method=RequestMethod.POST)
+	public String sendMailPost(String vo, Model model,RedirectAttributes rttr, String usermail) throws Exception
+	{
+		
+		UserVO user = service.selectId(vo);
+		Email email = new Email();;
+		email.setContent("초대받은 방의 주소는 http://192.168.0.11:8210/lobby/?id=" + user.getName() + " 입니다");
+		email.setReceiver(usermail);
+		email.setSubject("[ThinkPattern] "+user.getName() + "님의 초대메일입니다.");
+							
+		service.SendMail(email);
+		rttr.addFlashAttribute("result", "emailSuccess");
+		
+		return "redirect:/";
+	}*/
+	
+	@RequestMapping(value="/createroom", method=RequestMethod.POST)
+	public String createRoomPost(@RequestParam("room") String room , Model model, RedirectAttributes rttr, HttpServletRequest request, HttpSession session) throws Exception{
+		
+		String arr[] = request.getParameterValues("user_email");
+		String p_name = URLEncoder.encode(request.getParameter("pattern_name"), "UTF-8");
+		
+		UserVO vo = (UserVO) session.getAttribute("login");
+		String user_name = URLEncoder.encode(vo.getName(), "UTF-8");
+		
+		if(arr != null){
+			for(int i=0; i < arr.length ; i++){
+				Email email = new Email();
+				email.setReceiver(arr[i]);
+				email.setSubject("[ThinkPattern] Welcome to Design Patterns!!");
+//				email.setContent("<a href='http://localhost:8210/temp?room='"+room+" target='_blank' title='ThinkPattern'>이동하기</a>");
+				email.setContent("http://localhost:8081/invite?room="+room);
+				
+				service.SendMail(email);
+			}
+		}
+		
+		String room_name = URLEncoder.encode(room, "UTF-8");
+		
+		return "redirect:http://localhost:8210/temp?room="+room_name+"&id="+user_name+"&pattern="+p_name;
 	}
-	
-	
-	
 	
 	
 	@RequestMapping(value="/loginFail", method=RequestMethod.GET)

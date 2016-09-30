@@ -1,5 +1,7 @@
 package kr.co.thinkpattern.interceptor;
 
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -30,15 +32,22 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 		ModelMap modelMap = modelAndView.getModelMap();
 		
 		Object userVO = modelMap.get("userVO");
-		System.out.println("aaaabbbb"+userVO);
+		UserVO user = (UserVO)userVO;
 		
 		
 		if(userVO != null)
 		{
 			logger.info("new login success");
 			session.setAttribute(LOGIN, userVO);
-			 response.sendRedirect("/");
-			 
+			if(user.getInvite().equals("")){
+				response.sendRedirect("/");
+			}else{
+				String str = user.getInvite();
+				String[] url = str.split("=");
+				String room = URLEncoder.encode(url[1], "UTF-8");
+				String name = URLEncoder.encode(user.getName(), "UTF-8");
+				response.sendRedirect("http://localhost:8210/temp?room="+room+"&id="+name);
+			}
 		}
 		else
 		{
