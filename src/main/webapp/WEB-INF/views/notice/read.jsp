@@ -8,14 +8,18 @@
 
 	<div class="writer">
 		<div class="pull-right">
+		<c:if test="${vo.getId() eq notice.userid }">
 			<a
 				href="/notice/modify?idx=${notice.idx}&${ pagination.queryString }"
 				class="btn btn-warning"> <i class="icon-list"></i> 수정
-
+		
 			</a> <a href="/notice/delete?idx=${notice.idx}&${pagination.queryString}"
 				class="btn btn-danger" data-confirm="삭제하시겠습니까?"> <i
 				class="icon-remove"></i> 삭제
-			</a> <a href="/notice/list?${ pagination.queryString }"
+			</a> 
+			</c:if>
+			
+			<a href="/notice/list?${ pagination.queryString }"
 				class="btn btn-primary"> <i class="icon-list"></i> 목록으로
 			</a>
 		</div>

@@ -50,7 +50,7 @@ $(document).ready(function(){
  		var uservo = $('#userid').val();
  		alert(uservo);
  		$.ajax({
-			url:"http://localhost:8081/user/sendmail",
+			url:"http://localhost:8080/user/sendmail",
 			type: "POST",
 			data:{"usermail" : email , "vo" : uservo },
 			success:function(data){

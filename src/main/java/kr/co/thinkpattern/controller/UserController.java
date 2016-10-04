@@ -22,7 +22,7 @@ import kr.co.thinkpattern.dto.LoginDTO;
 import kr.co.thinkpattern.service.UserService;
 import kr.co.thinkpattern.vo.Email;
 import kr.co.thinkpattern.vo.UserVO;
-
+import java.util.regex.*;
 @Controller
 @RequestMapping("/user/*")
 public class UserController {
@@ -42,6 +42,12 @@ public class UserController {
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public String joinPOST(@RequestParam("pw2") String pw2, HttpServletResponse response, UserVO user, RedirectAttributes rttr, Model model ) throws Exception
 	{
+		String special = "[^\"'\\{\\}\\[\\]/?.,;:|\\)\\(*~`!^\\-_+<>@#$%^\\\\=]";
+		String number = "[^0-9]";
+		String english = "[^a-zA-Z]";
+		
+		
+		
 		logger.info("<<<join post>>>");
 		int check = service.checkLogin(user.getId());
 		if(check == 0)
@@ -81,18 +87,21 @@ public class UserController {
 				rttr.addFlashAttribute("result", "joinFail");
 				return "redirect:/user/join";
 			}
-			if(!user.getPassword().matches("[0-9|a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힝]"))
-			{
-				
-			}
-			else
-			{
+			
+			
+			
+			
+			
+			Pattern p = Pattern.compile("([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])");
+			Matcher m = p.matcher(user.getPassword());
+			if (m.find()){
+			    System.out.println("숫자 문자 특수문자 다 있음");
+			}else{
 				rttr.addFlashAttribute("result", "joinFail");
 				return "redirect:/user/join";
 			}
-			
-			
-			
+
+	
 			service.insertUser(user);
 			model.addAttribute("nullVO", user);
 			rttr.addFlashAttribute("result", "joinseccess");
