@@ -33,7 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from USERS where id=#{id}
 	</delete>
 		
-	
-	
+	<select id="userList" resultType="String">
+		SELECT Email FROM USERS
+	</select>	
 	
 </mapper>

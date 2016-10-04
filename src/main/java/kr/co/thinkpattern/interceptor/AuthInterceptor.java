@@ -16,7 +16,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 			HttpSession session = request.getSession();
 			//로그인이 안된 상태이면 메인으로
 			if(session.getAttribute("login") ==null){
-				response.sendRedirect("/");
+				response.sendRedirect("/user/login");
 				return false;
 			}
 			return true;

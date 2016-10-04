@@ -95,7 +95,6 @@
 		<div class="join_css">
 
 			<form role="form" method="post">
-				<div>
 					<div class="join_logo">
 						<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN
 						&nbsp; 회원가입
@@ -107,7 +106,7 @@
 							<div class="join_t">
 								<td><label>ID</label></td>
 								<td><input type="text" id="enterid" name="id"
-									maxlength="10" placeholder="아이디를 입력해주세요"></td>
+									maxlength="10" placeholder="아이디를 입력해주세요" autocomplete=off></td>
 							</div>
 						</tr>
 						<div id="check" class="print" style="color: red">4자리 이상 10자리
@@ -136,7 +135,7 @@
 						<tr>
 							<div class="join_t">
 								<td><label>name</label></td>
-								<td><input type="text" name="name" placeholder="이름을 입력해주세요"></td>
+								<td><input type="text" name="name" placeholder="이름을 입력해주세요" autocomplete=off></td>
 							</div>
 						</tr>
 
@@ -144,7 +143,7 @@
 							<div class="join_t">
 								<td><label>email</label></td>
 								<td><input type="text" name="email"
-									placeholder="Email을 입력해주세요"></td>
+									placeholder="Email을 입력해주세요" autocomplete=off></td>
 									</div>
 						</tr>
 					</table>

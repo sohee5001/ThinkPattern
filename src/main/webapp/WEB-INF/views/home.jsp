@@ -14,10 +14,11 @@
 
 			</div>
 		</div>
-
 	</div>
 </body>
+
 <script>
+
 		var result= '${result}';
 		var inviteurl = '${inviteurl}';
 		var node_user = '${node_user}';//인코딩하려고 만듬

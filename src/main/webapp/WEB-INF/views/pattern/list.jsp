@@ -10,6 +10,10 @@
 		var list_temp = $("#p_list").html();	//#p_list에 있는 디자인 패턴의 개요를 태그 통째로 변수에 저장
 		var user = $("#user").val();
 		
+		
+		
+		
+		
 		$(".list-group-item").on("click",function(event){	//디자인 패턴 리스트를 클릭하면 함수 호출
 			event.preventDefault();		// 버튼 클릭 시 발생한 이벤트를 정지시킴
 			var name = $(this).attr('name');	//클릭한 버튼의 name값을 변수에 저장
@@ -27,7 +31,7 @@
 					$("#p_contents").append("<img src=../../resources/res/images/patterns/"+decodeURIComponent(data.p_name)+".png"+" alt=패턴>");
 					$("#p_strong").html("<hr /><h1>장점</h1><p>"+data.p_strong+"</p>");
 					$("#p_weak").html("<hr /><h1>단점</h1><p>"+data.p_weak+"</p>");
-					$("#move").html("<hr /><a class='button small' data-toggle='modal' data-target='#move_node'><i class='fa fa-caret-square-o-right' aria-hidden='true'></i> Create Pattern </a>");
+					$("#move").html("<hr /><a class='button small' data-toggle='modal' data-target='#move_node'><i class='fa fa-caret-square-o-right' aria-hidden='true'></i> Create Project </a>");
 					/* $("#move").html("<hr /><button type='button' class='btn btn-primary'><a href='http://localhost:8210/?id="+user+"&"+data.p_name+"'>이동</a></button>") */
 				},
 				error:function(request, status, error){

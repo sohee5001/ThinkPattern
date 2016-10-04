@@ -3,19 +3,21 @@
 
 <script>
 	$(document).ready(function(){
-		$('#loginGet').on('shown.bs.modal', function() {
+		$('#login').on('shown.bs.modal', function() {
+			alert("shown.bs.modal 작동함");
 		      $('#myInput').focus();
 		      $('input[name=invite]').val(inviteurl);
 		   });
 		
-		$('#loginGet').on('hidden.bs.modal', function () {
+		$('#login').on('hidden.bs.modal', function () {
+			alert("hidden.bs.modal 작동함");
 			inviteurl="";
 			$('input[name=invite]').val("");
 		});
 	});
 </script>
 
-<div class="modal fade" id="loginGet" tabindex="-1" role="dialog"
+<div class="modal fade" id="login" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -77,11 +79,10 @@
 					CENTER</a></li>
 		</div>
 
-
 		<c:if test="${vo.getId() eq null }">
 			<div class="log_in">
-				<li class="w3-hide-small w3-right"><a class="button small " data-toggle="modal"
-					data-target="#loginGet"> <i class="fa fa-sign-in"
+				<li class="w3-hide-small w3-right"><a class="button small loginGet" data-toggle="modal"
+					data-target="#login"> <i class="fa fa-sign-in loginGet"
 						aria-hidden="true"></i> sign in
 				</a> </li><li class="w3-hide-small w3-right"><a href="/user/join" class="button small "><i
 						class="fa fa-user" aria-hidden="true"></i> join</a></li>
@@ -102,8 +103,6 @@
 
 		</c:if>
 
-
-	</ul>
 </div>
 
 <!-- Navbar on small screens -->

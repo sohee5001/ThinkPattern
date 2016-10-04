@@ -28,6 +28,7 @@ public class NoticeBoardController {
 	public void list(Model model, Pagination pagination, HttpSession session) throws Exception {
 		UserVO user = (UserVO) session.getAttribute("login");
 		model.addAttribute("vo", user);
+		System.out.println(pagination.getPageSize() + " : 페이지네이션");
 		pagination.setRecordCount(service.selectCount(pagination));
 		model.addAttribute("list", service.selectPage(pagination));
 	}

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.thinkpattern.service.PatternService;
+import kr.co.thinkpattern.service.UserService;
 import kr.co.thinkpattern.vo.PatternVO;
 import kr.co.thinkpattern.vo.UserVO;
 
@@ -19,11 +20,13 @@ public class PatternController {
 
 	@Inject
 	PatternService service;
+	@Inject
+	UserService userservice;
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	public void list(HttpSession session, Model model) throws Exception {
 		model.addAttribute("list", service.listAll());
-		
+		model.addAttribute("userList", userservice.userList());
 		UserVO user = (UserVO)session.getAttribute("login");
 
 		if(user != null)
@@ -34,12 +37,8 @@ public class PatternController {
 	
 	@RequestMapping(value="/read", method = RequestMethod.POST)
 	public @ResponseBody PatternVO read(String p_name ) throws Exception {
-		System.out.println(p_name+" : ajax read로 넘어옴");
 		PatternVO vo = null;
 		vo = service.read(p_name);
-		
-		System.out.println(vo.getP_name()+" : dao갔다옴");
-		
 		return vo;
 	}
 	
