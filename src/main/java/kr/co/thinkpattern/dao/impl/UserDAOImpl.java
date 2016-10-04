@@ -1,5 +1,7 @@
 package kr.co.thinkpattern.dao.impl;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -56,6 +58,12 @@ public class UserDAOImpl implements UserDAO{
 	public void deleteUser(String id) {
 		// TODO Auto-generated method stub
 		sqlsession.delete(namesapce + ".deleteUser", id);
+	}
+
+	@Override
+	public List<String> userList() {
+		// TODO Auto-generated method stub
+		return sqlsession.selectList(namesapce + ".userList");
 	}
 
 }

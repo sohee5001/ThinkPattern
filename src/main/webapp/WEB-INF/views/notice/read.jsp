@@ -8,16 +8,22 @@
 
 	<div class="writer">
 		<div class="pull-right">
-			<a
-				href="/notice/modify?idx=${notice.idx}&${ pagination.queryString }"
-				class="btn btn-warning  "> <i class="fa fa-pencil-square-o"
-				aria-hidden="true"></i> 수정
+			<c:if test="${vo.getId() eq notice.userid }">
+				<a
+					href="/notice/modify?idx=${notice.idx}&${ pagination.queryString }"
+					class="btn btn-warning  "> <i class="fa fa-pencil-square-o"
+					aria-hidden="true"></i> 수정
 
-			</a> <a href="/notice/delete?idx=${notice.idx}&${pagination.queryString}"
-				class="btn btn-warning   " data-confirm="삭제하시겠습니까?"> <i
-				class="fa fa-trash-o" aria-hidden="true"></i> 삭제
-			</a> <a href="/notice/list?${ pagination.queryString }"
+				</a>
+				<a href="/notice/delete?idx=${notice.idx}&${pagination.queryString}"
+					class="btn btn-warning   " data-confirm="삭제하시겠습니까?"> <i
+					class="fa fa-trash-o" aria-hidden="true"></i> 삭제
+				</a>
+			</c:if>
+			<a href="/notice/list?${ pagination.queryString }"
 				class="btn btn-warning  "> <i aria-hidden="true"></i> 목록으로
+
+
 			</a>
 		</div>
 

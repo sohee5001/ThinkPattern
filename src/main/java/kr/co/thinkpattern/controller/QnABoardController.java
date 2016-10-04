@@ -31,7 +31,7 @@ public class QnABoardController {
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public void list(HttpSession session,Model model, Pagination pagination) throws Exception {
 		UserVO user = (UserVO) session.getAttribute("login");
-		model.addAttribute("user", user);
+		model.addAttribute("vo", user);
 		pagination.setRecordCount(service.selectCount(pagination));
 		model.addAttribute("list", service.selectPage(pagination));
 
@@ -40,7 +40,7 @@ public class QnABoardController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public void createGET(HttpSession session, Model model, Pagination pagination) throws Exception {
 		UserVO user = (UserVO) session.getAttribute("login");
-		model.addAttribute("user", user);
+		model.addAttribute("vo", user);
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -53,7 +53,7 @@ public class QnABoardController {
 	public void read(HttpSession session, Model model, @RequestParam("idx") int idx, Pagination pagination) throws Exception {
 		service.updateCounts(idx);
 		UserVO user = (UserVO) session.getAttribute("login");
-		model.addAttribute("user", user);
+		model.addAttribute("vo", user);
 		model.addAttribute("qna", service.selectById(idx));
 		model.addAttribute("commentslist", commentsService.listAll(idx));
 	}
@@ -63,7 +63,7 @@ public class QnABoardController {
 		model.addAttribute("board", service.selectById(idx));
 		
 		UserVO user = (UserVO)session.getAttribute("login");
-		model.addAttribute("user", user);
+		model.addAttribute("vo", user);
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)

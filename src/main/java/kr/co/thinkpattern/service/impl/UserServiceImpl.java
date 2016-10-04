@@ -1,5 +1,7 @@
 package kr.co.thinkpattern.service.impl;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
@@ -88,6 +90,18 @@ public class UserServiceImpl implements UserService {
 	public void deleteUser(String id) {
 		// TODO Auto-generated method stub
 		dao.deleteUser(id);
+	}
+
+
+
+
+
+
+
+	@Override
+	public List<String> userList() throws Exception {
+		// TODO Auto-generated method stub
+		return dao.userList();
 	}
 	
 	

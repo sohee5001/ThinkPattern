@@ -7568,7 +7568,7 @@ a.list-group-item:focus, a.list-group-item:hover, button.list-group-item:focus,
 
 button.list-group-item {
 	width: 100%;
-	text-align: left
+    text-align: center;
 }
 
 .list-group-item.disabled, .list-group-item.disabled:focus,

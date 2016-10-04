@@ -24,8 +24,10 @@ textarea {
 </style>
 <div class="container">
 	<div class="writer">
+
 		<div class="writer_a">
 			<h1>Q&A 작성</h1>
+
 
 			<form action="/qna/create" method="post">
 				<div class="box-body">

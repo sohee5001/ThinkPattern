@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 .pattern_list{
-	margin:2% 5% 2% 5%;
+	margin:5% 5% 2% 5%;
 	font-size: 11pt;
 }
 
@@ -24,4 +24,8 @@ a{
 }
 #p_title{
 	cursor:pointer;
+	padding-right:150px;
+}
+#patterns > #p_list > p{
+	font-size:18px;
 }

@@ -53,17 +53,32 @@
 			}
 		});
 
-		//할 부분 	
 		$("#pw").blur(function() {
 			var pw = $("#pw").val();
-			if (pw.length < 4 && pw != "") {
+			if(pw.length < 4 && pw != "")
+			{
 				$("#checkminpw").html("4자 이상으로 입력해 주세요");
-
-			} else {
-				$("#checkminpw").html("");
+				alert(pw.length);
+				alert(pw);
 			}
-
-		})
+			else
+			{
+	
+				var re = /[~!@\#$%<>^&*\()\-=+_\']/gi;
+				var english = /[0-9]|[^\!-z]/gi;
+				var number = /[^0-9]/gi;
+				
+				
+				if(re.test(pw) && english.test(pw) && number.test(pw))
+				{
+					$("#checkminpw").html("");
+				}
+				else
+				{
+					$("#checkminpw").html("~!@\#$%<>^&*\()\-=+_\ 와 같은 특수문자와 영문과 숫자를 혼합하세요");	
+				}
+			}
+		});	
 
 		$("#checkpw").blur(function() {
 			var pw = $("#pw").val();
@@ -71,6 +86,7 @@
 			if (checkpw.length < 4 && checkpw != "") {
 
 				$("#resultpw").html("4자 이상으로 입력해 주세요");
+				
 
 			} else {
 				if (pw === checkpw) {
@@ -85,7 +101,7 @@
 			}
 		});
 
-	});
+	})
 </script>
 
 
@@ -95,7 +111,6 @@
 		<div class="join_css">
 
 			<form role="form" method="post">
-				<div>
 					<div class="join_logo">
 						<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN
 						&nbsp; 회원가입
@@ -107,7 +122,7 @@
 							<div class="join_t">
 								<td><label>ID</label></td>
 								<td><input type="text" id="enterid" name="id"
-									maxlength="10" placeholder="아이디를 입력해주세요"></td>
+									maxlength="10" placeholder="아이디를 입력해주세요" autocomplete=off></td>
 							</div>
 						</tr>
 						<div id="check" class="print" style="color: red">4자리 이상 10자리
@@ -136,7 +151,7 @@
 						<tr>
 							<div class="join_t">
 								<td><label>name</label></td>
-								<td><input type="text" name="name" placeholder="이름을 입력해주세요"></td>
+								<td><input type="text" name="name" placeholder="이름을 입력해주세요" autocomplete=off></td>
 							</div>
 						</tr>
 
@@ -144,7 +159,7 @@
 							<div class="join_t">
 								<td><label>email</label></td>
 								<td><input type="text" name="email"
-									placeholder="Email을 입력해주세요"></td>
+									placeholder="Email을 입력해주세요" autocomplete=off></td>
 									</div>
 						</tr>
 					</table>

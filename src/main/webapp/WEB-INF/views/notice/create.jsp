@@ -24,6 +24,7 @@ textarea {
 </style>
 <div class="container">
 	<div class="writer">
+
 		<div class="writer_a">
 			<h1>공지사항 작성</h1>
 
@@ -45,6 +46,7 @@ textarea {
 							readonly="readonly">
 					</div>
 				</div>
+
 
 				<div class="box-footer">
 					<button type="submit" class="btn btn-warning">

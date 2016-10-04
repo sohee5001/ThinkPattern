@@ -66,7 +66,7 @@
 				<form id="commentsInsert" class="form-inline"
 					action="/comments/insert" method="post">
 					<input type="hidden" name="board_idx" value="${ qna.idx}">
-					<input type="hidden" name="userid" value="${user.getId()}">
+					<input type="hidden" name="userid" value="${vo.getId()}">
 					<input class="form-control" type="text" name="contents"
 						style="width: 40%;" placeholder="댓글입력" /> <input class="btn"
 						type="submit" id="onLoadComment" value="등록">

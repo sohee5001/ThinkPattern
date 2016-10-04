@@ -25,8 +25,10 @@ public class NoticeBoardController {
 	NoticeBoardService service;
 	
 	@RequestMapping(value ="/list", method = RequestMethod.GET)
-	public void list(Model model, Pagination pagination) throws Exception {
-		
+	public void list(Model model, Pagination pagination, HttpSession session) throws Exception {
+		UserVO user = (UserVO) session.getAttribute("login");
+		model.addAttribute("vo", user);
+		System.out.println(pagination.getPageSize() + " : 페이지네이션");
 		pagination.setRecordCount(service.selectCount(pagination));
 		model.addAttribute("list", service.selectPage(pagination));
 	}
@@ -34,7 +36,7 @@ public class NoticeBoardController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public void createGET(HttpSession session, Model model, Pagination pagination) throws Exception {
 		UserVO user = (UserVO)session.getAttribute("login");
-		model.addAttribute("user", user);
+		model.addAttribute("vo", user);
 	}
 	
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -46,6 +48,10 @@ public class NoticeBoardController {
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(HttpSession session, Model model, @RequestParam("idx") int idx, Pagination pagination) throws Exception {
 		service.updateCounts(idx);
+		
+		UserVO user = (UserVO)session.getAttribute("login");
+		model.addAttribute("vo", user);
+		
 		model.addAttribute("notice", service.selectById(idx));
 	}
 	
@@ -54,7 +60,7 @@ public class NoticeBoardController {
 		model.addAttribute("board", service.selectById(idx));
 		
 		UserVO user = (UserVO)session.getAttribute("login");
-		model.addAttribute("user", user);
+		model.addAttribute("vo", user);
 	}
 	
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
