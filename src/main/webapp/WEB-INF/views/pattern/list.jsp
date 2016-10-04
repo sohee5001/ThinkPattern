@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
-<%@ include file="/WEB-INF/views/include/move_node.jsp"%>
+<%@ include file="/WEB-INF/views/include/move_node.jsp" %>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -59,50 +59,39 @@
 			});
 		});
 	});
+	
 </script>
 
-
-<div class="pattern_list">
-	<input type="hidden" id="user" value="${vo.getName()}" />
-	<div class="col-md-2">
+	<div class="pattern_list">
+		<input type="hidden" id="user" value="${vo.getName()}"/>
+		<div class="col-md-2">
 		<h1 id="p_title" name="default">Design Patterns</h1>
 		<div class="list-group">
-			<c:forEach items="${list}" var="patternVO">
-				<c:set var="pname" value="${patternVO.p_name }" />
-				<c:if test="${pname != 'default' }">
-					<button type="button" class="list-group-item"
-						name="${patternVO.p_name}">${patternVO.p_name}</button>
-				</c:if>
-			</c:forEach>
+		<c:forEach items="${list}" var="patternVO">
+			<c:set var="pname" value="${patternVO.p_name }"/>
+			<c:if test="${pname != 'default' }">
+			<button type="button" class="list-group-item" name="${patternVO.p_name}">${patternVO.p_name}</button>
+			</c:if>
+		</c:forEach>
+		</div>		
+		</div>
+		<div class="col-md-10">
+			<div id="patterns">
+				<c:forEach items="${list}" var="patternVO">
+					<c:set var="pname" value="${patternVO.p_name }"/>
+					
+					<c:if test="${pname eq 'default' }">
+						<div id="p_list">
+							<div id="p_name" ><h1 name='p_name'>디자인 패턴이란?</h1><hr /></div>
+							<div id="p_contents"><h2>개요</h2><br /><p>${patternVO.p_contents}</p><img src=../../resources/res/images/patterns/${patternVO.p_name}.png alt=패턴 style="width:70%;height:70%;"></div>
+							<div id="p_strong"></div>
+							<div id="p_weak"></div>
+							<div id="move"></div>
+						</div>
+					</c:if>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
-	<div class="col-md-10">
-		<div id="patterns">
-			<c:forEach items="${list}" var="patternVO">
-				<c:set var="pname" value="${patternVO.p_name }" />
-
-				<c:if test="${pname eq 'default' }">
-					<div id="p_list">
-						<div id="p_name">
-							<h1 name='p_name'>디자인 패턴이란?</h1>
-							<hr />
-						</div>
-						<div id="p_contents">
-							<h2>개요</h2>
-							<br />
-							<p>${patternVO.p_contents}</p>
-							<img
-								src=../../resources/res/images/patterns/${patternVO.p_name}.png
-								alt=패턴 style="width: 70%; height: 70%;">
-						</div>
-						<div id="p_strong"></div>
-						<div id="p_weak"></div>
-						<div id="move"></div>
-					</div>
-				</c:if>
-			</c:forEach>
-		</div>
-	</div>
-</div>
-
+	
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
