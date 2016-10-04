@@ -53,17 +53,32 @@
 			}
 		});
 
-		//할 부분 	
 		$("#pw").blur(function() {
 			var pw = $("#pw").val();
-			if (pw.length < 4 && pw != "") {
+			if(pw.length < 4 && pw != "")
+			{
 				$("#checkminpw").html("4자 이상으로 입력해 주세요");
-
-			} else {
-				$("#checkminpw").html("");
+				alert(pw.length);
+				alert(pw);
 			}
-
-		})
+			else
+			{
+	
+				var re = /[~!@\#$%<>^&*\()\-=+_\']/gi;
+				var english = /[0-9]|[^\!-z]/gi;
+				var number = /[^0-9]/gi;
+				
+				
+				if(re.test(pw) && english.test(pw) && number.test(pw))
+				{
+					$("#checkminpw").html("");
+				}
+				else
+				{
+					$("#checkminpw").html("~!@\#$%<>^&*\()\-=+_\ 와 같은 특수문자와 영문과 숫자를 혼합하세요");	
+				}
+			}
+		});	
 
 		$("#checkpw").blur(function() {
 			var pw = $("#pw").val();
@@ -71,6 +86,7 @@
 			if (checkpw.length < 4 && checkpw != "") {
 
 				$("#resultpw").html("4자 이상으로 입력해 주세요");
+				
 
 			} else {
 				if (pw === checkpw) {
@@ -85,7 +101,7 @@
 			}
 		});
 
-	});
+	})
 </script>
 
 

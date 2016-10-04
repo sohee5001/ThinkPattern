@@ -126,8 +126,37 @@ $(document).ready(function(){
 		event.preventDefault();
 		$(this).parent().remove();
 	});
+
+ 	/* $(document).on('click', '.sendmail', function(event){
+ 		event.preventDefault();
+ 		
+ 	var array = [];
+  	for(int i=0; ){
+ 		array[i] = arraylist
+ 	}
+ 	var email = $(this).parent().children('input').val();	//클릭한 버튼의 부모(div)의 자식(input)의 value값(email)을 변수에 저장
+ 		
+ 	array.push(email);
+ 		
+ 		
+ 		
+ 		alert(email);
+ 		var uservo = $('#userid').val();
+ 		alert(uservo);
+ 		$.ajax({
+			url:"http://localhost:8080/user/sendmail",
+			type: "POST",
+			data:{"usermail" : email , "vo" : uservo },
+			success:function(data){
+			},
+			error:function(request, status, error){
+				alert(error);
+			}
+		});
+ 		
+ 	}); */
  	
- 	$('#move_node').on('hidden.bs.modal', function () {//모달창이 close되었을때 발생하는 이벤트
+ 	$('#move_node').on('hidden.bs.modal', function () { //모달창이 close되었을때 발생하는 이벤트
  		$('form[name=NodeForm]').html("");
  		$('form[name=NodeForm]').append(modalbox);
 	});
