@@ -25,8 +25,10 @@
 </script>
 
 <div id="main" class="wrapper style1">
+
 	<div class="container">
 		<div class="modify_css">
+
 			<form role="form" method="post">
 				<div>
 					<div class="join_logo">

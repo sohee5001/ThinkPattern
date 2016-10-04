@@ -224,6 +224,7 @@ table tbody tr {
 	border: solid 1px #b3a7a7;
 	border-left: 0;
 	border-right: 0;
+	height: 50px;
 }
 
 table td {
@@ -664,7 +665,25 @@ div.join_css {
 	padding: 0;
 	text-align: center;
 }
+/* modify_css  */
+div.modify_css {
+	border: solid 1px #eee;
+	padding: 50 650 50 650;
+	background: url(../images/back.jpg);
+	height: 782px;
+}
 
+.modify_input>div>input {
+	width: 250px;
+}
+
+.modify_input>div>.modif_span {
+	width: 250px;
+}
+
+.modify_input>mdf>.modif_span {
+	width: 250px;
+}
 /************background****************/
 #particles {
 	width: 100%;
@@ -680,20 +699,29 @@ div.join_css {
 /********************board************************/
 div.notice_css {
 	width: auto;
-	height: 782px;
-	padding: 90px 500px 41px 500px;
-	background: url(../images/back.jpg);
+	/* 	height: 782px; */
+	height: 680px;
+	padding: 30px 500px 41px 500px;
+	/* 	background: url(../images/back.jpg); */
+}
+
+.writer_a {
+	background: #ffffff;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 20px 70px 40px 90px;
 }
 
 div.qna_css {
 	width: auto;
-	height: 782px;
-	padding: 90px 500px 41px 500px;
+	/* 	height: 782px; */
+	height: 680px;
+	padding: 30px 500px 41px 500px;
 	background: url(../images/back.jpg);
 }
 
 .form-inline {
-	
+	    margin-top: 15px;
 }
 
 div.search {
@@ -705,15 +733,20 @@ div.search {
 div.writer {
 	width: auto;
 	height: 782px;
-	padding: 60px 500px 41px 500px;
-	background: url(../images/back.jpg);
-	s
+	padding: 50px 500px 1px 500px;
+	/*     background: url(../images/back.jpg); */
+}
+/*댓글 읽기 */
+div.writer_d{
+	width: auto;
+
+	padding: 50px 500px 1px 500px;
+	/*     background: url(../images/back.jpg); */
 }
 
 div.comment {
-	height:
+	    margin: 0px 0px 50px 0px;
 }
-
 
 /* border */
 input#st {
@@ -721,30 +754,124 @@ input#st {
 	margin-bottom: 10px;
 }
 
+td:nth-child(3), td:nth-child(1), td:nth-child(4), td:nth-child(5) {
+	text-align: center;
+}
+
+.datacol {
+	text-align: center;
+}
+
 select#ss {
 	width: 150px;
 }
 
+.select_what {
+	text-align: center;
+	height: 100px;
+	border-bottom: 1px solid #ccc5c5;
+	background: -webkit-linear-gradient(#fafafa, #eaeaea);
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.23);
+	margin: 0px 0px 2px 0px;
+}
+
+.select_li_a {
+	
+}
+
+.select_li_b {
+	
+}
+
+.select_li {
+	padding: 40px 110px;
+	width: 470px;
+	float: left;
+	list-style-type: none;
+	font-size: 18px;
+}
 
 .page_c {
 	text-align: center;
+	margin-top: 30px;
 }
 
 .join_t>input {
-    width: 250px;
-    margin: 5px 0px 5px 0px;
+	width: 250px;
+	margin: 5px 0px 5px 0px;
 }
+
 .join_t>label {
-    margin: 0px 20px 0px 0px;
+	margin: 0px 20px 0px 0px;
 }
-.log_m>span
-{
-    margin: 22px 20px 0px 0px;
-    float: left;
-    font-size: 15px;
-    color: wheat;
+
+.log_m>span {
+	margin: 22px 20px 0px 0px;
+	float: left;
+	font-size: 15px;
+	color: wheat;
 }
+
 div.log_in {
-    margin: 0px 145px 0px 0px;
-    float: right;
+	margin: 0px 145px 0px 0px;
+	float: right;
+}
+/*게시판 읽기  */
+.article-header {
+	border-top: 1px solid #d5d1d1;
+	border-bottom: 1px solid #d5d1d1;
+	margin: 20px 0px 30px 0px;
+	padding: 20px;
+	background: #f9f9f9;
+	font-size: 16px;
+	height: 60px;
+}
+
+.btn_list {
+	background-color: #333 !important;
+	color: white;
+	font-size: 14px;
+}
+
+.btn.btn_list:hover {
+	color: #eeebe7;
+
+}
+.btn_list:hover
+{
+		background-color: white;
+}
+.lbl {
+	font-width: 500;
+}
+
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+span.title {
+	font-size: 19px;
+	font-weight: 600;
+	margin: 0px 0px 0px 10px;
+}
+
+span.txt {
+	margin: 0px 10px 0px 10px;
+}
+
+.l_count {
+	float: right;
+	margin: 0px 10px;
+}
+
+.l_day {
+	float: right;
+	margin: 0px 50px;
+}
+
+.l_writer {
+	float: left;
+	margin: 0px 0px 0px 10px;
+}
+.body_list
+{
+	margin:0px 0px 200px 0px;
 }

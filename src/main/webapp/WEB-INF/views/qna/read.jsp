@@ -7,93 +7,43 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
 
-<script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						var formObj = $("form[role='form']"); //role이 form인 element를 가지고 오겠다
-						$(".btn-warning")
-								.on(
-										"click",
-										function() {
-											formObj
-													.attr("action",
-															"/qna/modify?idx=${qna.idx}&${ pagination.queryString }");
-											formObj.attr("method", "get");
-											formObj.submit();
-										});
-
-						$(".btn-danger")
-								.on(
-										"click",
-										function() {
-											formObj
-													.attr("action",
-															"/qna/delete?idx=${qna.idx}&${pagination.queryString}");
-											formObj.attr("method", "get");
-											formObj.submit();
-										});
-
-						$(".btn-primary")
-								.on(
-										"click",
-										function() {
-											self.location = "/qna/list?${ pagination.queryString }";
-										});
-					});
-</script>
-
 
 <div class="container">
-	<div class="writer">
+	<div class="writer_d">
 		<div class="pull-right">
 			<a href="/qna/modify?idx=${qna.idx}&${ pagination.queryString }"
-				class="btn btn-warning"> <i class="icon-list"></i> 수정
+				class="btn btn-warning"> <i class="fa fa-pencil-square-o"
+				aria-hidden="true"></i> 수정
 
 			</a> <a href="/qna/delete?idx=${qna.idx}&${pagination.queryString}"
-				class="btn btn-danger" data-confirm="삭제하시겠습니까?"> <i class="icon-remove"></i>
-				삭제
-			</a> <a href="/qna/list?${ pagination.queryString }" class="btn btn-primary"> <i
-				class="icon-list"></i> 목록으로
+				class="btn btn-warning" data-confirm="삭제하시겠습니까?"> <i
+				class="fa fa-trash-o" aria-hidden="true"></i> 삭제
+			</a> <a href="/qna/list?${ pagination.queryString }"
+				class="btn btn-warning"> <i aria-hidden="true"></i> 목록으로
 			</a>
 		</div>
 
-		<h1>Q&A</h1>
-		<hr />
+		<div class="N_name">Q&A</div>
 
 		<form role="form" method="post">
-			<div class="box-body">
-				<div class="form-group">
-					<label for="InputTitle">Title</label> <input type="text"
-						name="title" class="form-control" value="${ qna.title }"
-						readonly="readonly">
+			<span class="title"> ${ qna.title }</span>
+			<div class="article-header">
+				'
+				<div class="l_writer">
+					<span class="lbl">작 성 자</span> <span class="txt">${ qna.userid}</span>
 				</div>
-				<div class="form-group">
-					<label for="InputContents">Content</label>
-					<textarea class="form-control" name="content" rows="3"
-						readonly="readonly">${ qna.contents }</textarea>
+				<div class="l_count">
+					<span class="lbl">조 회</span> <span class="txt">${ qna.counts }</span>
 				</div>
-				<div class="form-group">
-					<label for="InputUserid">Writer</label> <input type="text"
-						name="userid" class="form-control" value="${ qna.userid}"
-						readonly="readonly">
+				<div class="l_day">
+					<span class="lbl">작 성 일</span> <span class="txt"><fmt:formatDate
+							pattern="yyyy-MM-dd" value="${  qna.crea_dtm }" /></span>
 				</div>
-				<div></div>
+			
 			</div>
+			<div class="body_list">${ qna.contents }</div>
+			
 		</form>
-
-		<%-- <div class="article-header">
-			<span class="lbl">제목:</span> <span class="title">${ qna.title }</span>
-			<hr />
-			<span class="lbl">글번호:</span> <span class="txt">${ qna.idx}</span> <span
-				class="lbl">작성자:</span> <span class="txt">${ qna.userid}</span> <span
-				class="lbl">조회수:</span> <span class="txt">${ qna.counts }</span> <span
-				class="lbl">작성일</span> <span class="txt"> <fmt:formatDate
-					pattern="yyyy-MM-dd HH:mm" value="${  qna.crea_dtm }" /></span>
-			<hr />
-		</div>
-		<div class="body">${ qna.contents }</div> --%>
-
 		<p>[댓글]</p>
 		<div class="comment">
 			<table>
@@ -105,9 +55,9 @@
 							<td><textarea readonly=readonly>${ cl.contents}</textarea></td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 									value="${ cl.crea_dtm }" /></td>
-							<td><button>수정</button></td>
+							<td><button class="btn btn-warning">수정</button></td>
 							<td><a
-								href="/comments/delete?idx=${cl.idx}&board_idx=${cl.board_idx}">삭제</a></td>
+								href="/comments/delete?idx=${cl.idx}&board_idx=${cl.board_idx}" class="btn btn-warning">삭제</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -123,11 +73,6 @@
 				</form>
 			</div>
 
-		</div>
-		<div class="box-footer">
-			<button type="submit" class="btn btn-warning">Modify</button>
-			<button type="submit" class="btn btn-danger">Remove</button>
-			<button type="submit" class="btn btn-primary">List All</button>
 		</div>
 	</div>
 </div>

@@ -799,15 +799,20 @@ a
 }
 
 .w3-middle-home {
-    padding: 21px 45px;
-	font-size: 23px;
-	    margin: 0 100px 0 150px;
+    padding: 15px 45px 15px 40px;
+    font-size: 23px;
+    margin: 0 100px 0 150px;
 }
 
+img.logo_think {
+    margin-top: -11px;
+    margin-left: -15px;
+}
 .smenu_a {
 	margin: 10px 100px;
 }
 
 .w3-navbar li a:hover {
-	color: #94c2e9;
+/* 	color: #94c2e9; */
+    color: #dde1e4;
 }
