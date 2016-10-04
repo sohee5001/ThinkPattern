@@ -3,9 +3,11 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
 <style>
+@import url(http://fonts.googleapis.com/css?family=Merriweather.css);
 tbody tr:hover {
-	background-color: #428bca;
+	background-color: black;
 	cursor: pointer;
+	color:white;
 }
 </style>
 
@@ -25,17 +27,23 @@ tbody tr:hover {
 
 <div class="container">
 
-	<div class="qna_css">
 
-		<a href="/notice/list">NOTICE BOARD</a> <a href="/qna/list">Q&A
-			BOARD</a>
+	<div class="select_what">
+		<li class="select_li"></li>
+		<li class="select_li select_li_a"><a href="/notice/list"><i class="fa fa-bullhorn" aria-hidden="true"></i> NOTICE </a></li>
+		<li class="select_li select_li_b"><a href="/qna/list"><i class="fa fa-question-circle" aria-hidden="true"></i> Q&A </a></li>
+		<li class="select_li"></li>
 
-		<h1>Q&A 목록</h1>
+	</div>
+
+	<div class="notice_css">
+
+		<div class="N_name">Q&A 목록</div>
 		<hr />
 		<form:form method="get" modelAttribute="pagination">
 			<div class="pull-right">
 				<a href="/qna/create?${ pagination.queryString }"
-					class="btn btn-info"> <i class="icon-pencil icon-white"></i>
+					class="btn btn-warning"> <i class="icon-pencil icon-white"></i>
 					글쓰기
 				</a>
 
@@ -55,16 +63,23 @@ tbody tr:hover {
 
 
 			</div>
-			<table class="table table-bordered">
+			<table class="table table-bordered list_c">
+				<colgroup>
+					<col width="13%">
+					<col width="40%">
+					<col width="17%">
+					<col width="17%">
+					<col width="13%" />
+				</colgroup>
 				<thead>
-					<tr>
-						<th>idx</th>
-						<th>title</th>
-						<th>userid</th>
-						<th>crea_dtm</th>
-						<th>counts</th>
+			
+						<th class="datacol">No.</th>
+						<th class="datacol">제     목</th>
+						<th  class="datacol">작 성 자</th>
+						<th  class="datacol">작 성 일</th>
+						<th  class="datacol">조 회 수</th>
 
-					</tr>
+					
 				</thead>
 				<tbody>
 					<c:forEach var="b" items="${ list }">
@@ -72,7 +87,7 @@ tbody tr:hover {
 							<td>${ b.idx }</td>
 							<td>${ b.title }</td>
 							<td>${ b.userid }</td>
-							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
+							<td><fmt:formatDate pattern="yyyy-MM-dd"
 									value="${ b.crea_dtm }" /></td>
 							<td>${ b.counts}</td>
 						</tr>
@@ -80,8 +95,8 @@ tbody tr:hover {
 				</tbody>
 			</table>
 			<div class="page_c">
-				<ul class="pagination ">
-				<li><a href="#" aria-label="Previous"> <span
+				<ul class="pagination pagination-small pagination-centered ">
+					<li><a href="#" aria-label="Previous"> <span
 							aria-hidden="true">&laquo;</span>
 					</a></li>
 					<c:forEach var="page" items="${ pagination.pageList }">

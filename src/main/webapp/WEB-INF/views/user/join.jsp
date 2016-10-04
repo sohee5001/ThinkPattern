@@ -163,6 +163,7 @@
 									</div>
 						</tr>
 					</table>
+					</div>
 					<div class="buttoncss">
 
 						<button type="submit" class="button special small ">Submit</button>

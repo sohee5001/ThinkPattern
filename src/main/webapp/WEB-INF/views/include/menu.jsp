@@ -1,17 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <script>
-	$(document).ready(function(){
+	$(document).ready(function() {
 		$('#login').on('shown.bs.modal', function() {
-			alert("shown.bs.modal 작동함");
-		      $('#myInput').focus();
-		      $('input[name=invite]').val(inviteurl);
-		   });
-		
-		$('#login').on('hidden.bs.modal', function () {
-			alert("hidden.bs.modal 작동함");
-			inviteurl="";
+			$('#myInput').focus();
+			$('input[name=invite]').val(inviteurl);
+		});
+
+		$('#login').on('hidden.bs.modal', function() {
+			inviteurl = "";
 			$('input[name=invite]').val("");
 		});
 	});
@@ -62,10 +63,13 @@
 </div>
 
 
+
+
 <div class="w3-top">
 	<ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
-		<li><a href="../" class="w3-teal  w3-middle-home"><i
-				class="fa fa-spinner">THINKPATTERN</i></a></li>
+		<li><a href="../" class="w3-teal  w3-middle-home"><img
+				src="/resources/res/images/i.png" width="40" height="40"
+				class="logo_think">THINKPATTERN</i></a></li>
 		<li class="w3-hide-medium w3-hide-large w3-mright"><a
 			class="w3-hover-white w3-large w3-theme-d2 w3-middle"
 			href="javascript:void(0);" onclick="openNav()"><i
@@ -81,11 +85,16 @@
 
 		<c:if test="${vo.getId() eq null }">
 			<div class="log_in">
-				<li class="w3-hide-small w3-right"><a class="button small loginGet" data-toggle="modal"
+
+				<li class="w3-hide-small w3-right"><a
+					class="button small loginGet" data-toggle="modal"
 					data-target="#login"> <i class="fa fa-sign-in loginGet"
 						aria-hidden="true"></i> sign in
-				</a> </li><li class="w3-hide-small w3-right"><a href="/user/join" class="button small "><i
-						class="fa fa-user" aria-hidden="true"></i> join</a></li>
+				</a></li>
+				<li class="w3-hide-small w3-right"><a href="/user/join"
+					class="button small "><i class="fa fa-user" aria-hidden="true"></i>
+						join</a></li>
+
 			</div>
 
 		</c:if>
@@ -102,7 +111,6 @@
 			</div>
 
 		</c:if>
-
 </div>
 
 <!-- Navbar on small screens -->

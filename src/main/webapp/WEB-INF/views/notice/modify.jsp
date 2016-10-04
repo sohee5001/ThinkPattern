@@ -18,49 +18,52 @@ style>input[name=title] {
 
 textarea {
 	width: 95%;
-	height: 600px;
+	height: 200px;
 }
+
 .box-footer {
-    margin: 50px 0px 0px 0px;
- 
+	margin: 50px 0px 0px 0px;
 }
 </style>
 
 <div class="container">
 	<div class="writer">
-	<h1>공지사항 수정</h1>
-		<form role="form" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="idx" value="${board.idx}">
+		<div class="writer_a">
+			<h1>공지사항 수정</h1>
+			
+			<form role="form" method="post" enctype="multipart/form-data">
+				<input type="hidden" name="idx" value="${board.idx}">
 
 
-			<div class="box-body">
-				<div class="form-group">
-					<label for="exampleInputEmail1">Title</label> <input type="text"
-						name="title" class="form-control" value="${board.title}">
+				<div class="box-body">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Title</label> <input type="text"
+							name="title" class="form-control" value="${board.title}">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleInputPassword1">Contents</label>
+						<textarea class="form-control" name="contents" rows="3"
+							style="height: 203;">${board.contents}</textarea>
+					</div>
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Writer</label> <input type="text"
+							name="userid" class="form-control" value="${board.userid}"
+							readonly="readonly">
+					</div>
+
 				</div>
 
-				<div class="form-group">
-					<label for="exampleInputPassword1">Contents</label>
-					<textarea class="form-control" name="contents" rows="3">${board.contents}</textarea>
+				<div class="box-footer">
+					<button type="submit" class="btn btn-warning">
+					<i class="fa fa-floppy-o" aria-hidden="true"></i> 수정완료
+					</button>
+					&nbsp; <a href="javascript:history.back()" class="btn btn-warning" > 취소 </a>
 				</div>
 
-				<div class="form-group">
-					<label for="exampleInputEmail1">Writer</label> <input type="text"
-						name="userid" class="form-control" value="${board.userid}"
-						readonly="readonly">
-				</div>
-
-			</div>
-
-			<div class="box-footer">
-				<button type="submit" class="btn btn-primary">
-					<i class="icon-ok icon-white"></i>수정완료
-				</button>
-				&nbsp; <a class="btn btn-danger" href="javascript:history.back()"><i
-					class="icon-ban-circle"></i>취소</a>
-			</div>
-
-		</form>
+			</form>
+		</div>
 	</div>
 </div>
 
