@@ -39,7 +39,7 @@
 				<div class="modal-body">
 					<input type="hidden" name="invite" value="" /> <label>ID</label> <input
 						id="myInput" class="form-control" type="text" name="uid"
-						placeholder="아이디 입력해주세요" required /> <br /> <label>Password</label>
+						placeholder="아이디 입력해주세요" autocomplete="off" required /> <br /> <label>Password</label>
 					<input class="form-control" type="password" name="upw"
 						placeholder="비밀번호 입력해주세요" required /> <br />
 					<!--       <div class="checkbox">

@@ -18,7 +18,7 @@
 			event.preventDefault();		// 버튼 클릭 시 발생한 이벤트를 정지시킴
 			var name = $(this).attr('name');	//클릭한 버튼의 name값을 변수에 저장
 			$.ajax({
-				url:"http://localhost:8080/pattern/read",
+				url:"http://localhost:8081/pattern/read",
 				type: "POST",
 				data:{"p_name" : name},
 				success:function(data){
