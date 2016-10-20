@@ -42,7 +42,7 @@ textarea {
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Writer</label> <input type="text"
-							name="userid" class="form-control" value="${user.getId()}"
+							name="userid" class="form-control" value="${vo.getId()}"
 							readonly="readonly">
 					</div>
 				</div>

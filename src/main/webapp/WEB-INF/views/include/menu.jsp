@@ -76,7 +76,7 @@
 				class="fa fa-bars"></i></a></li>
 
 		<div class="middle">
-			<li class="w3-hide-small w3-middle"><a href="../">MANUAL</a></li>
+			<li class="w3-hide-small w3-middle"><a href="/user/manual">MANUAL</a></li>
 			<li class="w3-hide-small w3-middle"><a href="/pattern/list">DESIGN
 					PATTERN</a></li>
 			<li class="w3-hide-small w3-middle"><a href="/notice/list">SERVICE

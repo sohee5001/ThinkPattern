@@ -50,6 +50,18 @@ public class UserController {
 		
 		logger.info("<<<join post>>>");
 		int check = service.checkLogin(user.getId());
+		int emailCheck = service.checkEmail(user.getEmail());
+		int nameCheck = service.checkName(user.getName());
+		if(emailCheck != 0)
+		{
+			rttr.addFlashAttribute("result", "joinFail");
+			return "redirect:/user/join";
+		}
+		if(nameCheck != 0)
+		{
+			rttr.addFlashAttribute("result", "joinFail");
+			return "redirect:/user/join";
+		}
 		if(check == 0)
 		{
 			if(user.getId().equals(""))
@@ -115,6 +127,48 @@ public class UserController {
 		}
 	}
 	
+	
+	
+	@RequestMapping(value="/nameCheck", method=RequestMethod.POST)
+	public @ResponseBody int nameCheckPOST(@RequestParam("name") String name) throws Exception{
+		System.out.println("check��~~~~~~");
+		System.out.println("id�� <<<<<<<<>>>>>>>>>" + name + "<><><><<>");
+		if(name.equals(""))
+		{
+			return 3;
+		}
+		
+		int check = service.checkEmail(name);
+		
+	
+		System.out.println("result �� <<<<<<<<<<>>>>>>>>>>>" + check);
+		return service.checkName(name);
+	}
+	
+	
+	
+	
+	@RequestMapping(value="/emailCheck", method=RequestMethod.POST)
+	public @ResponseBody int emailCheckPOST(@RequestParam("email") String email) throws Exception{
+		System.out.println("check email!!!~~~~~~");
+		System.out.println(email);
+		if(email.equals(""))
+		{
+			return 3;
+		}
+		
+		int check = service.checkEmail(email);
+		
+	
+		System.out.println("result " + check);
+		return service.checkEmail(email);
+	}
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value="/check", method=RequestMethod.POST)
 	public @ResponseBody int checkPOST(@RequestParam("id") String id) throws Exception{
 		System.out.println("check��~~~~~~");
@@ -123,7 +177,7 @@ public class UserController {
 		{
 			return 3;
 		}
-
+		
 		int check = service.checkLogin(id);
 		
 	
@@ -207,6 +261,13 @@ public class UserController {
 			return "redirect:/user/modifyConfirm";
 		}
 		
+	}
+	
+	
+	@RequestMapping(value="/manual", method=RequestMethod.GET)
+	public void manualGET(Model model, HttpSession session)
+	{
+		System.out.println("여기로 옴");
 	}
 	
 	

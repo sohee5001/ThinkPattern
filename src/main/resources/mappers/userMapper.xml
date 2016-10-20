@@ -22,6 +22,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(*) AS COUNTS FROM USERS WHERE ID=#{id}
 	</select>
 	
+	<select id="checkEmail" resultType="Integer">
+		SELECT COUNT(*) AS COUNTS FROM USERS WHERE EMAIL=#{email}
+	</select>
+	
+	<select id="checkName" resultType="Integer">
+		SELECT COUNT(*) AS COUNTS FROM USERS WHERE NAME=#{name}
+	</select>
+	
 	
 	<update id="modifyUser">
 		update USERS set password=#{password}, email=#{email}, name=#{name}

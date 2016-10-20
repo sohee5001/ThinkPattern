@@ -53,6 +53,76 @@
 			}
 		});
 
+		
+		
+		
+		
+		//email
+		$("#email").blur(function() {
+			var email = $("#email").val();
+			
+
+			$.ajax({
+				url : "http://localhost:8080/user/emailCheck",
+				type : "POST",
+				data : {
+					"email" : email
+				},
+				success : function(data) {
+					if (data == 1) {
+						$("#emailcheck").html("중복된 메일입니다.");
+					} else if (data == 3) {
+						$("#emailcheck").html("");
+					} else {
+						$("#emailcheck").html("사용가능한 메일입니다..");
+					}
+				},
+				error : function(request, status, error) {
+
+				}
+
+			});
+		
+		});
+		
+		
+		
+		
+		//name
+		$("#name").blur(function() {
+			var name = $("#name").val();
+			
+
+			$.ajax({
+				url : "http://localhost:8080/user/nameCheck",
+				type : "POST",
+				data : {
+					"name" : name
+				},
+				success : function(data) {
+					if (data == 1) {
+						$("#namecheck").html("중복된 닉네임입니다.");
+					} else if (data == 3) {
+						$("#namecheck").html("");
+					} else {
+						$("#namecheck").html("사용가능한 닉네임입니다..");
+					}
+				},
+				error : function(request, status, error) {
+
+				}
+
+			});
+		
+		});
+		
+		
+		
+		
+		
+		
+		
+		
 		$("#pw").blur(function() {
 			var pw = $("#pw").val();
 			if(pw.length < 4 && pw != "")
@@ -125,7 +195,7 @@
 									maxlength="10" placeholder="아이디를 입력해주세요" autocomplete=off></td>
 							</div>
 						</tr>
-						<div id="check" class="print" style="color: red">4자리 이상 10자리
+						<div id="check" class="print">4자리 이상 10자리
 							미만 영문으로만 입력하세요</div>
 
 						<tr>
@@ -135,7 +205,7 @@
 									placeholder="비밀번호를 입력해주세요"></td>
 							</div>
 						</tr>
-						<div id="checkminpw" class="print" style="color: red">비밀번호는
+						<div id="checkminpw" class="print">비밀번호는
 							4자리 이상으로 입력하세요</div>
 
 
@@ -151,17 +221,18 @@
 						<tr>
 							<div class="join_t">
 								<td><label>name</label></td>
-								<td><input type="text" name="name" placeholder="이름을 입력해주세요" autocomplete=off></td>
+								<td><input type="text" id = "name" name="name" placeholder="이름을 입력해주세요" autocomplete=off></td>
 							</div>
 						</tr>
-
+						<div id="namecheck" class="print"></div>
 						<tr>
 							<div class="join_t">
 								<td><label>email</label></td>
-								<td><input type="text" name="email"
+								<td><input type="text" name="email" id= "email"
 									placeholder="Email을 입력해주세요" autocomplete=off></td>
 									</div>
 						</tr>
+						<div id="emailcheck" class="print"></div>
 					</table>
 					</div>
 					<div class="buttoncss">
