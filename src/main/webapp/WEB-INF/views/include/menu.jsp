@@ -41,7 +41,7 @@
 				<div class="modal-body">
 					<input type="hidden" name="invite" value="" /> <label>ID</label> <input
 						id="myInput" class="form-control" type="text" name="uid"
-						placeholder="아이디 입력해주세요" required /> <br /> <label>Password</label>
+						placeholder="아이디 입력해주세요" autocomplete="off" required /> <br /> <label>Password</label>
 					<input class="form-control" type="password" name="upw"
 						placeholder="비밀번호 입력해주세요" required /> <br />
 					<!--       <div class="checkbox">
@@ -77,7 +77,7 @@
 				class="fa fa-bars"></i></a></li>
 
 		<div class="middle">
-			<li class="w3-hide-small w3-middle"><a href="../">MANUAL</a></li>
+			<li class="w3-hide-small w3-middle"><a href="/user/manual">MANUAL</a></li>
 			<li class="w3-hide-small w3-middle"><a href="/pattern/list">DESIGN
 					PATTERN</a></li>
 			<li class="w3-hide-small w3-middle"><a href="/notice/list">SERVICE

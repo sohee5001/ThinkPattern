@@ -23,4 +23,8 @@ public interface UserService {
 	
 	public List<String> userList() throws Exception;
 	
+	
+	public int checkEmail(String email);
+	
+	public int checkName(String name);
 }

@@ -14,15 +14,19 @@ tbody tr:hover {
 
 <script>
 	$(function() {
+		//글 목록중 하나 선택 시
 		$("tbody tr").click(function() {
 			location.href = $(this).attr("data-url");
 		});
+
+		//검색 버튼
 		$("div .pagination a").click(function() {
+			
 			$("input[name=pg]").val($(this).attr("data-page"));
+			
 			$("form").submit();
-		});
+		});	
 	});
-	
 </script>
 
 
@@ -43,11 +47,45 @@ tbody tr:hover {
 		<hr />
 		<form:form method="get" modelAttribute="pagination">
 			<div class="pull-right">
+				
+				<c:if test="${vo.getId()  eq '★★★★'}">
 				<a href="/notice/create?${ pagination.queryString }"
 					class="btn btn-warning"> <i class="icon-pencil icon-white"></i>
 					글쓰기
 				</a>
-
+				</c:if>
+				
+				<c:if test="${vo.getId()  eq 'oxm55522'}">
+				<a href="/notice/create?${ pagination.queryString }"
+					class="btn btn-warning"> <i class="icon-pencil icon-white"></i>
+					글쓰기
+				</a>
+				</c:if>
+				
+				
+				<c:if test="${vo.getId()  eq 'PPAP'}">
+				<a href="/notice/create?${ pagination.queryString }"
+					class="btn btn-warning"> <i class="icon-pencil icon-white"></i>
+					글쓰기
+				</a>
+				</c:if>
+				<c:if test="${vo.getId()  eq 'V3'}">
+				<a href="/notice/create?${ pagination.queryString }"
+					class="btn btn-warning"> <i class="icon-pencil icon-white"></i>
+					글쓰기
+				</a>
+				</c:if>
+				<c:if test="${vo.getId()  eq 'babinski'}">
+				<a href="/notice/create?${ pagination.queryString }"
+					class="btn btn-warning"> <i class="icon-pencil icon-white"></i>
+					글쓰기
+				</a>
+				</c:if>
+				
+				
+				
+				
+			
 			</div>
 			<input type="hidden" name="pg" value="1" />
 			<div class="form-inline">
@@ -93,22 +131,21 @@ tbody tr:hover {
 			</table>
 			<div class="page_c">
 				<ul class="pagination pagination-small pagination-centered ">
-					<li><a href="#" aria-label="Previous"> <span
+					<li id="pre"><a aria-label="Previous"> <span
 							aria-hidden="true">&laquo;</span>
 					</a></li>
+					
 					<c:forEach var="page" items="${ pagination.pageList }">
-						<li class='${ page.cssClass }'><a
-							data-page="${ page.number }">${ page.label }</a></li>
+						<li class='${ page.cssClass }'>
+						<a data-page="${page.number}">${page.label}</a></li>
 					</c:forEach>
-					<li><a href="#" aria-label="Next"> <span
+					
+					<li id="next"><a aria-label="Next"> <span
 							aria-hidden="true">&raquo;</span>
 					</a></li>
 				</ul>
 			</div>
 		</form:form>
 	</div>
-
 </div>
-
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 

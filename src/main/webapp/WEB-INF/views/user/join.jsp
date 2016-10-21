@@ -53,6 +53,76 @@
 			}
 		});
 
+		
+		
+		
+		
+		//email
+		$("#email").blur(function() {
+			var email = $("#email").val();
+			
+
+			$.ajax({
+				url : "http://localhost:8080/user/emailCheck",
+				type : "POST",
+				data : {
+					"email" : email
+				},
+				success : function(data) {
+					if (data == 1) {
+						$("#emailcheck").html("중복된 메일입니다.");
+					} else if (data == 3) {
+						$("#emailcheck").html("");
+					} else {
+						$("#emailcheck").html("사용가능한 메일입니다..");
+					}
+				},
+				error : function(request, status, error) {
+
+				}
+
+			});
+		
+		});
+		
+		
+		
+		
+		//name
+		$("#name").blur(function() {
+			var name = $("#name").val();
+			
+
+			$.ajax({
+				url : "http://localhost:8080/user/nameCheck",
+				type : "POST",
+				data : {
+					"name" : name
+				},
+				success : function(data) {
+					if (data == 1) {
+						$("#namecheck").html("중복된 닉네임입니다.");
+					} else if (data == 3) {
+						$("#namecheck").html("");
+					} else {
+						$("#namecheck").html("사용가능한 닉네임입니다..");
+					}
+				},
+				error : function(request, status, error) {
+
+				}
+
+			});
+		
+		});
+		
+		
+		
+		
+		
+		
+		
+		
 		$("#pw").blur(function() {
 			var pw = $("#pw").val();
 			if(pw.length < 4 && pw != "")
@@ -111,12 +181,12 @@
 		<div class="join_css">
 
 			<form role="form" method="post">
+<<<<<<< HEAD
 						<div class="join_top">
 				</div>
 				<div class="join_logo">
 					<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN &nbsp;
 					회원가입
-
 				</div>
 				<p />
 				<table  class="table table-bordered join_table">
