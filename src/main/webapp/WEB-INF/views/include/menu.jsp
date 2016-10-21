@@ -17,6 +17,7 @@
 		});
 	});
 </script>
+<header>
 
 <div class="modal fade" id="login" tabindex="-1" role="dialog"
 	aria-labelledby="myModalLabel">
@@ -65,7 +66,7 @@
 
 
 
-<div class="w3-top">
+<div class="w3-top1">
 	<ul class="w3-navbar w3-theme-d2 w3-left-align w3-large">
 		<li><a href="../" class="w3-teal  w3-middle-home"><img
 				src="/resources/res/images/i.png" width="40" height="40"
@@ -101,7 +102,7 @@
 
 		<c:if test="${vo.getId() ne null}">
 			<div class="log_m">
-				<span>${vo.getName() }님환영합니다.</span>
+				<span>${vo.getName() }님 환영합니다.</span>
 				<li class="w3-hide-small w3-right"><span id="sessionid"></span><a
 					href="/user/modifyConfirm" class="button small"><i
 						class="fa fa-user" aria-hidden="true"></i> modify</a></li>
@@ -111,6 +112,7 @@
 			</div>
 
 		</c:if>
+		</ul>
 </div>
 
 <!-- Navbar on small screens -->
@@ -132,7 +134,7 @@
 
 		<c:if test="${vo.getId() ne null}">
 			<div class="log_m">
-				<span>${vo.getName() }님환영합니다.</span>
+				<span>${vo.getName() }님 환영합니다.</span>
 				<li><a href="/user/modifyConfirm" class="button small smenu"><i
 						class="fa fa-user" aria-hidden="true"></i> modify</a> <a
 					href="/user/logout " class="button small smenu"><i
@@ -142,9 +144,6 @@
 	</ul>
 </div>
 
-
-
-
-
 </header>
-</div>
+
+
