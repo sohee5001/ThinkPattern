@@ -86,11 +86,11 @@
 		setInterval("Cloc()", interval);
 		setInterval("Mloc()", minterval);
 		setInterval("move()", 100);
-		setInterval(function() {
+	/* 	setInterval(function() {
 			angle += 3;
 			g1.rotate(angle);
 			g2.rotate(angle);
-		}, 100);
+		}, 100); */
 	});
 	// 반복함수구성 
 	function Cloc() {
@@ -160,6 +160,7 @@
 		<div class="home_css">
 
 			<div class="wir">
+				<div style="z-index:0;" class="pic"></div>
 
 				<div style="z-index: 6;" id="M_name" class="Dname"></div>
 				<div style="z-index: 1;" id="M_circle" class="circle"></div>
