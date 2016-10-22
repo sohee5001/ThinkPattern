@@ -18,6 +18,7 @@ tbody tr:hover {
 		$("tbody tr").click(function() {
 			location.href = $(this).attr("data-url");
 		});
+
 		//검색 버튼
 		$("div .pagination a").click(function() {
 			

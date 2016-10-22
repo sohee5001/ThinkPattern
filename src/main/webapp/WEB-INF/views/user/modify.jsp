@@ -143,49 +143,59 @@
 
 
 <div id="main" class="wrapper style1">
-
 	<div class="container">
 		<div class="modify_css">
-
 			<form role="form" method="post">
 				<div>
+					<div class="modify_top"></div>
 					<div class="join_logo">
 						<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN
-						&nbsp; 회원가입
+						&nbsp; 회원정보수정
+
+					</div >
+					<div class="modify_input">
+						<div  class="modify_frist">
+							<div class="modif_span">id</div>
+							 <input type="text" id="enterid" name="id" value="${vo.getId()}" readonly="readonly">
+						</div>
+					
+						<div id="check"></div>
+						<div  class="modify_frist"> 
+							<div class="modif_span">password</div> 
+							<input type="password" name="password" id="pw" placeholder="새 비밀번호를 입력해주세요">
+							<div id="checkminpw" class="print">비밀번호는 4자리 이상으로 입력하세요</div>
+						</div>
+
+
+						<div class="modify_frist">
+							<div class="modif_span">confirmPW </div>
+							<input type="password" id="checkpw" name="pw2" placeholder="비밀번호를 다시 입력해주세요">	
+							<div id="resultpw" class="print"></div>
+						</div>
+						
+						
+						
+						
+						<div class="modify_frist">
+							<div class="modif_span">name</div> 
+							<input type="text" id = "name" name="name" value="${vo.getName()}">
+							<div id="namecheck"></div>
+						</div>
+							
+						<div class="modify_frist">
+							<div class="modif_span">email</div> 
+							<input type="email" id="email" name="email" value="${vo.getEmail()}">
+							<div id="emailcheck"></div>
+						</div>
+					
+
 
 					</div>
-					<div>
-						id <input type="text" id="enterid" name="id" value="${vo.getId()}"
-							readonly="readonly">
-					</div>
 
-					<div id="check"></div>
-					<div>
-						password <input type="password" name="password" id="pw"
-							placeholder="새 비밀번호를 입력해주세요">
-					</div>
-					<div id="checkminpw" class="print">비밀번호는
-							4자리 이상으로 입력하세요</div>
-					<div>
-						confirmPW <input type="password" id="checkpw" name="pw2"
-							placeholder="비밀번호를 다시 입력해주세요">
-					</div>
-
-					<div id="resultpw"></div>
-
-					<div>
-						name <input type="text" id = "name" name="name" value="${vo.getName()}">
-					</div>
-					<div id="namecheck"></div>
-					<div>
-						email <input type="email" id="email" name="email" value="${vo.getEmail()}">
-					</div>
-					<div id="emailcheck"></div>
 
 					<div class="buttoncss">
 						<button id="confirm" type="submit" class="button special small " >Submit</button>
-						<a class="button small " href="/">Cancel</a> <a
-						id="delete"	class="button small" href="/user/delete" >drop out</a>
+						<a class="button small " href="/">Cancel</a> <a id="delete"	class="button small" href="/user/delete" >drop out</a>
 					</div>
 					<br /> <br />
 				</div>

@@ -181,71 +181,88 @@
 		<div class="join_css">
 
 			<form role="form" method="post">
-					<div class="join_logo">
-						<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN
-						&nbsp; 회원가입
 
-					</div>
-					<p />
-					<table>
-						<tr>
-							<div class="join_t">
-								<td><label>ID</label></td>
-								<td><input type="text" id="enterid" name="id"
-									maxlength="10" placeholder="아이디를 입력해주세요" autocomplete=off></td>
-							</div>
-						</tr>
-						<div id="check" class="print">4자리 이상 10자리
-							미만 영문으로만 입력하세요</div>
+						<div class="join_top">
+				</div>
+				<div class="join_logo">
+					<i class="fa fa-spinner" aria-hidden="true"></i>THINKPATTERN &nbsp;
+					회원가입
+				</div>
+				<p />
+				<table  class="table table-bordered join_table">
+			
+						<tbody>
+					<tr class="join_t">
 
-						<tr>
-							<div class="join_t">
-								<td><label>password</label></td>
-								<td><input type="password" name="password" id="pw"
-									placeholder="비밀번호를 입력해주세요"></td>
-							</div>
-						</tr>
-						<div id="checkminpw" class="print">비밀번호는
-							4자리 이상으로 입력하세요</div>
+						<td><label>ID</label></td>
+						<td><input type="text" id="enterid" name="id" maxlength="10"
+							placeholder="아이디를 입력해주세요" autocomplete=off></td>
+						<td id="check" class="print" style="color: red">4자리 이상 10자리
+							미만 영문으로만 입력하세요</td>
+					</tr>
 
 
-						<tr>
-							<div class="join_t">
-							<td><label>confirmPW</label></td>
-							<td><input type="password" id="checkpw" name="pw2"
-								placeholder="비밀번호를 다시 입력해주세요"></td>
-							</div>
-						</tr>
-						<div id="resultpw" class="print"></div>
+					<tr class="join_t">
 
-						<tr>
-							<div class="join_t">
-								<td><label>name</label></td>
-								<td><input type="text" id = "name" name="name" placeholder="이름을 입력해주세요" autocomplete=off></td>
-							</div>
-						</tr>
-						<div id="namecheck" class="print"></div>
-						<tr>
-							<div class="join_t">
-								<td><label>email</label></td>
-								<td><input type="email" name="email" id= "email"
-									placeholder="Email을 입력해주세요" autocomplete=off></td>
-									</div>
-						</tr>
-						<div id="emailcheck" class="print"></div>
-					</table>
-					</div>
-					<div class="buttoncss">
+						<td><label>password</label></td>
+						<td><input type="password" name="password" id="pw"
+							placeholder="비밀번호를 입력해주세요"></td>
+						<td id="checkminpw" class="print" style="color: red">비밀번호는
+							4자리 이상으로 입력하세요</td>
 
-						<button type="submit" class="button special small ">Submit</button>
-						<a class="button small " href="/">Cancel</a>
+					</tr>
 
-					</div>
-			</form>
 
+					<tr class="join_t">
+
+						<td><label>confirmPW</label></td>
+						<td><input type="password" id="checkpw" name="pw2"
+							placeholder="비밀번호를 다시 입력해주세요"></td>
+						<td id="resultpw" class="print" style="color: red"></td>
+
+					</tr>
+
+					<tr class="join_t">
+
+						<td><label>name</label></td>
+						<td><input type="text" name="name" placeholder="이름을 입력해주세요"
+							autocomplete=off></td>
+							<td id="namecheck" class="print"></td>
+						
+
+					</tr>
+
+
+					<tr class="join_t">
+
+						<td><label>email</label></td>
+						<td><input type="text" name="email"
+							placeholder="Email을 입력해주세요" autocomplete=off></td>
+							<td id="emailcheck" class="print"></td>
+						
+
+					</tr>
+						<tbody>
+				</table>
+
+
+
+
+
+
+				<div class="buttoncss">
+
+					<button type="submit" class="button special small ">Submit</button>
+					<a class="button small " href="/">Cancel</a>
+
+				</div>
 		</div>
+
+		</form>
+
 	</div>
 </div>
+
 
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
