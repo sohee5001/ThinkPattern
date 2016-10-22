@@ -16,7 +16,7 @@
 				<div class="modify_input">
 				
 					<div>
-					<div class="modif_span">id</div>	 <input type="text" value="${id}" readonly="readonly">
+					<div class="modif_span">id</div>	 <input type="text" value="${vo.getId()}" readonly="readonly">
 					
 
 					

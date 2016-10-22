@@ -228,7 +228,7 @@
 						<tr>
 							<div class="join_t">
 								<td><label>email</label></td>
-								<td><input type="text" name="email" id= "email"
+								<td><input type="email" name="email" id= "email"
 									placeholder="Email을 입력해주세요" autocomplete=off></td>
 									</div>
 						</tr>

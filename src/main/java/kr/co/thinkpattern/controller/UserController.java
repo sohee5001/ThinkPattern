@@ -130,9 +130,20 @@ public class UserController {
 	
 	
 	@RequestMapping(value="/nameCheck", method=RequestMethod.POST)
-	public @ResponseBody int nameCheckPOST(@RequestParam("name") String name) throws Exception{
+	public @ResponseBody int nameCheckPOST(@RequestParam("name") String name, HttpSession session) throws Exception{
+		
+		UserVO original = (UserVO)session.getAttribute("login");
+		if(original != null)
+		{
+			if(original.getName().equals(name))
+			{
+				System.out.println("이리 들어옴");
+				return 3;
+			}
+		}
+		
 		System.out.println("check��~~~~~~");
-		System.out.println("id�� <<<<<<<<>>>>>>>>>" + name + "<><><><<>");
+		System.out.println("name�� <<<<<<<<>>>>>>>>>" + name + "<><><><<>");
 		if(name.equals(""))
 		{
 			return 3;
@@ -149,9 +160,20 @@ public class UserController {
 	
 	
 	@RequestMapping(value="/emailCheck", method=RequestMethod.POST)
-	public @ResponseBody int emailCheckPOST(@RequestParam("email") String email) throws Exception{
+	public @ResponseBody int emailCheckPOST(@RequestParam("email") String email, HttpSession session) throws Exception{
 		System.out.println("check email!!!~~~~~~");
 		System.out.println(email);
+		
+		UserVO original = (UserVO)session.getAttribute("login");
+		if(original != null)
+		{
+			if(original.getEmail().equals(email))
+			{
+				return 3;
+			}
+		}
+		
+		
 		if(email.equals(""))
 		{
 			return 3;
@@ -267,6 +289,8 @@ public class UserController {
 	@RequestMapping(value="/manual", method=RequestMethod.GET)
 	public void manualGET(Model model, HttpSession session)
 	{
+		UserVO vo = (UserVO)session.getAttribute("login");
+		model.addAttribute("vo", vo);
 		System.out.println("여기로 옴");
 	}
 	
@@ -277,6 +301,11 @@ public class UserController {
 	{
 		UserVO vo = (UserVO) session.getAttribute("login");
 		model.addAttribute("vo", vo);
+		
+		
+		
+		
+		
 	}
 	
 	
@@ -286,6 +315,37 @@ public class UserController {
 		UserVO original = (UserVO)session.getAttribute("login");
 
 		
+		
+		
+		Pattern p = Pattern.compile("([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])");
+		Matcher m = p.matcher(vo.getPassword());
+		if (m.find()){
+		    System.out.println("숫자 문자 특수문자 다 있음");
+		}
+		else if(vo.getPassword().equals(""))
+		{
+			vo.setPassword(original.getEmail());
+		}
+		else{
+			rttr.addFlashAttribute("result", "modifyFail");
+			return "redirect:/user/modify";
+		}
+		
+		
+		
+		
+		int emailCheck = service.checkEmail(vo.getEmail());
+		int nameCheck = service.checkName(vo.getName());
+		if(emailCheck != 0 && (vo.getEmail() != original.getEmail()))
+		{
+			rttr.addFlashAttribute("result", "modifyFail");
+			return "redirect:/user/modify";
+		}
+		if(nameCheck != 0 && (vo.getName() != original.getName()))
+		{
+			rttr.addFlashAttribute("result", "modifyFail");
+			return "redirect:/user/modify";
+		}
 		if(vo.getEmail().equals(""))
 		{
 			vo.setEmail(original.getEmail());
