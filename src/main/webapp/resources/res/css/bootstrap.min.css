@@ -7,15 +7,17 @@
 html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
-	-ms-text-size-adjust: 100%
+	-ms-text-size-adjust: 100%;
+	height:100%;
 }
 
 body {
 	margin: 0;
 	background-color: white;
+	height:100%;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup,
+article, aside, details, figcaption, figure, footer, header, hgroup,foot
 	main, menu, nav, section, summary {
 	display: block
 }
@@ -1570,9 +1572,9 @@ hr {
 }
  */
 .N_name {
-	font-size: 36px;
-	margin: 30px 0px 30px 350px;
-	font-family: 'Merriweather', serif;
+    font-size: 36px;
+    margin: 30px 0px 30px 0px;
+    text-align: center;
 }
 
 .h1, h1 {
@@ -1930,7 +1932,8 @@ pre code {
 .container {
 	margin-right: auto;
 	margin-left: auto;
-	margin-top: 60px;
+	min-height:100%;
+
 }
 
 @media ( min-width :768px) {
@@ -1947,7 +1950,7 @@ pre code {
 
 @media ( min-width :1200px) {
 	.container {
-		width: auto;
+		    width: 1300px;
 	}
 }
 
@@ -2692,7 +2695,7 @@ th {
 	.table>thead>tr>td, .table>thead>tr>th {
 	/* 	padding: 8px; */
 	line-height: 1.42857143;
-	vertical-align: top;
+	vertical-align: middle;
 	border-top: 1px solid #ddd
 }
 
@@ -8295,7 +8298,7 @@ button.close {
 	min-height: 16.43px;
 	padding: 15px 15px 15px 15px;
 	border-bottom: 0px;
-	color: #d9534f;
+	color: #494949;
 }
 
 .modal-header .close {
@@ -8891,7 +8894,7 @@ button.close {
 
 .btn-group-vertical>.btn-group:after, .btn-group-vertical>.btn-group:before,
 	.btn-toolbar:after, .btn-toolbar:before, .clearfix:after, .clearfix:before,
-	.container-fluid:after, .container-fluid:before, .container:after,
+	.-fluid:after, .container-fluid:before, .container:after,
 	.container:before, .dl-horizontal dd:after, .dl-horizontal dd:before,
 	.form-horizontal .form-group:after, .form-horizontal .form-group:before,
 	.modal-footer:after, .modal-footer:before, .modal-header:after,

@@ -103,6 +103,30 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return dao.userList();
 	}
+
+
+
+
+
+
+
+	@Override
+	public int checkEmail(String email) {
+		// TODO Auto-generated method stub
+		return dao.checkEmail(email);
+	}
+
+
+
+
+
+
+
+	@Override
+	public int checkName(String name) {
+		// TODO Auto-generated method stub
+		return dao.checkName(name);
+	}
 	
 	
 	

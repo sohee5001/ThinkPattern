@@ -21,4 +21,8 @@ public interface UserDAO {
 	
 	public List<String> userList();
 	
+	public int checkEmail(String email);
+	
+	public int checkName(String name);
+	
 }

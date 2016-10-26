@@ -66,4 +66,16 @@ public class UserDAOImpl implements UserDAO{
 		return sqlsession.selectList(namesapce + ".userList");
 	}
 
+	@Override
+	public int checkEmail(String email) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namesapce+".checkEmail", email);
+	}
+
+	@Override
+	public int checkName(String name) {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne(namesapce+".checkName", name);
+	}
+
 }

@@ -17,7 +17,7 @@ tbody tr:hover {
 		$("tbody tr").click(function() {
 			location.href = $(this).attr("data-url");
 		});
-		$("div.pagination a").click(function() {
+		$("div .pagination a").click(function() {
 			$("input[name=pg]").val($(this).attr("data-page"));
 			$("form").submit();
 		});
@@ -112,5 +112,5 @@ tbody tr:hover {
 	</div>
 
 </div>
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+
 

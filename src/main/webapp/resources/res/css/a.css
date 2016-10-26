@@ -739,9 +739,12 @@ a
 	z-index: 1
 }
 
-.w3-top {
-	top: 0;
-	background:  #494949 url(../images/banner.png);
+.w3-top1{
+    top: 0;
+    background: #494949;
+    /* z-index: 0; */
+    width: 100%;
+    position: absolute;
 
 }
 
