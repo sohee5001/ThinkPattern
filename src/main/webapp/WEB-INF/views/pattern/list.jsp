@@ -45,7 +45,7 @@
 			event.preventDefault();
 			var name = $(this).attr('name');
 			$.ajax({
-				url:"http://localhost:8080/pattern/read",
+				url:"http://localhost:8081/pattern/read",
 				type: "POST",
 				data:{"p_name" : name},
 				success:function(data){

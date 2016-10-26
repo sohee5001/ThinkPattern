@@ -31,7 +31,7 @@
 			} else {
 
 				$.ajax({
-					url : "http://localhost:8080/user/check",
+					url : "http://127.0.0.1:8081/user/check",
 					type : "POST",
 					data : {
 						"id" : enterid

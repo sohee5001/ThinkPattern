@@ -23,9 +23,9 @@
 		<!-- 데이터 소스 설정값 입력 -->
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<!-- <property name="url" value="jdbc:log4jdbc:oracle:thin:@192.168.0.11:1521:xe"></property> -->
-		 <property name="url" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:orcl"></property> 
-		<property name="username" value="YOU"></property>
-		<property name="password" value="you"></property>
+		 <property name="url" value="jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:xe"></property> 
+		<property name="username" value="YJY"></property>
+		<property name="password" value="yjy"></property>
 	</bean>
 
 	<!-- name : dataSource를 주입하기 위한 방법 -->

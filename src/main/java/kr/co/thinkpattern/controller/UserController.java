@@ -166,7 +166,7 @@ public class UserController {
 		}else{
 			rttr.addFlashAttribute("inviteurl", invite);
 			rttr.addFlashAttribute("result", "move_node");
-//			return "redirect:http://localhost:8210/temp?id="+invite;
+//			return "redirect:http://127.0.0.1:8210/temp?id="+invite;
 		}
 		model.addAttribute("userVO", vo);
 //		return "redirect:/";
@@ -343,7 +343,7 @@ public class UserController {
 				Email email = new Email();
 				email.setReceiver(arr[i]);
 				email.setSubject("[ThinkPattern] Welcome to Design Patterns!!");
-//				email.setContent("<a href='http://localhost:8210/temp?room='"+room+" target='_blank' title='ThinkPattern'>이동하기</a>");
+//				email.setContent("<a href='http://127.0.0.1:8210/temp?room='"+room+" target='_blank' title='ThinkPattern'>이동하기</a>");
 				email.setContent("http://localhost:8081/invite?room="+room);
 				
 				service.SendMail(email);

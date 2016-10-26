@@ -47,7 +47,7 @@
 		if(result == 'move_node'){
 			alert("초대받은 방으로 이동합니다.");
 			alert(inviteurl);
-			window.location.href = "http://localhost:8210/temp?"+encodeURI(inviteurl)+"&id="+encodeURI(node_user);
+			window.location.href = "http://127.0.0.1:8210/temp?"+encodeURI(inviteurl)+"&id="+encodeURI(node_user);
 		}
 	
 </script>
