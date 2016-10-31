@@ -22,6 +22,7 @@ textarea {
 	margin: 50px 0px 0px 0px;
 }
 </style>
+<body class="background_color_h">
 <div class="container">
 	<div class="writer">
 
@@ -59,4 +60,5 @@ textarea {
 		</div>
 	</div>
 </div>
+</body>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

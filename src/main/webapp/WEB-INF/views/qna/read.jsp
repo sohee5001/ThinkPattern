@@ -7,9 +7,9 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
 
-
+<body class="background_color_h">
 <div class="container">
-	<div class="writer_d">
+	<div class="writer">
 		<div class="pull-right">
 			<a href="/qna/modify?idx=${qna.idx}&${ pagination.queryString }"
 				class="btn btn-warning"> <i class="fa fa-pencil-square-o"
@@ -76,4 +76,5 @@
 		</div>
 	</div>
 </div>
+</body>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

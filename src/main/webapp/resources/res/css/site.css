@@ -632,20 +632,13 @@ body.landing #header {
 } */
 div.home_css {
 	height: 100%;
-	/* background: url(../images/main.png); */
+	 background: url(../images/main.png);
 	background-color: #f8f8f8;
 }
 
 div.wir {
 	height: auto;
 	width: 100%;
-}
-
-.Ccircle {
-	margin: 200px 1050px;
-	width: 380px;
-	height: 380px;
-	position: absolute;
 }
 
 .wir>.logo {
@@ -662,24 +655,31 @@ div.wir {
 	margin: 398px 1254px;
 	position: absolute;
 }
-
+.pic {
+	margin: 200px 400px;
+	width: 600px;
+	height: 400px;
+	position: absolute;
+}
+.Ccircle {
+	margin: 200px 1050px;
+	width: 380px;
+	height: 380px;
+	position: absolute;
+}
 .Dname {
-	margin: 385px -550px;
-	/* 	margin: 385px 890px; */
-	position: absolute;
-}
+    margin: 385px 0px 0px -450px;
+    /* margin: 385px 890px; */
+    position: absolute;
 
-.icon {
-	margin: 180px 1240px;
-	position: absolute;
 }
-
 .Cname {
 	height: 155px;
 	position: absolute;
 }
-
-.Aname {
+.icon {
+/* 	margin: 180px 0px 0px 1240px; */
+	margin: 180px 0px 0px 1940px; 
 	position: absolute;
 }
 
@@ -692,7 +692,7 @@ div.wir {
 /************join*************************/
 div.join_css {
 	border: solid 1px #eee;
-	padding: 50 450 50 450;
+padding: 100px;
 	background: url(../images/back.jpg);
 	height: 100%;
 	width: 100%;
@@ -707,7 +707,7 @@ div.join_css {
 }
 
 .buttoncss {
-	padding: 50px 0px 52px 0px;
+	    padding-top: 10px;
 	text-align: center;
 }
 
@@ -782,7 +782,7 @@ color
 /* modify_css  */
 div.modify_css {
 	border: solid 1px #eee;
-	padding: 50 650 50 650;
+	padding: 110px;
 	background: url(../images/back.jpg);
 	height: 100%;
 	width: 100%;
@@ -794,8 +794,10 @@ div.modify_css {
 }
 
 .modify_input {
-	margin: 20px 100px 0px 100px;
-	text-align: center;
+	    margin: 50px 100px 50px 250px;
+    text-align: center;
+    width: auto;
+    height: auto;
 }
 
 .modify_input>.modify_frist>input {
@@ -826,13 +828,13 @@ div.modify_css {
 }
 /********************board************************/
 div.notice_css {
-	/* 	height: 782px; */
-	width: auto;
-	height: auto;
-	padding: 50px 500px 50px 500px;
-	background: url(../images/back.jpg);
+    /* height: 782px; */
+    width: auto;
+    height: auto;
+    margin: 0px 300px 0px 300px;
+    padding: 50px 0px 50px 0px;
+    background: url(../images/back.jpg);
 }
-
 .writer_a {
 	background: #ffffff;
 	border: 1px solid #ddd;
@@ -861,8 +863,9 @@ div.search {
 div.writer {
 	width: auto;
 	height: auto;
-	padding: 50px 500px 1px 500px;
-	/*     background: url(../images/back.jpg); */
+        padding: 110px;
+    /* margin: 100px; */
+       background-color: #f8f8f8;
 }
 /*댓글 읽기 */
 div.writer_d {
@@ -899,7 +902,7 @@ select#ss {
 	border-bottom: 1px solid #ccc5c5;
 	background: -webkit-linear-gradient(#fafafa, #eaeaea);
 	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.23);
-	margin: 0px 0px 2px 0px;
+	margin: 50px 0px 2px 0px;
 }
 
 .select_li {
@@ -909,7 +912,13 @@ select#ss {
 	list-style-type: none;
 	font-size: 18px;
 }
-
+.select_lii{
+	padding: 40px 110px;
+	width: 50px;
+	float: left;
+	list-style-type: none;
+	font-size: 18px;
+}
 .page_c {
 	text-align: center;
 	margin-top: 30px;
@@ -992,7 +1001,7 @@ span.txt {
 }
 /* pattern list*/
 .pattern_list {
-	margin: 3% 5% 2% 5%;
+	margin: 5% 5% 5% 5%;
 	font-size: 11pt;
 	height: 100%;
 }

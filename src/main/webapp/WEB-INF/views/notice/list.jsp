@@ -30,8 +30,7 @@ tbody tr:hover {
 </script>
 
 
-
-<div class="container">
+<body class="background_color_h">
 
 	<div class="select_what">
 		<li class="select_li"></li>
@@ -147,5 +146,5 @@ tbody tr:hover {
 			</div>
 		</form:form>
 	</div>
-</div>
+</body>
 

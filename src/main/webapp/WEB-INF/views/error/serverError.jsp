@@ -15,7 +15,7 @@
 </div>
 <h1 style="text-align:center">야 에러났어!!!!</h1>
 <div style="margin:0 0 0 31%">
-<button><a href="#" onClick="history.back()">이전페이지로</a></button>
+<button class="button special small" style="margin:0 0 0 23%"><a href="#" onClick="history.back()" style="color:white;">이전페이지로</a></button>
 </div>
 </body>
 </html>

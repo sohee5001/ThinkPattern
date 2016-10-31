@@ -10,10 +10,11 @@
 
 <script type="text/javascript"
 	src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>
+
 <script type="text/javascript">
-	var c_arr = [ "resources/res/images/Rcircle.png",
-			"resources/res/images/Lcircle.png" ];
-	// 원Array번호 
+	/* 	var c_arr = [ "resources/res/images/Rcircle.png",
+	 "resources/res/images/Lcircle.png" ];
+	 // 원Array번호  */
 
 	var m_arr = [ "resources/res/images/real.png",
 			"resources/res/images/chat.png", "resources/res/images/web.png",
@@ -36,14 +37,13 @@
 	var m_interval = 1000;
 
 	$(function() {
-		var g1 = $('.gear1'), g2 = $('.gear2'), d = $('.Dname');
+		var g1 = $('.gear1'), g2 = $('.gear2'), c = $('.circle');
 		var angle = 0;
-		// M_circle 에 이미지 태그를 넣어준다 
-		for ( var i in c_arr) {
-			$("#M_circle").append(
-					"<img class=\"Ccircle\" src=\""+c_arr[i]+"\">");
+		/* 		// M_circle 에 이미지 태그를 넣어준다 
+		 for ( var i in c_arr) {*/
+		/* 	c.attr("src","/resources/res/images/Rcircle.png"); */
 
-		}
+		/* 		}  */
 		// M_name 에 이미지 태그를 넣어준다 
 		for ( var i in m_arr) {
 
@@ -54,15 +54,15 @@
 		for ( var i in i_arr) {
 			$("#M_icon").append("<img class=\"Cicon\" src=\""+i_arr[i]+"\">");
 		}
-		// idx 가 일치할경우 보여주고 나머지는 감춘다. 
-		$('.Ccircle').each(function(index) {
-			if (cidx == index) {
-				$(this).show();
+		/* 		// idx 가 일치할경우 보여주고 나머지는 감춘다. 
+		 $('.Ccircle').each(function(index) {
+		 if (cidx == index) {
+		 $(this).show();
 
-			} else {
-				$(this).hide();
-			}
-		});
+		 } else {
+		 $(this).hide();
+		 }
+		 }); */
 		// idx 가 일치할경우 보여주고 나머지는 감춘다. 
 		$('.Cname').each(function(index) {
 			if (midx == index) {
@@ -83,32 +83,32 @@
 		});
 
 		// 무한 반복 
-		setInterval("Cloc()", interval);
+		/* 		setInterval("Cloc()", interval); */
 		setInterval("Mloc()", minterval);
 		setInterval("move()", 100);
-	/* 	setInterval(function() {
+		setInterval(function() {
 			angle += 3;
 			g1.rotate(angle);
 			g2.rotate(angle);
-		}, 100); */
+		}, 100);
 	});
-	// 반복함수구성 
-	function Cloc() {
-		// idx번호를 올린다 
-		cidx++;
-		// idx번호가 넘칠경우 0번으로 초기화 
-		if (cidx >= c_arr.length) {
-			cidx = 0;
-		}
-		// idx가 일치할경우 fadeIn 불일치하면 fadeOut 
-		$(".Ccircle").each(function(index) {
-			if (cidx == index) {
-				$(this).fadeIn(c_interval);
-			} else {
-				$(this).fadeOut(c_interval);
-			}
-		});
-	}
+	/* 	// 반복함수구성 
+	 function Cloc() {
+	 // idx번호를 올린다 
+	 cidx++;
+	 // idx번호가 넘칠경우 0번으로 초기화 
+	 if (cidx >= c_arr.length) {
+	 cidx = 0;
+	 }
+	 // idx가 일치할경우 fadeIn 불일치하면 fadeOut 
+	 $(".Ccircle").each(function(index) {
+	 if (cidx == index) {
+	 $(this).fadeIn(c_interval);
+	 } else {
+	 $(this).fadeOut(c_interval);
+	 }
+	 });
+	 } */
 	// 반복함수구성 
 	function Mloc() {
 		// idx번호를 올린다 
@@ -119,13 +119,12 @@
 		}
 		// idx가 일치할경우 fadeIn 불일치하면 fadeOut 
 		$(".Cname").each(function(index) {
-	
-				if (midx == index) {
-					$(this).fadeIn(m_interval);
-				} else {
-					$(this).fadeOut(m_interval);
-				}
 
+			if (midx == index) {
+				$(this).fadeIn(m_interval);
+			} else {
+				$(this).fadeOut(m_interval);
+			}
 
 		});
 		// idx가 일치할경우 fadeIn 불일치하면 fadeOut 
@@ -138,48 +137,61 @@
 		});
 	}
 	function move() {
-		
+
 		var d = $(".Dname"), i = $('.icon');
 
-		
-		d.animate("slow"), d.animate("slow"),
-		d.animate("slow"), d.animate("slow"), 
-		d.animate({left:1400,opacity : '0.4'}, "slow"),
-		i.animate("slow"), i.animate("slow"), i.animate("slow"),
-		i.animate("slow"), i.animate({left : 300,opacity : '0.4'}, "slow"),
-		d.animate("slow"), i.animate("slow"), 
+		d.animate("slow"), d.animate("slow"), d.animate("slow"), d
+				.animate("slow"), d.animate({
+			right : 1000,
+			opacity : '0.8'
+		}, "slow"), i.animate("slow"), i.animate("slow"), i.animate("slow"), i
+				.animate("slow"), i.animate({
+			right : 680,
+			opacity : '0.8'
+		}, "slow"), d.animate("slow"), i.animate("slow"), d.animate("slow"), i
+				.animate("slow"),
 
-		i.animate({left : 0,opacity : '0.8'}, "slow", function() {move();});
+		d.animate({
+			right : 2350,
+			opacity : '0.4'
+		}, "slow"), i.animate({
+			right : 680,
+			opacity : '0.8'
+		}, "slow", function() {
+			move();
+		});
 	}
 </script>
 
-<body class="background_color_h">
+<body>
 	<%-- 	<h1>${pageContext.request.contextPath}</h1> --%>
 
-	<div class="container">
-		<div class="home_css">
 
-			<div class="wir">
-				<div style="z-index:0;" class="pic"></div>
+	<div class="home_css">
 
-				<div style="z-index: 6;" id="M_name" class="Dname"></div>
-				<div style="z-index: 1;" id="M_circle" class="circle"></div>
+		<div class="wir">
 
-				<img src="resources/res/images/logo.png" width="200" height="200"
-					style="z-index: 4;" class="logo"> <img
-					src="resources/res/images/Gear1.png" width="150" height="150"
-					style="z-index: 3;" class="gear1"> <img
-					src="resources/res/images/Gear2.png" width="80" height="80"
-					style="z-index: 5;" class="gear2">
-				<div style="z-index: 2;" id="M_icon" class="icon"></div>
+			<div style="z-index: 6;" id="M_name" class="Dname"></div>
 
-			</div>
-
-
-
+		<!-- 	<img src="resources/res/images/pic.png" style="z-index: 1;"
+				class="pic">  --><img src="resources/res/images/logo.png"
+				width="200" height="200" style="z-index: 4;" class="logo"> <img
+				src="resources/res/images/Gear1.png" width="150" height="150"
+				style="z-index: 3;" class="gear1"> <img
+				src="resources/res/images/Gear2.png" width="80" height="80"
+				style="z-index: 5;" class="gear2"> <img
+				src="resources/res/images/Rcircle.png" style="z-index: 1;"
+				id="M_circle" class="Ccircle">
+					<div style="z-index: 2;" id="M_icon" class="icon"></div>
 		</div>
+	
 
 	</div>
+
+
+
+
+
 </body>
 
 <script>

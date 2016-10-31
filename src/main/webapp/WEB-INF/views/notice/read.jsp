@@ -4,6 +4,7 @@
 <%@ include file="/WEB-INF/views/include/header.jsp"%>
 <%@ include file="/WEB-INF/views/include/menu.jsp"%>
 
+<body class="background_color_h">
 <div class="container">
 
 	<div class="writer">
@@ -110,4 +111,5 @@
 	</div>
 
 </div>
+</body>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

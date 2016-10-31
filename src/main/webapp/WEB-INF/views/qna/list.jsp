@@ -24,10 +24,7 @@ tbody tr:hover {
 	});
 </script>
 
-
-<div class="container">
-
-
+<body class="background_color_h">
 	<div class="select_what">
 		<li class="select_li"></li>
 		<li class="select_li select_li_a"><a href="/notice/list"><i class="fa fa-bullhorn" aria-hidden="true"></i> NOTICE </a></li>
@@ -111,6 +108,4 @@ tbody tr:hover {
 		</form:form>
 	</div>
 
-</div>
-
-
+</body>
